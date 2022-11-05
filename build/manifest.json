@@ -1,0 +1,9 @@
+{
+  "short_name": "Plan'Eat!",
+  "name": "Plan'Eat!",
+  "icons": [],
+  "start_url": ".",
+  "display": "fullscreen",
+  "theme_color": "#F1EEE8",
+  "background_color": "#F1EEE8"
+}
