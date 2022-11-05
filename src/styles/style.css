@@ -1,1 +1,43 @@
+/** ------------POLICES---------------- */
 
+@font-face {
+    font-family: 'comfortaa';
+    font-display: block;
+    src: url("../fonts/Comfortaa-Light.ttf") format("truetype")
+}
+
+/** ------------COULEURS---------------- */
+
+html {
+    --color-light: #F3F3F3;
+    --color-dark: #000;
+    --color-grey: #E4E0DE;
+    --color-grey-dark: #6D767E;
+    --color-grey-light: #F1EEE8;
+    --color-primary: #8BBA66;
+    --color-red: #C91818;
+    --icone-grey-dark: invert(46%) sepia(15%) saturate(262%) hue-rotate(166deg) brightness(94%) contrast(90%);
+    --icone-light: invert(100%) sepia(6%) saturate(253%) hue-rotate(286deg) brightness(111%) contrast(91%);
+}
+
+/** ------------BASES---------------- */
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: var(--color-light);
+    font-family: 'comfortaa';
+}
+
+
+/** ------------ICONES---------------- */
+
+.icone {
+    background-size: 100% !important;
+}
+
+.icone.setting {
+    background: url(../images/UilSetting.svg);
+    width: 24px;
+    height: 24px;
+}
