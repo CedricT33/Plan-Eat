@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.889b3504.css",
-    "main.js": "/static/js/main.cbe86d77.js",
+    "main.js": "/static/js/main.10dfd9e9.js",
     "static/media/Comfortaa-Light.ttf": "/static/media/Comfortaa-Light.2d79c8b673318d831c9b.ttf",
     "static/media/footer.svg": "/static/media/footer.4eddd62ea41359c11553.svg",
     "static/media/dashboard.svg": "/static/media/dashboard.ed3f54fab38a9d8f5ff0.svg",
@@ -12,10 +12,10 @@
     "static/media/caddie.svg": "/static/media/caddie.f80562b8fde12ac69649.svg",
     "static/media/toque.svg": "/static/media/toque.9792c8655fe679f49970.svg",
     "main.889b3504.css.map": "/static/css/main.889b3504.css.map",
-    "main.cbe86d77.js.map": "/static/js/main.cbe86d77.js.map"
+    "main.10dfd9e9.js.map": "/static/js/main.10dfd9e9.js.map"
   },
   "entrypoints": [
     "static/css/main.889b3504.css",
-    "static/js/main.cbe86d77.js"
+    "static/js/main.10dfd9e9.js"
   ]
 }
