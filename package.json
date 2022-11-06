@@ -5,13 +5,14 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "postbuild" : "sh ./src/tools/build-pwa.sh"
+    "postbuild": "sh ./src/tools/build-pwa.sh"
   },
   "eslintConfig": {
     "extends": [

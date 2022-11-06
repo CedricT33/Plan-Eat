@@ -25,8 +25,103 @@ html {
 body {
     margin: 0;
     height: 100vh;
-    background-color: var(--color-light);
+    background-color: var(--color-grey-light);
     font-family: 'comfortaa';
+}
+
+/** ------------NAVIGATION---------------- */
+
+nav {
+    position: fixed;
+    width: 100vw;
+    bottom: 5px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 15px 10px;
+}
+
+ul::before, ul::after {
+    content: '';
+    width: calc(50% - 59px);
+    height: 45px;
+    background: var(--color-light);
+    position: absolute;
+    top: 15px;
+    border: 1.5px solid var(--color-grey-dark);
+    border-radius: 22px;
+}
+
+ul::after {
+    right: 21px;
+}
+
+nav::before {
+    content: '';
+    position: absolute;
+    width: 112px;
+    height: 53px;
+    top: 13px;
+    left: calc(50% - 57px);
+    background: url(../images/footer.svg);
+    background-size: 100%;
+    z-index: 2;
+}
+
+li {
+    z-index: 3;
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+li.recette {
+    position: absolute;
+    bottom: 39px;
+    left: calc(50% - 25px);
+    padding: 12px;
+    background: var(--color-primary);
+    border-radius: 25px;
+    z-index: 10;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+li.dashboard, li.courses {
+    padding: 2px 25px;
+}
+
+li.ingredients {
+    padding-right: 100px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+li.agenda {
+    padding: 2px 0;
+}
+
+li.dashboard.actif::before,
+li.ingredients.actif::before,
+li.agenda.actif::before,
+li.courses.actif::before {
+    content: '';
+    background: var(--color-grey);
+    width: 39px;
+    height: 39px;
+    display: block;
+    position: absolute;
+    top: -6px;
+    left: 18px;
+    border-radius: 25px;
+}
+
+li.ingredients.actif::before,
+li.agenda.actif::before {
+    left: -8px;
 }
 
 
@@ -34,10 +129,42 @@ body {
 
 .icone {
     background-size: 100% !important;
+    filter: var(--icone-grey-dark);
 }
 
 .icone.setting {
-    background: url(../images/UilSetting.svg);
+    background: url(../images/setting.svg);
+    width: 24px;
+    height: 24px;
+}
+
+.icone.dashboard {
+    background: url(../images/dashboard.svg);
+    width: 24px;
+    height: 24px;
+}
+
+.icone.ingredients {
+    background: url(../images/oeuf.svg);
+    width: 24px;
+    height: 24px;
+}
+
+.icone.recette {
+    background: url(../images/toque.svg);
+    width: 24px;
+    height: 24px;
+    filter: var(--icone-light);
+}
+
+.icone.agenda {
+    background: url(../images/agenda.svg);
+    width: 24px;
+    height: 24px;
+}
+
+.icone.courses {
+    background: url(../images/caddie.svg);
     width: 24px;
     height: 24px;
 }

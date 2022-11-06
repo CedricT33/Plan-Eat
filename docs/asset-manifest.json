@@ -1,15 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.78c68f16.css",
-    "main.js": "/static/js/main.0c3c51a8.js",
+    "main.css": "/static/css/main.889b3504.css",
+    "main.js": "/static/js/main.cbe86d77.js",
     "static/media/Comfortaa-Light.ttf": "/static/media/Comfortaa-Light.2d79c8b673318d831c9b.ttf",
-    "static/media/UilSetting.svg": "/static/media/UilSetting.b9d84b6dda1b0170029e.svg",
+    "static/media/footer.svg": "/static/media/footer.4eddd62ea41359c11553.svg",
+    "static/media/dashboard.svg": "/static/media/dashboard.ed3f54fab38a9d8f5ff0.svg",
+    "static/media/setting.svg": "/static/media/setting.b9d84b6dda1b0170029e.svg",
+    "static/media/oeuf.svg": "/static/media/oeuf.30725ae4cbdbc7e46b9d.svg",
     "index.html": "/index.html",
-    "main.78c68f16.css.map": "/static/css/main.78c68f16.css.map",
-    "main.0c3c51a8.js.map": "/static/js/main.0c3c51a8.js.map"
+    "static/media/agenda.svg": "/static/media/agenda.87866152363fb5307bf8.svg",
+    "static/media/caddie.svg": "/static/media/caddie.f80562b8fde12ac69649.svg",
+    "static/media/toque.svg": "/static/media/toque.9792c8655fe679f49970.svg",
+    "main.889b3504.css.map": "/static/css/main.889b3504.css.map",
+    "main.cbe86d77.js.map": "/static/js/main.cbe86d77.js.map"
   },
   "entrypoints": [
-    "static/css/main.78c68f16.css",
-    "static/js/main.0c3c51a8.js"
+    "static/css/main.889b3504.css",
+    "static/js/main.cbe86d77.js"
   ]
 }
