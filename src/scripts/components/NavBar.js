@@ -1,41 +1,36 @@
-import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
-export default function NavBar({ongletActif}) {
-
-    function ajouterOngletActif() {
-        const boutonsNav = document.querySelectorAll("nav ul li");
-
-        boutonsNav.forEach(bouton => {
-            bouton.classList.remove("actif");
-    
-            if (bouton.classList.contains(ongletActif)) {
-                bouton.classList.add("actif");
-            }
-        })
-    }
-
-    useEffect(() => {
-        ajouterOngletActif();
-    }, []);
-    
+export default function NavBar() {
     
     return (
         <nav>
             <ul>
                 <li className="dashboard">
-                    <div className="icone dashboard"></div>
+                    <NavLink to="/Plan-Eat/dashboard">
+                        <div className="icone dashboard"></div>
+                    </NavLink>
                 </li>
                 <li className="ingredients">
-                    <div className="icone ingredients"></div>
+                    <NavLink to="/Plan-Eat/ingredients">
+                        <div className="icone ingredients"></div>
+                    </NavLink>
                 </li>
                 <li className="recette">
-                    <div className="icone recette"><i></i></div>
+                    <NavLink to="/Plan-Eat/recette">
+                        <div className="icone recette">
+                            <i></i>
+                        </div>
+                    </NavLink>
                 </li>
                 <li className="agenda">
-                    <div className="icone agenda"></div>
+                    <NavLink to="/Plan-Eat/agenda">
+                        <div className="icone agenda"></div>
+                    </NavLink>
                 </li>
                 <li className="courses">
-                    <div className="icone courses"></div>
+                    <NavLink to="/Plan-Eat/courses">
+                        <div className="icone courses"></div>
+                    </NavLink>
                 </li>
             </ul>
         </nav>

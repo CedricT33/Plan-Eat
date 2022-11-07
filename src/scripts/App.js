@@ -1,24 +1,16 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import '../styles/style.css';
-import PlanEat from './components/PlanEat';
-import Dashboard from './components/Dashboard';
-
-function NotFound() {
-  return <h1>"404 Route Non Paramétrée"</h1>;
-}
+import { useLocation } from "react-router-dom";
+import RouterApp from "./components/RouterApp";
+import NavBarService from "./services/NavBarService";
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/Plan-Eat/" element={<PlanEat />}>
-          <Route index element={<Dashboard />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
+  const { pathname } = useLocation();
+
+  return (
+    <>
+    <RouterApp />
+    <NavBarService pathname={pathname}/>
+    </>
   );
 }
 

@@ -104,10 +104,10 @@ li.agenda {
     padding: 2px 0;
 }
 
-li.dashboard.actif::before,
-li.ingredients.actif::before,
-li.agenda.actif::before,
-li.courses.actif::before {
+li.dashboard .active::before,
+li.ingredients .active::before,
+li.agenda .active::before,
+li.courses .active::before {
     content: '';
     background: var(--color-grey);
     width: 39px;
@@ -119,8 +119,8 @@ li.courses.actif::before {
     border-radius: 25px;
 }
 
-li.ingredients.actif::before,
-li.agenda.actif::before {
+li.ingredients .active::before,
+li.agenda .active::before {
     left: -8px;
 }
 
