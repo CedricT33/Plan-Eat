@@ -1,6 +1,8 @@
 export default function DetailRecette() {
 
     return (
-        <div>Detail Recette</div>
+        <div className="detail-container">
+            Detail Recette
+        </div>
     );
 }

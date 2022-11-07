@@ -1,6 +1,8 @@
 export default function Ingredients() {
 
     return (
-        <div>Ingredients</div>
+        <div className="ingredients-container">
+            Ingredients
+        </div>
     );
 }

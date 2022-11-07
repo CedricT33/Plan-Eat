@@ -1,6 +1,8 @@
 export default function Courses() {
 
     return (
-        <div>Courses</div>
+        <div className="courses-container">
+            Courses
+        </div>
     );
 }

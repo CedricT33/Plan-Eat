@@ -1,6 +1,8 @@
 export default function Parametres() {
 
     return (
-        <div>Parametres</div>
+        <div className="parametres-container">
+            Parametres
+        </div>
     );
 }

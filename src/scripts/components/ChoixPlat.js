@@ -1,6 +1,8 @@
 export default function ChoixPlat() {
 
     return (
-        <div>Choix de Plat</div>
+        <div className="choix-plat-container">
+            Choix de Plat
+        </div>
     );
 }

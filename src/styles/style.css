@@ -49,6 +49,11 @@ button {
 /** ------------HEADER---------------- */
 
 header {
+    position: fixed;
+    width: 100vw;
+}
+
+.header-container {
     height: 35px;
     padding: 20px;
     display: flex;
@@ -85,6 +90,22 @@ header .titre {
 
 header .titre.left-empty {
     margin-left: 10px;
+}
+
+header .boutons {
+    display: flex;
+}
+
+header .boutons a {
+    margin-right: 11px;
+}
+
+header .boutons a:last-child {
+    margin-right: 0;
+}
+
+header .boutons.vide {
+    display: none;
 }
     
 
@@ -243,6 +264,54 @@ li.agenda .active::before {
     left: 76px;
 }
 
+/** ------------DASHBOARD---------------- */
+
+.dashboard-container {
+    padding-top: 75px;
+}
+
+/** ------------INGREDIENTS---------------- */
+
+.ingredients-container {
+    padding-top: 75px;
+}
+
+/** ------------INGREDIENT---------------- */
+
+.ingredient-container {
+    padding-top: 75px;
+}
+
+/** ------------RECETTE---------------- */
+
+.recette-container {
+    padding-top: 75px;
+}
+
+/** ------------AGENDA---------------- */
+
+.agenda-container {
+    padding-top: 75px;
+}
+
+/** ------------COURSES---------------- */
+
+.courses-container {
+    padding-top: 75px;
+}
+
+/** ------------CHOIX-PLAT---------------- */
+
+.choix-plat-container {
+    padding-top: 75px;
+}
+
+/** ------------PARAMETRES---------------- */
+
+.parametres-container {
+    padding-top: 75px;
+}
+
 
 /** ------------ICONES---------------- */
 
@@ -294,4 +363,18 @@ li.agenda .active::before {
     background: url(../images/caddie.svg);
     width: 24px;
     height: 24px;
+}
+
+.icone.modif {
+    background: url(../images/pen.svg);
+    width: 21px;
+    height: 21px;
+    margin-left: 2px;
+}
+
+.icone.suppr {
+    background: url(../images/trash.svg);
+    width: 21px;
+    height: 21px;
+    margin-left: 2px;
 }

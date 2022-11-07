@@ -1,6 +1,8 @@
 export default function Ingredient() {
 
     return (
-        <div>Nouvel Ingredient</div>
+        <div className="ingredient-container">
+            Nouvel Ingredient
+        </div>
     );
 }

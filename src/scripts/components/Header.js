@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { routesConstants } from "../constants/PagesConstants";
 
@@ -17,14 +18,44 @@ export default function Header({params}) {
             </Link>
         :   null;
 
-    const classesTitre = params?.isBoutonRetour ? "titre" : "titre left-empty"
+    const boutonModif = params?.isBoutonModif
+        ?   <Link to={routesConstants.RECETTE} className="modif">
+                <div className="icone modif"></div>
+            </Link>
+        :   null;
+
+    const boutonSuppr = params?.isBoutonSuppr
+        ?   <Link to={routesConstants.RECETTE} className="suppr">
+                <div className="icone suppr"></div>
+            </Link>
+        :   null;
+
+    const classesTitre = params?.isBoutonRetour ? "titre" : "titre left-empty";
+
+    const gererBoutonsADroite = () => {
+        const containerBoutonsADroite = [...document.querySelectorAll(".boutons")][0];
+        if (containerBoutonsADroite?.childElementCount !== 0) {
+            containerBoutonsADroite.classList.remove("vide");
+        }
+        else {
+            containerBoutonsADroite.classList.add("vide");
+        }
+    }
+
+    useEffect(() => {
+        gererBoutonsADroite();
+    });
 
     return (
         <header>
-            {boutonRetour}
-            <div className={classesTitre}>{params?.titre}</div>
-            <div className="boutons">
-                {boutonParam}
+            <div className="header-container">
+                {boutonRetour}
+                <div className={classesTitre}>{params?.titre}</div>
+                <div className="boutons">
+                    {boutonModif}
+                    {boutonSuppr}
+                    {boutonParam}
+                </div>
             </div>
         </header>
     );
