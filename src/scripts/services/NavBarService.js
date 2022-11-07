@@ -1,14 +1,13 @@
 import NavBar from "../components/NavBar";
+import { pagesParams } from "../constants/PagesConstants";
 
 export default function NavBarService({pathname}) {
 
-    const routesAvecNav = [
-        "/Plan-Eat/dashboard",
-        "/Plan-Eat/ingredients",
-        "/Plan-Eat/agenda",
-        "/Plan-Eat/courses"
-    ];
-    const navigationBar = routesAvecNav.includes(pathname) ? <NavBar/> : null;
+    const pageActuelle = pagesParams.find(page => {
+        return page.pathname === pathname
+    });
+
+    const navigationBar = pageActuelle?.isNavBar ? <NavBar/> : null;
     
     return (
         <>

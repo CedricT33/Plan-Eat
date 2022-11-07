@@ -7,6 +7,7 @@ import Courses from "./Courses";
 import Recette from "./Recette";
 import Ingredient from "./Ingredient";
 import ChoixPlat from "./ChoixPlat";
+import Parametres from "./Parametres";
 
 
 function NotFound() {
@@ -26,6 +27,7 @@ function RouterApp() {
         <Route path="recette" element={<Recette />} />
         <Route path="ingredient" element={<Ingredient />} />
         <Route path="choix-plat" element={<ChoixPlat />} />
+        <Route path="parametres" element={<Parametres />} />
         <Route path="*" element={<NotFound />} />
       </Route>
 

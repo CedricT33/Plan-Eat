@@ -2,8 +2,12 @@
 
 @font-face {
     font-family: 'comfortaa';
-    font-display: block;
     src: url("../fonts/Comfortaa-Light.ttf") format("truetype")
+}
+
+@font-face {
+    font-family: 'Titan One';
+    src: url("../fonts/TitanOne-Regular.ttf") format("truetype")
 }
 
 /** ------------COULEURS---------------- */
@@ -28,6 +32,61 @@ body {
     background-color: var(--color-grey-light);
     font-family: 'comfortaa';
 }
+
+#root {
+    height: 100%;
+}
+
+button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/** ------------HEADER---------------- */
+
+header {
+    height: 35px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header button, header a {
+    width: 33px;
+    height: 33px;
+    background: var(--color-light);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 4px 4px rgb(0 0 0 / 25%);
+}
+
+header .titre {
+    display: flex;
+    align-items: center;
+    font-family: 'Titan One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 121%;
+    color: var(--color-grey-light);
+    text-shadow: 2px 2px 0.5px var(--color-grey-dark),
+        0px 2px 0.5px var(--color-grey-dark),
+        -1px 1.5px 0px var(--color-grey-dark),
+        -1px -1px 0px var(--color-grey-dark),
+        1.5px -1px 0 var(--color-grey-dark),
+        2px 0px 0 var(--color-grey-dark);
+}
+
+header .titre.left-empty {
+    margin-left: 10px;
+}
+    
 
 /** ------------NAVIGATION---------------- */
 
@@ -124,6 +183,66 @@ li.agenda .active::before {
     left: -8px;
 }
 
+/** ------------PRESENTATION---------------- */
+
+.presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.presentation .logo {
+    background: url(../images/logo_app.png);
+    height: 25vh;
+    width: 32vh;
+    background-size: 32vh;
+    margin: 1.5vh;
+}
+
+.presentation .bienvenue {
+    font-size: 20px;
+    position: absolute;
+    bottom: 55vh;
+}
+
+.presentation .ingredients, .presentation .recette {
+    width: 220px;
+    font-size: 15px;
+    position: absolute;
+}
+
+.presentation .ingredients {
+    bottom: 320px;
+    left: calc(30vw - 90px);
+}
+
+.presentation .recette {
+    bottom: 200px;
+    right: calc( 50vw - 181px);
+}
+
+.presentation .ingredients::before {
+    content: '';
+    background: url(../images/fleche1.svg);
+    width: 51px;
+    height: 232px;
+    display: block;
+    position: absolute;
+    top: 41px;
+    left: 33px;
+}
+
+.presentation .recette::before {
+    content: '';
+    background: url(../images/fleche2.svg);
+    width: 57px;
+    height: 99px;
+    display: block;
+    position: absolute;
+    top: 43px;
+    left: 76px;
+}
+
 
 /** ------------ICONES---------------- */
 
@@ -136,6 +255,14 @@ li.agenda .active::before {
     background: url(../images/setting.svg);
     width: 24px;
     height: 24px;
+    margin-left: 1px;
+}
+
+.icone.back {
+    background: url(../images/chevron.svg);
+    width: 24px;
+    height: 24px;
+    margin-right: 1px;
 }
 
 .icone.dashboard {

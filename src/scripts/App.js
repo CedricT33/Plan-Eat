@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import RouterApp from "./components/RouterApp";
 import NavBarService from "./services/NavBarService";
+import HeaderService from "./services/HeaderService";
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
 
   return (
     <>
+    <HeaderService pathname={pathname}/>
     <RouterApp />
     <NavBarService pathname={pathname}/>
     </>
