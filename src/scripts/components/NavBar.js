@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { routesConstants } from "../constants/PagesConstants";
+import { BoutonRecette, BoutonIngredient } from "./BoutonsNavBar";
 
-export default function NavBar() {
+export default function NavBar({params}) {
+
+    const boutonCentral = params?.isIngredients ? <BoutonIngredient /> : <BoutonRecette />;
     
     return (
         <nav>
@@ -16,13 +19,7 @@ export default function NavBar() {
                         <div className="icone ingredients"></div>
                     </NavLink>
                 </li>
-                <li className="recette">
-                    <NavLink to={routesConstants.RECETTE}>
-                        <div className="icone recette">
-                            <i></i>
-                        </div>
-                    </NavLink>
-                </li>
+                {boutonCentral}
                 <li className="agenda">
                     <NavLink to={routesConstants.AGENDA}>
                         <div className="icone agenda"></div>

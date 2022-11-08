@@ -46,11 +46,16 @@ button {
     -webkit-tap-highlight-color: transparent;
 }
 
+a {
+    text-decoration: none;
+}
+
 /** ------------HEADER---------------- */
 
 header {
     position: fixed;
     width: 100vw;
+    z-index: 1;
 }
 
 .header-container {
@@ -109,7 +114,7 @@ header .boutons.vide {
 }
     
 
-/** ------------NAVIGATION---------------- */
+/** ------------NAVBAR---------------- */
 
 nav {
     position: fixed;
@@ -159,7 +164,7 @@ li {
     -webkit-tap-highlight-color: transparent;
 }
 
-li.recette {
+li.recette, li.ingredient {
     position: absolute;
     bottom: 39px;
     left: calc(50% - 25px);
@@ -171,7 +176,7 @@ li.recette {
 }
 
 li.dashboard, li.courses {
-    padding: 2px 25px;
+    padding: 2px 6vw;
 }
 
 li.ingredients {
@@ -195,7 +200,7 @@ li.courses .active::before {
     display: block;
     position: absolute;
     top: -6px;
-    left: 18px;
+    left: 16px;
     border-radius: 25px;
 }
 
@@ -204,64 +209,108 @@ li.agenda .active::before {
     left: -8px;
 }
 
+li.ingredient {
+    width: 24px;
+    height: 24px;
+}
+
+.plus.ingredient {
+    color: var(--color-light);
+    font-size: 33px;
+    font-weight: bold;
+}
+
+li.ingredient a {
+    position: absolute;
+    top: 6.5px;
+    left: 15.5px;
+}
+
 /** ------------PRESENTATION---------------- */
 
-.presentation {
+#presentation-dashboard, #presentation-ingredients {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.presentation .logo {
+#presentation-dashboard .logo {
     background: url(../images/logo_app.png);
     height: 25vh;
     width: 32vh;
     background-size: 32vh;
-    margin: 1.5vh;
 }
 
-.presentation .bienvenue {
+#presentation-dashboard .bienvenue {
     font-size: 20px;
     position: absolute;
-    bottom: 55vh;
+    top: 42vh;
 }
 
-.presentation .ingredients, .presentation .recette {
+#presentation-dashboard .ingredients, #presentation-dashboard .recette {
     width: 220px;
     font-size: 15px;
     position: absolute;
 }
 
-.presentation .ingredients {
-    bottom: 320px;
+#presentation-dashboard .ingredients {
+    bottom: 255px;
     left: calc(30vw - 90px);
 }
 
-.presentation .recette {
-    bottom: 200px;
-    right: calc( 50vw - 181px);
+#presentation-dashboard .recette {
+    bottom: 180px;
+    right: calc( 45vw - 135px);
+    text-align: right;
 }
 
-.presentation .ingredients::before {
+#presentation-dashboard .ingredients::before {
     content: '';
     background: url(../images/fleche1.svg);
-    width: 51px;
-    height: 232px;
+    width: 34px;
+    height: 170px;
     display: block;
     position: absolute;
     top: 41px;
-    left: 33px;
+    left: 48px;
 }
 
-.presentation .recette::before {
+#presentation-dashboard .recette::before {
     content: '';
     background: url(../images/fleche2.svg);
-    width: 57px;
-    height: 99px;
+    width: 55px;
+    height: 83px;
     display: block;
     position: absolute;
     top: 43px;
-    left: 76px;
+    left: 100px;
+}
+
+#presentation-ingredients .illustration-ingredients {
+    background: url(../images/illustration_ingredients.svg);
+    height: 35vh;
+    width: 23vh;
+    background-size: 23vh;
+    margin-top: 4vh;
+}
+
+#presentation-ingredients .explications {
+    text-align: center;
+    width: 310px;
+    position: absolute;
+    bottom: 234px;
+    line-height: 20px;
+}
+
+#presentation-ingredients .explications::before {
+    content: '';
+    background: url(../images/fleche3.svg);
+    width: 13px;
+    height: 105px;
+    display: block;
+    position: absolute;
+    top: 75px;
+    left: 148px;
 }
 
 /** ------------DASHBOARD---------------- */
@@ -269,6 +318,24 @@ li.agenda .active::before {
 .dashboard-container {
     padding-top: 75px;
 }
+
+/** ------------DETAIL-RECETTE---------------- */
+
+.photo-container {
+    width: 100vw;
+    height: 225px;
+    background: var(--color-primary);
+    position: relative;
+}
+
+.photo-container::after {
+    content: '';
+    bottom: 0;
+    position: absolute;
+    border-bottom: 55px solid var(--color-grey-light);
+    border-right: 100vw solid transparent;
+}
+
 
 /** ------------INGREDIENTS---------------- */
 
