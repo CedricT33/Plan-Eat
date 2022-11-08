@@ -5,9 +5,7 @@ export function BoutonRecette() {
     return (
         <li className="recette">
             <NavLink to={routesConstants.RECETTE}>
-                <div className="icone recette">
-                    <i></i>
-                </div>
+                <div className="icone recette"></div>
             </NavLink>
         </li>
     );
@@ -17,7 +15,7 @@ export function BoutonIngredient() {
     return (
         <li className="ingredient">
             <NavLink to={routesConstants.INGREDIENT}>
-                <div className="plus ingredient">+</div>
+                <div className="icone ingredient"></div>
             </NavLink>
         </li>
     );

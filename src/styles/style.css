@@ -213,21 +213,12 @@ li.agenda .active div::before {
 li.ingredient {
     width: 24px;
     height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .plus.ingredient {
     color: var(--color-light);
     font-size: 33px;
     font-weight: bold;
-}
-
-li.ingredient a {
-    position: absolute;
-    top: 6.5px;
-    left: 16px;
 }
 
 /** ------------PRESENTATION---------------- */
@@ -314,7 +305,7 @@ li.ingredient a {
     display: block;
     position: absolute;
     top: 70px;
-    left: 148px;
+    left: 147.5px;
 }
 
 /** ------------DASHBOARD---------------- */
@@ -422,6 +413,15 @@ li.ingredient a {
     background: url(../images/toque.svg);
     width: 24px;
     height: 24px;
+    filter: var(--icone-light);
+}
+
+.icone.ingredient {
+    background: url(../images/plus.svg);
+    width: 18px;
+    height: 18px;
+    margin-left: 3px;
+    margin-top: 3px;
     filter: var(--icone-light);
 }
 
