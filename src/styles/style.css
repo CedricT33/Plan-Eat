@@ -189,29 +189,33 @@ li.agenda {
     padding: 2px 0;
 }
 
-li.dashboard .active::before,
-li.ingredients .active::before,
-li.agenda .active::before,
-li.courses .active::before {
+li.dashboard .active div::before,
+li.ingredients .active div::before,
+li.agenda .active div::before,
+li.courses .active div::before {
     content: '';
     background: var(--color-grey);
     width: 39px;
     height: 39px;
     display: block;
     position: absolute;
-    top: -6px;
-    left: 16px;
+    top: -8px;
+    left: -7px;
     border-radius: 25px;
+    filter: opacity(0.2);
 }
 
-li.ingredients .active::before,
-li.agenda .active::before {
+li.ingredients .active div::before,
+li.agenda .active div::before {
     left: -8px;
 }
 
 li.ingredient {
     width: 24px;
     height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .plus.ingredient {
@@ -223,7 +227,7 @@ li.ingredient {
 li.ingredient a {
     position: absolute;
     top: 6.5px;
-    left: 15.5px;
+    left: 16px;
 }
 
 /** ------------PRESENTATION---------------- */
@@ -298,7 +302,7 @@ li.ingredient a {
     text-align: center;
     width: 310px;
     position: absolute;
-    bottom: 234px;
+    bottom: 220px;
     line-height: 20px;
 }
 
@@ -309,7 +313,7 @@ li.ingredient a {
     height: 105px;
     display: block;
     position: absolute;
-    top: 75px;
+    top: 70px;
     left: 148px;
 }
 
@@ -385,6 +389,7 @@ li.ingredient a {
 .icone {
     background-size: 100% !important;
     filter: var(--icone-grey-dark);
+    position: relative;
 }
 
 .icone.setting {
