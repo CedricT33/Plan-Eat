@@ -46,8 +46,27 @@ button {
     -webkit-tap-highlight-color: transparent;
 }
 
+h1, h2, p {
+    font-weight: inherit;
+    margin: 0;
+    padding: 0;
+}
+
 a {
     text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    z-index: 3;
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /** ------------HEADER---------------- */
@@ -122,15 +141,14 @@ nav {
     bottom: 5px;
 }
 
-ul {
-    list-style: none;
+nav ul {
     display: flex;
     justify-content: space-between;
     padding: 10px;
     margin: 15px 10px;
 }
 
-ul::before, ul::after {
+nav ul::before, nav ul::after {
     content: '';
     width: calc(50% - 59px);
     height: 45px;
@@ -141,7 +159,7 @@ ul::before, ul::after {
     border-radius: 22px;
 }
 
-ul::after {
+nav ul::after {
     right: 21px;
 }
 
@@ -155,13 +173,6 @@ nav::before {
     background: url(../images/footer.svg);
     background-size: 100%;
     z-index: 2;
-}
-
-li {
-    z-index: 3;
-    position: relative;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
 }
 
 li.recette, li.ingredient {
@@ -200,7 +211,7 @@ li.courses .active div::before {
     display: block;
     position: absolute;
     top: -8px;
-    left: -7px;
+    left: -8px;
     border-radius: 25px;
     filter: opacity(0.2);
 }
@@ -224,6 +235,10 @@ li.ingredient {
 /** ------------PRESENTATION---------------- */
 
 #presentation-dashboard, #presentation-ingredients {
+    display: none;
+}
+
+#presentation-dashboard.show, #presentation-ingredients.show {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -250,12 +265,12 @@ li.ingredient {
 
 #presentation-dashboard .ingredients {
     bottom: 255px;
-    left: calc(30vw - 90px);
+    left: calc(36vw - 110px);
 }
 
 #presentation-dashboard .recette {
     bottom: 180px;
-    right: calc( 45vw - 135px);
+    right: calc( 48vw - 145px);
     text-align: right;
 }
 
@@ -291,7 +306,7 @@ li.ingredient {
 
 #presentation-ingredients .explications {
     text-align: center;
-    width: 310px;
+    width: 240px;
     position: absolute;
     bottom: 220px;
     line-height: 20px;
@@ -305,7 +320,36 @@ li.ingredient {
     display: block;
     position: absolute;
     top: 70px;
-    left: 147.5px;
+    left: 112.5px;
+}
+
+/** ------------FILTRES---------------- */
+
+#filtres-dashboard ul {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+#filtres-dashboard li {
+    height: 60px;
+    width: 60px;
+    background: var(--color-light);
+    border: 1.5px solid var(--color-grey-dark);
+    border-radius: 15px;
+    margin: 10px;
+    display: inline-block;
+}
+
+#filtres-dashboard ::-webkit-scrollbar {
+    display: none;
+}
+
+.icone.filtre {
+    position: absolute;
+    width: 45px !important;
+    height: 45px !important;
+    top: 14%;
+    left: 13%;
 }
 
 /** ------------DASHBOARD---------------- */
@@ -314,21 +358,262 @@ li.ingredient {
     padding-top: 75px;
 }
 
+#vignettes-dashboard ul {
+    display: flex;
+    justify-content: center;
+}
+
+#vignettes-dashboard .vignette {
+    width: 85vw;
+    height: 155px;
+    margin: 10px 0px;
+    background: var(--color-light);
+    border: 1.5px solid var(--color-grey-dark);
+    border-radius: 17px 0px;
+}
+
+#vignettes-dashboard .badge-temps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25px;
+    width: 80px;
+    font-size: 12px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    background: var(--color-grey-light);
+    position: absolute;
+    right: 12px;
+    top: 10px;
+}
+
+#vignettes-dashboard .badge-temps .duree {
+    margin-right: 9px;
+    font-weight: bold;
+}
+
+#vignettes-dashboard .vignette .photo {
+    background: var(--color-primary);
+    width: 85vw;
+    height: 99px;
+    border-radius: 16px 0 0 0;
+    border-bottom: 1.5px solid var(--color-grey-dark);
+}
+
+#vignettes-dashboard .vignette .infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+    padding: 5px 10px;
+    color: var(--color-grey-dark);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#vignettes-dashboard .vignette .titre {
+    font-size: 15px;
+    color: var(--color-dark);
+}
+
+#vignettes-dashboard .vignette .calories,
+#vignettes-dashboard .vignette .prix {
+    margin-top: 8px;
+}
+
+#vignettes-dashboard .vignette .info-personnes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 /** ------------DETAIL-RECETTE---------------- */
 
-.photo-container {
+.detail-container {
+    height: 100%;
+    overflow: hidden;
+}
+
+.detail-container .photo-container {
     width: 100vw;
-    height: 225px;
+    height: calc(8vw + 190px);
     background: var(--color-primary);
     position: relative;
 }
 
-.photo-container::after {
+.detail-container .photo-container::after {
     content: '';
     bottom: 0;
     position: absolute;
-    border-bottom: 55px solid var(--color-grey-light);
+    border-bottom: calc(8vw + 17px) solid var(--color-grey-light);
     border-right: 100vw solid transparent;
+}
+
+.detail-container .titre {
+    position: absolute;
+    top: 155px;
+    right: 0;
+    background: var(--color-grey);
+    border-radius: 20px;
+    padding: 3px 10px;
+    margin-right: 10px;
+    font-family: 'Titan One';
+    font-size: 16px;
+}
+
+.detail-container .badge-saison {
+    position: absolute;
+    top: 164px;
+    left: 25px;
+    background: var(--color-light);
+    border-radius: 20px;
+    border: 1px solid var(--color-grey-dark);
+    padding: 3px;
+}
+
+.detail-container .info-recette-container {
+    display: flex;
+    justify-content: space-evenly;
+    transform: rotate(7.5deg);
+    width: 102vw;
+    padding-bottom: 5px;
+    background: var(--color-grey-light);
+}
+
+.detail-container .icone-container {
+    background: var(--color-light);
+    border-radius: 20px;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    margin: 3.5px;
+}
+
+.detail-container .info-recette-container .info-temps,
+.detail-container .info-recette-container .info-personnes,
+.detail-container .info-recette-container .info-argent,
+.detail-container .info-recette-container .info-calories {
+    background: var(--color-primary);
+    height: 80px;
+    width: 46px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: rotate(-7.5deg);
+}
+
+.detail-container .info-recette-container .valeur {
+    font-family: 'Titan One';
+    font-size: 13px;
+    text-align: center;
+}
+
+.detail-container .info-recette-container .unite {
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.detail-container .tab-list {
+    display: flex;
+    width: 103vw;
+    transform: rotate(7.5deg);
+    justify-content: space-around;
+    margin-left: -1vw;
+    background: var(--color-grey-light);
+    border-bottom: 1px solid var(--color-grey-dark);
+}
+
+.detail-container .tab-item {
+    width: 50%;
+    text-align: center;
+    color: var(--color-grey-dark);
+}
+
+.detail-container .tab-item::before {
+    content: '';
+}
+
+.detail-container .tab-item.active {
+    color: var(--color-dark);
+}
+
+.detail-container .tab-item.active::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    border-bottom: 5px solid var(--color-primary);
+}
+
+.detail-container .tab-item div {
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 24px;
+    margin-bottom: 5px;
+}
+
+.detail-container .tab-content {
+    height: calc(100vh - 307px);
+    overflow-y: auto;
+    margin-top: -43px;
+}
+
+.detail-container .tab-content .swipe {
+    position: relative;
+    z-index: -1;
+    margin-top: 50px;
+}
+
+.detail-container .tab-content .swipe::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    border-bottom: 50px solid var(--color-grey);
+    border-right: 100vw solid transparent;
+}
+
+.detail-container .tab-content h2 {
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 14px;
+    padding: 10px 15px;
+    background: var(--color-grey);
+}
+
+.detail-container .tab-content .ingredients,
+.detail-container .tab-content .etapes {
+    margin: 20px 30px;
+}
+
+.detail-container .tab-content .ingredients li,
+.detail-container .tab-content .etapes li {
+    margin-top: 10px;
+    font-size: 15px;
+    display: flex;
+}
+
+.detail-container .tab-content .ingredients li::before,
+.detail-container .tab-content .etapes li::before {
+    content: "\25CF";
+    color: var(--color-primary);
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.detail-container .tab-content .ingredients li span {
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 10px;
+    display: flex;
+}
+
+.detail-container .tab-content .etapes p {
+    font-size: 13px;
 }
 
 
@@ -449,4 +734,96 @@ li.ingredient {
     width: 21px;
     height: 21px;
     margin-left: 2px;
+}
+
+.icone.automne {
+    background: url(../images/leaf.svg);
+    width: 20px;
+    height: 20px;
+}
+
+.icone.hiver {
+    background: url(../images/snow.svg);
+    width: 20px;
+    height: 20px;
+}
+
+.icone.ete {
+    background: url(../images/sun.svg);
+    width: 20px;
+    height: 20px;
+}
+
+.icone.printemps {
+    background: url(../images/flower.svg);
+    width: 20px;
+    height: 20px;
+}
+
+.icone.toutes-saisons {
+    background: url(../images/infinite.svg);
+    width: 20px;
+    height: 20px;
+}
+
+.icone.temps {
+    background: url(../images/clock.svg);
+    width: 20px;
+    height: 20px;
+    filter: inherit;
+}
+
+.badge-temps .icone.temps {
+    width: 17px;
+    height: 17px;
+    margin-left: 7px;
+}
+
+.icone.personnes {
+    background: url(../images/people.svg);
+    width: 20px;
+    height: 20px;
+    filter: inherit;
+    margin-bottom: 2px;
+}
+
+.vignette .icone.personnes {
+    filter: var(--icone-grey-dark);
+    width: 18px;
+    height: 18px;
+    margin-right: 7px;
+}
+
+.icone.argent {
+    background: url(../images/cash.svg);
+    width: 20px;
+    height: 20px;
+    filter: inherit;
+    margin-top: 1.5px;
+}
+
+.icone.boeuf {
+    background: url(../images/steak.svg);
+    top: 12%;
+}
+
+.icone.porc {
+    background: url(../images/saucisse.svg);
+    top: -4%;
+}
+
+.icone.poulet {
+    background: url(../images/poulet.svg);
+    top: 1%;
+}
+
+.icone.poisson {
+    background: url(../images/fish.svg);
+}
+
+.icone.calories {
+    background: url(../images/firebowl.svg);
+    width: 20px;
+    height: 20px;
+    filter: inherit;
 }

@@ -50,7 +50,7 @@ export default function Header({params}) {
         <header>
             <div className="header-container">
                 {boutonRetour}
-                <div className={classesTitre}>{params?.titre}</div>
+                <h1 className={classesTitre}>{params?.titre}</h1>
                 <div className="boutons">
                     {boutonModif}
                     {boutonSuppr}

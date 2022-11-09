@@ -1,5 +1,5 @@
 import NavBar from "../components/NavBar";
-import { pagesParams, routesConstants } from "../constants/PagesConstants";
+import { pagesParams } from "../constants/PagesConstants";
 
 export default function NavBarService({pathname}) {
 
@@ -7,13 +7,7 @@ export default function NavBarService({pathname}) {
         return page.pathname === pathname;
     });
 
-    const isIngredients = pathname === routesConstants.INGREDIENTS;
-
-    const params = {
-        isIngredients: isIngredients
-    }
-
-    const navigationBar = pageActuelle?.isNavBar ? <NavBar params={params}/> : null;
+    const navigationBar = pageActuelle?.isNavBar ? <NavBar pathname={pathname}/> : null;
     
     return (
         <>

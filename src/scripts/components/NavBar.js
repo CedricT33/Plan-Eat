@@ -2,9 +2,18 @@ import { NavLink } from "react-router-dom";
 import { routesConstants } from "../constants/PagesConstants";
 import { BoutonRecette, BoutonIngredient } from "./BoutonsNavBar";
 
-export default function NavBar({params}) {
+export default function NavBar({pathname}) {
 
-    const boutonCentral = params?.isIngredients ? <BoutonIngredient /> : <BoutonRecette />;
+    const retournerBoutonCentral = () => {
+        switch (pathname) {
+            case routesConstants.INGREDIENTS:
+                return <BoutonIngredient />        
+            default:
+                return <BoutonRecette />;
+        }
+    }
+
+    const boutonCentral = retournerBoutonCentral();
     
     return (
         <nav>
