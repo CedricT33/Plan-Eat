@@ -390,6 +390,8 @@ li.ingredient {
 #vignettes-dashboard .badge-temps .duree {
     margin-right: 9px;
     font-weight: bold;
+    color: var(--color-dark);
+    margin-top: 1px;
 }
 
 #vignettes-dashboard .vignette .photo {
@@ -586,7 +588,7 @@ li.ingredient {
 
 .detail-container .tab-content .ingredients,
 .detail-container .tab-content .etapes {
-    margin: 20px 30px;
+    margin: 20px 35px;
 }
 
 .detail-container .tab-content .ingredients li,
@@ -598,10 +600,12 @@ li.ingredient {
 
 .detail-container .tab-content .ingredients li::before,
 .detail-container .tab-content .etapes li::before {
-    content: "\25CF";
+    content: ".";
     color: var(--color-primary);
-    margin-right: 10px;
-    display: inline-block;
+    font-size: 60px;
+    position: absolute;
+    top: -42px;
+    left: -20px;
 }
 
 .detail-container .tab-content .ingredients li span {
@@ -610,6 +614,7 @@ li.ingredient {
     font-size: 12px;
     margin-left: 10px;
     display: flex;
+    align-items: center;
 }
 
 .detail-container .tab-content .etapes p {
@@ -742,10 +747,24 @@ li.ingredient {
     height: 20px;
 }
 
+.icone.filtre.automne {
+    width: 35px !important;
+    height: 35px !important;
+    top: 19%;
+    left: 20%;
+}
+
 .icone.hiver {
     background: url(../images/snow.svg);
     width: 20px;
     height: 20px;
+}
+
+.icone.filtre.hiver {
+    width: 35px !important;
+    height: 35px !important;
+    top: 20%;
+    left: 22%;
 }
 
 .icone.ete {
@@ -754,16 +773,37 @@ li.ingredient {
     height: 20px;
 }
 
+.icone.filtre.ete {
+    width: 35px !important;
+    height: 35px !important;
+    top: 21%;
+    left: 21%;
+}
+
 .icone.printemps {
     background: url(../images/flower.svg);
     width: 20px;
     height: 20px;
 }
 
+.icone.filtre.printemps {
+    width: 35px !important;
+    height: 35px !important;
+    top: 21%;
+    left: 21%;
+}
+
 .icone.toutes-saisons {
     background: url(../images/infinite.svg);
     width: 20px;
     height: 20px;
+}
+
+.icone.filtre.toutes-saisons {
+    width: 35px !important;
+    height: 35px !important;
+    top: 21%;
+    left: 21%;
 }
 
 .icone.temps {

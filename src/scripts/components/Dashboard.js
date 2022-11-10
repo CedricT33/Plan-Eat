@@ -8,8 +8,8 @@ export default function Dashboard() {
         return <li key={i}><div className={`icone filtre ${filtre}`}></div></li>
     })
 
-    const listeVignettes = bouchon.map(recette => {
-        return <VignetteRecette recette={recette} />
+    const listeVignettes = bouchon.map((recette, i) => {
+        return <VignetteRecette key={i} recette={recette} />
     })
 
     return (

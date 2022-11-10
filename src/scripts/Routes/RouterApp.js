@@ -1,13 +1,13 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import Dashboard from './Dashboard';
-import DetailRecette from "./DetailRecette";
-import Ingredients from "./Ingredients";
-import Agenda from "./Agenda";
-import Courses from "./Courses";
-import Recette from "./Recette";
-import Ingredient from "./Ingredient";
-import ChoixPlat from "./ChoixPlat";
-import Parametres from "./Parametres";
+import Dashboard from '../components/Dashboard';
+import DetailRecette from "../components/DetailRecette";
+import Ingredients from "../components/Ingredients";
+import Agenda from "../components/Agenda";
+import Courses from "../components/Courses";
+import Recette from "../components/Recette";
+import Ingredient from "../components/Ingredient";
+import ChoixPlat from "../components/ChoixPlat";
+import Parametres from "../components/Parametres";
 
 
 function NotFound() {
