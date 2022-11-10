@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { routesConstants } from "../constants/PagesConstants";
+import { routesConstants } from "../constants/AppConstantes";
 import { BoutonRecette, BoutonIngredient } from "./BoutonsNavBar";
 
 export default function NavBar({pathname}) {

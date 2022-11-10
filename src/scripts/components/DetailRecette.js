@@ -6,7 +6,7 @@ import { bouchon } from "../constants/Bouchon";
 
 export default function DetailRecette() {
 
-    const recette = bouchon[0];
+    const recette = bouchon.recettes[0];
 
     return (
         <div className="detail-container">

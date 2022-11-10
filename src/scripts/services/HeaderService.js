@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import { pagesParams } from "../constants/PagesConstants";
+import { pagesParams } from "../constants/AppConstantes";
 
 export default function HeaderService({pathname}) {
 

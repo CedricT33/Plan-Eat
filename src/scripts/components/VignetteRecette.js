@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { routesConstants } from "../constants/PagesConstants";
+import { routesConstants } from "../constants/AppConstantes";
 
 export default function VignetteRecette({ recette }) {
 
@@ -12,11 +12,11 @@ export default function VignetteRecette({ recette }) {
                 </div>
                 <div className="photo"></div>
                 <div className="infos">
-                    <div className="gauche">
+                    <div>
                         <div className="titre">{recette.titre}</div>
                         <div className="calories">{recette.calories.valeur + " " + recette.calories.unite +" / pers"}</div>
                     </div>
-                    <div className="droite">
+                    <div>
                         <div className="info-personnes">
                             <div className="icone personnes"></div>
                             <div>{recette.personnes.valeur}</div>

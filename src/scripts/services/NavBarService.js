@@ -1,5 +1,5 @@
 import NavBar from "../components/NavBar";
-import { pagesParams } from "../constants/PagesConstants";
+import { pagesParams } from "../constants/AppConstantes";
 
 export default function NavBarService({pathname}) {
 

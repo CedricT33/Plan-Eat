@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { routesConstants } from "../constants/PagesConstants";
+import { routesConstants } from "../constants/AppConstantes";
 
 export default function Header({params}) {
 

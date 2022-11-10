@@ -1,15 +1,17 @@
-import { filtres } from "../constants/Filtres";
+import { filtres } from "../constants/DonneesConstantes";
 import { bouchon } from "../constants/Bouchon";
 import VignetteRecette from "./VignetteRecette";
 
 export default function Dashboard() {
 
+    const recettes = bouchon.recettes;
+
     const listeFiltres = filtres.map((filtre, i) => {
         return <li key={i}><div className={`icone filtre ${filtre}`}></div></li>
     })
 
-    const listeVignettes = bouchon.map((recette, i) => {
-        return <VignetteRecette key={i} recette={recette} />
+    const listeVignettes = recettes.map(recette => {
+        return <VignetteRecette key={recette.key} recette={recette} />
     })
 
     return (

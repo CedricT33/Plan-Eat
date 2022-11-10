@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { routesConstants } from "../constants/PagesConstants";
+import { routesConstants } from "../constants/AppConstantes";
 
 export function BoutonRecette() {
     return (
@@ -15,7 +15,7 @@ export function BoutonIngredient() {
     return (
         <li className="ingredient">
             <NavLink to={routesConstants.INGREDIENT}>
-                <div className="icone ingredient"></div>
+                <div className="icone ajout"></div>
             </NavLink>
         </li>
     );

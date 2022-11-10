@@ -22,6 +22,7 @@ html {
     --color-red: #C91818;
     --icone-grey-dark: invert(46%) sepia(15%) saturate(262%) hue-rotate(166deg) brightness(94%) contrast(90%);
     --icone-light: invert(100%) sepia(6%) saturate(253%) hue-rotate(286deg) brightness(111%) contrast(91%);
+    --icone-primary: invert(68%) sepia(23%) saturate(729%) hue-rotate(50deg) brightness(98%) contrast(84%);
 }
 
 /** ------------BASES---------------- */
@@ -361,6 +362,8 @@ li.ingredient {
 #vignettes-dashboard ul {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 #vignettes-dashboard .vignette {
@@ -626,6 +629,52 @@ li.ingredient {
 
 .ingredients-container {
     padding-top: 75px;
+    overflow: hidden;
+}
+
+#vignettes-ingredients ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#vignettes-ingredients .vignette {
+    width: 85vw;
+    height: 50px;
+    margin: 10px 0px;
+    background: var(--color-light);
+    border: 1.5px solid var(--color-grey-dark);
+    border-radius: 17px 0px;
+    transition: 0.5s;
+}
+
+#vignettes-ingredients .vignette.swiped {
+    margin-right: 90px;
+}
+
+#vignettes-ingredients .vignette .infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+    padding: 5px 10px;
+    color: var(--color-grey-dark);
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#vignettes-ingredients .vignette .titre {
+    font-size: 15px;
+    color: var(--color-dark);
+}
+
+#vignettes-ingredients .vignette .calories {
+    margin-top: 8px;
+}
+
+#vignettes-ingredients .vignette .infos:first-child {
+    margin-left: 55px;
 }
 
 /** ------------INGREDIENT---------------- */
@@ -706,7 +755,7 @@ li.ingredient {
     filter: var(--icone-light);
 }
 
-.icone.ingredient {
+.icone.ajout {
     background: url(../images/plus.svg);
     width: 18px;
     height: 18px;
@@ -739,6 +788,19 @@ li.ingredient {
     width: 21px;
     height: 21px;
     margin-left: 2px;
+}
+
+.icone.ingredients.suppr {
+    opacity: 0;
+    position: absolute;
+    top: 12px;
+    right: -50px;
+    transition: 1s;
+    filter: var(--icone-primary);
+}
+
+.swiped .icone.ingredients.suppr {
+    opacity: 1;
 }
 
 .icone.automne {
@@ -847,6 +909,14 @@ li.ingredient {
     top: 12%;
 }
 
+.icone.ingredient.boeuf {
+    position: absolute;
+    top: 9px;
+    left: 16px;
+    width: 32px;
+    height: 32px;
+}
+
 .icone.porc {
     background: url(../images/saucisse.svg);
     top: -4%;
@@ -855,6 +925,26 @@ li.ingredient {
 .icone.poulet {
     background: url(../images/poulet.svg);
     top: 1%;
+}
+
+.icone.ingredient.poulet {
+    position: absolute;
+    top: 6px;
+    left: 15px;
+    width: 32px;
+    height: 32px;
+}
+
+.icone.epice-farine {
+    background: url(../images/sac.svg);
+}
+
+.icone.ingredient.epice-farine {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    width: 32px;
+    height: 32px;
 }
 
 .icone.poisson {
