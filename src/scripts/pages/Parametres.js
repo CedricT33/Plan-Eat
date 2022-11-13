@@ -5,7 +5,7 @@ export default function Parametres() {
     return (
         <div className="parametres-container">
             <div>
-                <button onClick={supprimerToutLocalStorage} className="bouton">RESET</button>
+                <button onClick={supprimerToutLocalStorage} className="bouton clic-rouge">RESET</button>
             </div>
         </div>
     );

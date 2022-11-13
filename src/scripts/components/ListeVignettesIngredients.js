@@ -8,15 +8,15 @@ export default function ListeVignettesIngredients({classes, ingredients, setIngr
 
         const rayonAvecMajuscule = mettrePremiereLettreEnMajuscule(rayon);
 
-        const ingredientsCategorie = ingredients.filter(ingredient => {
-            return ingredient.rayon === rayon;
+        const ingredientsCategorie = ingredients?.filter(ingredient => {
+            return ingredient?.rayon === rayon;
         })
 
-        const listeIngredientsCategorie = ingredientsCategorie.map((ingredient, i) => {
+        const listeIngredientsCategorie = ingredientsCategorie?.map((ingredient, i) => {
             return <VignetteIngredient key={ingredient.key} ingredient={ingredient} setIngredients={setIngredients} />
         })
 
-        if (ingredientsCategorie.length === 0) {
+        if (ingredientsCategorie?.length === 0) {
             return null;
         }
 

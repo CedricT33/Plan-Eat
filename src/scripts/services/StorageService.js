@@ -33,7 +33,7 @@ function recupererLocalStorage() {
         DONNEES = JSON.parse(donnees);
     }
     else {
-        DONNEES = DONNEES_INIT;
+        DONNEES = JSON.parse(JSON.stringify(DONNEES_INIT));
     }
 
     return DONNEES;
@@ -119,4 +119,7 @@ export function recupererDonneesAvecType(type) {
  */
  export function supprimerToutLocalStorage() {
     localStorage.removeItem(STORAGE_KEY);
+    setTimeout(() => {
+        alert("Données supprimées");
+    }, 100);
 }
