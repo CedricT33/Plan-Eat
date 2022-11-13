@@ -17,6 +17,7 @@ const DONNEES_INIT = {
     ///////////// FONCTIONS PRIVEES //////////////////
     //////////////////////////////////////////////////
 
+
 function supprimerSiDejaPresent(listeDonnees, key) {
     listeDonnees.forEach((donnee, id) => {
         if (donnee.key === key) {
@@ -39,7 +40,6 @@ function recupererLocalStorage() {
 }
 
 function recupererIndexMax(typeDonnee) {
-
     const donneesLocales = recupererLocalStorage();
     let tableauIndex = [];
 
@@ -63,6 +63,7 @@ function recupererIndexMax(typeDonnee) {
     //////////////////////////////////////////////////
     ///////////// FONCTIONS PUBLIQUES ////////////////
     //////////////////////////////////////////////////
+
 
 /**
  * Enregistre les données dans le local storage
@@ -111,4 +112,11 @@ export function enregistrerLocalStorage(donneesAEnregistrer) {
 export function recupererDonneesAvecType(type) {
     recupererLocalStorage();
     return DONNEES[type];
+}
+
+/**
+ * Suprimme toutes les données de l'app
+ */
+ export function supprimerToutLocalStorage() {
+    localStorage.removeItem(STORAGE_KEY);
 }

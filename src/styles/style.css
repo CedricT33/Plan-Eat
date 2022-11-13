@@ -78,6 +78,18 @@ nav, header {
     outline: none;
 }
 
+.bouton {
+    width: 165px;
+    height: 40px;
+    background: var(--color-primary);
+    border: 1px solid #6D767E;
+    border-radius: 25px;
+    font-family: 'Titan One';
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    color: var(--color-light);
+}
+
 /** ------------HEADER---------------- */
 
 header {
@@ -849,18 +861,6 @@ form .error .erreur {
     margin: 50px;
 }
 
-.validation-container button {
-    width: 165px;
-    height: 40px;
-    background: var(--color-primary);
-    border: 1px solid #6D767E;
-    border-radius: 25px;
-    font-family: 'Titan One';
-    font-size: 17px;
-    letter-spacing: 0.5px;
-    color: var(--color-light);
-}
-
 /** ------------FORMULAIRE INGREDIENT---------------- */
 
 .ingredient-container {
@@ -942,6 +942,14 @@ form .error .erreur {
     background: url(../images/apple.svg);
     top: 7px;
 }
+#saisieIcone li.tomate::before {
+    background: url(../images/tomato.svg);
+    top: 7px;
+}
+#saisieIcone li.carotte::before {
+    background: url(../images/carrot.svg);
+    top: 7px;
+}
 
 /** ------------RECETTE---------------- */
 
@@ -971,6 +979,14 @@ form .error .erreur {
 
 .parametres-container {
     padding-top: 75px;
+    height: 100%;
+}
+
+.parametres-container div {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
 }
 
 
@@ -1226,4 +1242,12 @@ form .error .erreur {
 
 .icone.ingredient.fromage {
     top: 6px;
+}
+
+.icone.carotte {
+    background: url(../images/carrot.svg);
+}
+
+.icone.tomate {
+    background: url(../images/tomato.svg);
 }

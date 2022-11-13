@@ -24,7 +24,9 @@ export const icones = [
     "poisson",
     "epice-farine",
     "fromage",
-    "pomme"
+    "pomme",
+    "carotte",
+    "tomate"
 ]
 
 export const unites = [

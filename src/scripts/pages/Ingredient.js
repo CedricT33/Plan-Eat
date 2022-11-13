@@ -95,7 +95,11 @@ export default function Ingredient() {
             <div id="error-form" className="hide"></div>
 
             <div className="validation-container">
-                <button onClick={e => onClickOKFormulaire("ingredients", ingredient?.key)}>ENREGISTRER</button>
+                <button
+                    className="bouton"
+                    onClick={e => onClickOKFormulaire("ingredients", ingredient?.key)}>
+                    ENREGISTRER
+                </button>
             </div>
         </div>
     );
