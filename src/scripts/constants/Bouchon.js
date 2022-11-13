@@ -83,8 +83,8 @@ export const bouchon = {
                 },
                 {
                     key: 3,
-                    produit: "oignon",
-                    quantite: "5",
+                    produit: "choux",
+                    quantite: "1",
                     unite_quantite: null
                 },
                 {

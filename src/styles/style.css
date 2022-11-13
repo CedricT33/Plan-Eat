@@ -789,7 +789,7 @@ form .options {
     width: calc(90vw - 3px);
     border: 1.5px solid var(--color-grey-dark);
     border-radius: 6px;
-    transition: opacity 0.4s 0.7s, max-height 1s;
+    transition: opacity 0.1s 0.2s, max-height 0.3s ease-out;
     max-height: 0;
     opacity: 0;
     overflow-y: auto;
@@ -799,7 +799,7 @@ form .options {
 form .select-menu.active .options {
     max-height: 185px;
     opacity: 1;
-    transition: opacity 0.7s, max-height 1s;
+    transition: opacity 0.2s, max-height 0.3s ease-out;
 }
 
 form .options ul {
@@ -809,7 +809,7 @@ form .options ul {
 
 form .select-menu.active .options ul {
     opacity: 1;
-    transition: 0.5s ease-out 0.5s;
+    transition: 0.3s ease-out 0.3s;
 }
 
 form .options li {
@@ -1087,6 +1087,7 @@ form .error .erreur {
 
 .swiped .icone.ingredients.suppr {
     opacity: 1;
+    transition: 0s;
 }
 
 .icone.automne {

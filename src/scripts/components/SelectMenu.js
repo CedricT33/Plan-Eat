@@ -11,7 +11,17 @@ export default function SelectMenu({liste, id, label, placeholder, name, require
     }
 
     function onClickListeDeroulante(e) {
-        e.target.parentNode.classList.toggle('active');
+        const isActive = e.target.parentNode.classList.contains('active');
+        const elmtsSelect = document.querySelectorAll(".select-menu");
+        elmtsSelect.forEach(elmt => {
+            elmt.classList.remove('active');
+        })
+        if (isActive) {
+            e.target.parentNode.classList.remove('active');
+        }
+        else {
+            e.target.parentNode.classList.add('active');
+        }
     }
 
     const listeOptions = liste.map((icone, i) => {

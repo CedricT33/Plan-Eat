@@ -39,3 +39,9 @@ export const unites = [
     "cas",
     "cac"
 ]
+
+export const motsInvariables = [
+    "pois",
+    "petit pois",
+    "petits pois"
+]

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a3fda646.css",
-    "main.js": "/static/js/main.0fbfb26d.js",
+    "main.css": "/static/css/main.c4daf345.css",
+    "main.js": "/static/js/main.24b8fbdd.js",
     "static/media/Comfortaa-Light.ttf": "/static/media/Comfortaa-Light.2d79c8b673318d831c9b.ttf",
     "static/media/TitanOne-Regular.ttf": "/static/media/TitanOne-Regular.465442311c8eb8cd5fe8.ttf",
     "static/media/logo_app.png": "/static/media/logo_app.602379331af97e90fe7b.png",
@@ -39,11 +39,11 @@
     "static/media/toque.svg": "/static/media/toque.9792c8655fe679f49970.svg",
     "static/media/clock.svg": "/static/media/clock.5d7c9dce675fd3b3768b.svg",
     "static/media/chevron.svg": "/static/media/chevron.1b905eeb40f2f31f0e9e.svg",
-    "main.a3fda646.css.map": "/static/css/main.a3fda646.css.map",
-    "main.0fbfb26d.js.map": "/static/js/main.0fbfb26d.js.map"
+    "main.c4daf345.css.map": "/static/css/main.c4daf345.css.map",
+    "main.24b8fbdd.js.map": "/static/js/main.24b8fbdd.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3fda646.css",
-    "static/js/main.0fbfb26d.js"
+    "static/css/main.c4daf345.css",
+    "static/js/main.24b8fbdd.js"
   ]
 }
