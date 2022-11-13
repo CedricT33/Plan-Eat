@@ -1,6 +1,6 @@
 import { filtres } from "../constants/DonneesConstantes";
 import { bouchon } from "../constants/Bouchon";
-import VignetteRecette from "./VignetteRecette";
+import VignetteRecette from "../components/VignetteRecette";
 
 export default function Dashboard() {
 

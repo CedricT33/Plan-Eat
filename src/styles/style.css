@@ -70,12 +70,24 @@ li {
     -webkit-tap-highlight-color: transparent;
 }
 
+nav, header {
+    z-index: 10;
+}
+
+*:focus {
+    outline: none;
+}
+
 /** ------------HEADER---------------- */
 
 header {
     position: fixed;
     width: 100vw;
-    z-index: 1;
+    background: var(--color-grey-light);
+}
+
+header.transparent {
+    background: none;
 }
 
 .header-container {
@@ -102,8 +114,7 @@ header .titre {
     font-family: 'Titan One';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 121%;
+    font-size: 18px;
     color: var(--color-grey-light);
     text-shadow: 2px 2px 0.5px var(--color-grey-dark),
         0px 2px 0.5px var(--color-grey-dark),
@@ -121,7 +132,7 @@ header .boutons {
     display: flex;
 }
 
-header .boutons a {
+header .boutons a, header .boutons button {
     margin-right: 11px;
 }
 
@@ -326,6 +337,12 @@ li.ingredient {
 
 /** ------------FILTRES---------------- */
 
+#filtres-dashboard {
+    background: var(--color-grey-light);
+    display: flex;
+    justify-content: center;
+}
+
 #filtres-dashboard ul {
     overflow: auto;
     white-space: nowrap;
@@ -357,6 +374,12 @@ li.ingredient {
 
 .dashboard-container {
     padding-top: 75px;
+    overflow: hidden;
+}
+
+#vignettes-dashboard {
+    overflow-y: auto;
+    height: calc(100vh - 162px);
 }
 
 #vignettes-dashboard ul {
@@ -373,6 +396,10 @@ li.ingredient {
     background: var(--color-light);
     border: 1.5px solid var(--color-grey-dark);
     border-radius: 17px 0px;
+}
+
+#vignettes-dashboard .vignette:last-child {
+    margin-bottom: 110px;
 }
 
 #vignettes-dashboard .badge-temps {
@@ -505,6 +532,7 @@ li.ingredient {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     transform: rotate(-7.5deg);
 }
 
@@ -618,10 +646,18 @@ li.ingredient {
     margin-left: 10px;
     display: flex;
     align-items: center;
+    margin-top: 1.5px;
 }
 
 .detail-container .tab-content .etapes p {
     font-size: 13px;
+}
+
+footer {
+    font-size: 12px;
+    color: var(--color-grey-dark);
+    margin: 15px;
+    margin-top: 50px;
 }
 
 
@@ -629,7 +665,9 @@ li.ingredient {
 
 .ingredients-container {
     padding-top: 75px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc(100vh - 75px);
 }
 
 #vignettes-ingredients ul {
@@ -646,7 +684,7 @@ li.ingredient {
     background: var(--color-light);
     border: 1.5px solid var(--color-grey-dark);
     border-radius: 17px 0px;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 #vignettes-ingredients .vignette.swiped {
@@ -677,10 +715,232 @@ li.ingredient {
     margin-left: 55px;
 }
 
-/** ------------INGREDIENT---------------- */
+#vignettes-ingredients ul li:last-child:not(li li) {
+    margin-bottom: 110px;
+}
+
+#vignettes-ingredients .vignette:last-of-type {
+    margin-bottom:20px;
+}
+
+#vignettes-ingredients li h1 {
+    font-size: 15px;
+    color: var(--color-grey-dark);
+    text-align: center;
+    margin: 10px;
+}
+
+/** ------------FORMULAIRES---------------- */
+
+form .container {
+    display: flex;
+    flex-direction: column;
+    padding: 3vw 5vw;
+}
+
+form .select-menu {
+    position: relative;
+}
+
+form .select-menu i {
+    background: url(../images/chevron.svg);
+    width: 24px;
+    height: 24px;
+    filter: var(--icone-grey-dark);
+    display: block;
+    position: absolute;
+    background-size: 100% !important;
+    right: 10px;
+    top: 6px;
+    transform: rotate(-90deg);
+    transition: 0.5s;
+}
+
+form .select-menu.active i {
+    transform: rotate(90deg);
+}
+
+form .options {
+    background: var(--color-light);
+    position: absolute;
+    top: 38px;
+    width: calc(90vw - 3px);
+    border: 1.5px solid var(--color-grey-dark);
+    border-radius: 6px;
+    transition: opacity 0.4s 0.7s, max-height 1s;
+    max-height: 0;
+    opacity: 0;
+    overflow-y: auto;
+    z-index: 9;
+}
+
+form .select-menu.active .options {
+    max-height: 185px;
+    opacity: 1;
+    transition: opacity 0.7s, max-height 1s;
+}
+
+form .options ul {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+form .select-menu.active .options ul {
+    opacity: 1;
+    transition: 0.5s ease-out 0.5s;
+}
+
+form .options li {
+    padding: 10px 12px;
+    color: var(--color-grey-dark);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+form .options li:hover {
+    background: var(--color-grey);
+}
+
+form label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+form .saisie {
+    height: 30px;
+    width: calc(90vw - 27px);
+    border: 1.5px solid var(--color-grey-dark);
+    border-radius: 6px;
+    padding: 1px 12px;
+    background: var(--color-light);
+    font-family: 'comfortaa';
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--color-dark);
+}
+
+form .saisie::placeholder {
+    font-family: 'comfortaa';
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+form .error .saisie {
+    border: 1.5px solid var(--color-red);
+}
+
+form .erreur {
+    font-size: 12px;
+    color: var(--color-red);
+    margin: 5px;
+    display: none;
+}
+
+form .error .erreur {
+    display: block;
+}
+
+.validation-container {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+.validation-container button {
+    width: 165px;
+    height: 40px;
+    background: var(--color-primary);
+    border: 1px solid #6D767E;
+    border-radius: 25px;
+    font-family: 'Titan One';
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    color: var(--color-light);
+}
+
+/** ------------FORMULAIRE INGREDIENT---------------- */
 
 .ingredient-container {
     padding-top: 75px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc(100vh - 75px);
+}
+
+#formulaire-ingredient {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#formulaire-ingredient-index {
+    position: absolute;
+    top: -1000px;
+}
+
+#saisieCalories div:first-of-type,
+#saisiePrix div:first-of-type {
+    display: flex;
+    align-items: center;
+}
+
+#saisiePrix_input, #saisieCalories_input {
+    width: 35px !important;
+    text-align: center;
+}
+
+#saisieCalories_input + div, #saisiePrix_input + div {
+    color: var(--color-grey-dark);
+    font-size: 12px;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+#saisieIcone li {
+    padding-left: 50px;
+}
+
+#saisieIcone li:before {
+    content: '';
+    background-size: 100% !important;
+    filter: var(--icone-grey-dark);
+    width: 24px;
+    height: 24px;
+    display: block;
+    position: absolute;
+    left: 11px;
+}
+
+#saisieIcone li.poulet::before {
+    background: url(../images/poulet.svg);
+    top: 2px;
+}
+#saisieIcone li.boeuf::before {
+    background: url(../images/steak.svg);
+    top: 5px;
+}
+#saisieIcone li.porc::before {
+    background: url(../images/saucisse.svg);
+    top: 1px;
+}
+#saisieIcone li.poisson::before {
+    background: url(../images/fish.svg);
+    top: 7px;
+}
+#saisieIcone li.epice-farine::before {
+    background: url(../images/sac.svg);
+    top: 6px;
+}
+#saisieIcone li.fromage::before {
+    background: url(../images/cheese.svg);
+    top: 4px;
+}
+#saisieIcone li.pomme::before {
+    background: url(../images/apple.svg);
+    top: 7px;
 }
 
 /** ------------RECETTE---------------- */
@@ -787,7 +1047,7 @@ li.ingredient {
     background: url(../images/trash.svg);
     width: 21px;
     height: 21px;
-    margin-left: 2px;
+    margin-left: 1px;
 }
 
 .icone.ingredients.suppr {
@@ -904,22 +1164,39 @@ li.ingredient {
     margin-top: 1.5px;
 }
 
+.icone.calories {
+    background: url(../images/firebowl.svg);
+    width: 20px;
+    height: 20px;
+    filter: inherit;
+}
+
 .icone.boeuf {
     background: url(../images/steak.svg);
     top: 12%;
 }
 
-.icone.ingredient.boeuf {
-    position: absolute;
-    top: 9px;
-    left: 16px;
+.icone.ingredient {
+    filter: var(--icone-primary);
     width: 32px;
     height: 32px;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+}
+
+.icone.ingredient.boeuf {
+    top: 9px;
+    left: 16px;
 }
 
 .icone.porc {
     background: url(../images/saucisse.svg);
     top: -4%;
+}
+
+.icone.ingredient.porc {
+    top: 4px;
 }
 
 .icone.poulet {
@@ -928,32 +1205,25 @@ li.ingredient {
 }
 
 .icone.ingredient.poulet {
-    position: absolute;
     top: 6px;
-    left: 15px;
-    width: 32px;
-    height: 32px;
 }
 
 .icone.epice-farine {
     background: url(../images/sac.svg);
 }
 
-.icone.ingredient.epice-farine {
-    position: absolute;
-    top: 10px;
-    left: 15px;
-    width: 32px;
-    height: 32px;
-}
-
 .icone.poisson {
     background: url(../images/fish.svg);
 }
 
-.icone.calories {
-    background: url(../images/firebowl.svg);
-    width: 20px;
-    height: 20px;
-    filter: inherit;
+.icone.pomme {
+    background: url(../images/apple.svg);
+}
+
+.icone.fromage {
+    background: url(../images/cheese.svg);
+}
+
+.icone.ingredient.fromage {
+    top: 6px;
 }

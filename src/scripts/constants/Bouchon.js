@@ -2,12 +2,10 @@ export const bouchon = {
     ingredients: [
         {
             key: 1,
-            produit: "Poulet",
+            produit: "poulet",
             icone: "poulet",
-            quantite: "500",
             unite_quantite: "gr",
             rayon: "viandes et poissons",
-            type: "solide",
             calories: {
                 valeur: 35,
                 unite: "Kcal"
@@ -19,12 +17,10 @@ export const bouchon = {
         },
         {
             key: 2,
-            produit: "Curry",
+            produit: "curry",
             icone: "epice-farine",
-            quantite: "1",
             unite_quantite: "cas",
             rayon: "herbes et épices",
-            type: "solide",
             calories: {
                 valeur: 2,
                 unite: "Kcal"
@@ -36,12 +32,10 @@ export const bouchon = {
         },
         {
             key: 3,
-            produit: "Steak de boeuf",
+            produit: "steak de boeuf",
             icone: "boeuf",
-            quantite: "1",
             unite_quantite: null,
             rayon: "viandes et poissons",
-            type: "solide",
             calories: {
                 valeur: 50,
                 unite: "Kcal"
@@ -55,6 +49,7 @@ export const bouchon = {
     recettes: [
         {
             key: 1,
+            date: "13/11/2022",
             titre: "Poulet au curry",
             temps_preparation: {
                 valeur: 10,
@@ -96,6 +91,116 @@ export const bouchon = {
                     key: 4,
                     produit: "lait de coco",
                     quantite: "200",
+                    unite_quantite: "ml"
+                },
+            ],
+            etapes: [
+                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            ]
+        },
+        {
+            key: 2,
+            date: "13/11/2022",
+            titre: "Poulet Massala",
+            temps_preparation: {
+                valeur: 15,
+                unite: "min"
+            },
+            personnes: {
+                valeur: 2,
+                unite: "pers"
+            },
+            prix_moyen: {
+                valeur: 17.75,
+                unite: "€"
+            },
+            calories: {
+                valeur: 195,
+                unite: "Kcal"
+            },
+            saison: "toutes-saisons",
+            ingredients: [
+                {
+                    key: 1,
+                    produit: "poulet",
+                    quantite: "500",
+                    unite_quantite: "g"
+                },
+                {
+                    key: 2,
+                    produit: "curry",
+                    quantite: "3",
+                    unite_quantite: "cas"
+                },
+                {
+                    key: 3,
+                    produit: "oignon",
+                    quantite: "3",
+                    unite_quantite: null
+                },
+                {
+                    key: 4,
+                    produit: "lait de coco",
+                    quantite: "500",
+                    unite_quantite: "ml"
+                },
+            ],
+            etapes: [
+                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            ]
+        },
+        {
+            key: 3,
+            date: "13/11/2022",
+            titre: "Poisson Toutou lait de coco",
+            temps_preparation: {
+                valeur: 35,
+                unite: "min"
+            },
+            personnes: {
+                valeur: 4,
+                unite: "pers"
+            },
+            prix_moyen: {
+                valeur: 35.99,
+                unite: "€"
+            },
+            calories: {
+                valeur: 3588,
+                unite: "Kcal"
+            },
+            saison: "ete",
+            ingredients: [
+                {
+                    key: 1,
+                    produit: "poisson toutou",
+                    quantite: "300",
+                    unite_quantite: "g"
+                },
+                {
+                    key: 2,
+                    produit: "curry",
+                    quantite: "10",
+                    unite_quantite: "cas"
+                },
+                {
+                    key: 3,
+                    produit: "oignon",
+                    quantite: "2",
+                    unite_quantite: null
+                },
+                {
+                    key: 4,
+                    produit: "lait de coco",
+                    quantite: "500",
                     unite_quantite: "ml"
                 },
             ],

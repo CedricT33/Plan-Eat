@@ -1,8 +1,6 @@
-export default function DetailOngletRecette({ recette }) {
+import ListeIngredients from "./ListeIngredients";
 
-    const listeIngredients = recette?.ingredients?.map(ingredient => {
-        return <li key={ingredient.key}>{ingredient.produit} <span>{ingredient.quantite} {ingredient.unite_quantite}</span></li>
-    })
+export default function DetailOngletRecette({ recette }) {
 
     const listeEtapes = recette?.etapes?.map((etape, i) => {
         return <li key={i}><p>{etape}</p></li>
@@ -13,7 +11,7 @@ export default function DetailOngletRecette({ recette }) {
             <h2>Ingredients</h2>
             <div className="ingredients">
                 <ul>
-                    {listeIngredients}
+                    <ListeIngredients recette={recette}/>
                 </ul>
             </div>
             <h2>Etapes</h2>
@@ -22,6 +20,7 @@ export default function DetailOngletRecette({ recette }) {
                     {listeEtapes}
                 </ul>
             </div>
+            <footer>Recette créée/modifiée le {recette.date}</footer>
         </div>
     );
 }

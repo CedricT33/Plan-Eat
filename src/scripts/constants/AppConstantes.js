@@ -14,6 +14,7 @@ export const pagesParams = [
     {
         pathname: routesConstants.DASHBOARD,
         titre: "PLAN' EAT !",
+        isHeaderTransparent: false,
         isBoutonRetour: false,
         isBoutonModif: false,
         isBoutonSuppr: false,
@@ -23,6 +24,7 @@ export const pagesParams = [
     {
         pathname: routesConstants.DETAIL_RECETTE,
         titre: "",
+        isHeaderTransparent: true,
         isBoutonRetour: true,
         isBoutonModif: true,
         isBoutonSuppr: true,
@@ -32,6 +34,7 @@ export const pagesParams = [
     {
         pathname: routesConstants.INGREDIENTS,
         titre: "INGRÉDIENTS",
+        isHeaderTransparent: false,
         isBoutonRetour: true,
         isBoutonModif: false,
         isBoutonSuppr: false,
@@ -41,6 +44,7 @@ export const pagesParams = [
     {
         pathname: routesConstants.INGREDIENT,
         titre: "NOUVEL INGRÉDIENT",
+        isHeaderTransparent: false,
         isBoutonRetour: true,
         isBoutonModif: false,
         isBoutonSuppr: false,
@@ -50,6 +54,7 @@ export const pagesParams = [
     {
         pathname: routesConstants.RECETTE,
         titre: "NOUVELLE RECETTE",
+        isHeaderTransparent: false,
         isBoutonRetour: true,
         isBoutonModif: false,
         isBoutonSuppr: false,
@@ -59,6 +64,7 @@ export const pagesParams = [
     {
         pathname: routesConstants.COURSES,
         titre: "LISTE DE COURSES",
+        isHeaderTransparent: false,
         isBoutonRetour: false,
         isBoutonModif: false,
         isBoutonSuppr: false,
@@ -68,6 +74,7 @@ export const pagesParams = [
     {
         pathname: routesConstants.AGENDA,
         titre: "AGENDA",
+        isHeaderTransparent: false,
         isBoutonRetour: false,
         isBoutonModif: false,
         isBoutonSuppr: false,
@@ -77,6 +84,7 @@ export const pagesParams = [
     {
         pathname: routesConstants.CHOIX_PLAT,
         titre: "CHOIX DE PLAT",
+        isHeaderTransparent: false,
         isBoutonRetour: true,
         isBoutonModif: false,
         isBoutonSuppr: false,
@@ -86,6 +94,7 @@ export const pagesParams = [
     {
         pathname: routesConstants.PARAMETRES,
         titre: "PARAMÈTRES",
+        isHeaderTransparent: false,
         isBoutonRetour: true,
         isBoutonModif: false,
         isBoutonSuppr: false,

@@ -3,6 +3,7 @@
     //////////////////////////////////////////////////
 
 const STORAGE_KEY = "data_plan_eat";
+let DONNEES = null;
 const DONNEES_INIT = {
     ingredients: [],
     recettes: [],
@@ -28,11 +29,13 @@ function recupererLocalStorage() {
     const donnees = localStorage.getItem(STORAGE_KEY);
 
     if (donnees) {
-        return JSON.parse(donnees);
+        DONNEES = JSON.parse(donnees);
     }
     else {
-        return DONNEES_INIT;
+        DONNEES = DONNEES_INIT;
     }
+
+    return DONNEES;
 }
 
 function recupererIndexMax(typeDonnee) {
@@ -85,7 +88,7 @@ export function enregistrerLocalStorage(donneesAEnregistrer) {
 
 /**
  * Supprime les données dans le local storage
- * @param {*} donneesASupprimer
+ * @param {Object} donneesASupprimer
  * exemple : supprimerLocalStorage({ ingredients: {key: 1} });
  */
  export function supprimerLocalStorage(donneesASupprimer) {
@@ -98,4 +101,14 @@ export function enregistrerLocalStorage(donneesAEnregistrer) {
     }
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(donneesLocales));
+}
+
+/**
+ * Recupere une donnée particuliere du local storage
+ * @param {String} type par exemple "recettes"
+ * @returns {Array} liste de données
+ */
+export function recupererDonneesAvecType(type) {
+    recupererLocalStorage();
+    return DONNEES[type];
 }

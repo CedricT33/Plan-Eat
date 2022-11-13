@@ -13,7 +13,8 @@ export const filtres = [
 export const rayons = [
     "viandes et poissons",
     "fruits et légumes",
-    "herbes et épices"
+    "herbes et épices",
+    "fromages"
 ]
 
 export const icones = [
@@ -22,4 +23,17 @@ export const icones = [
     "porc",
     "poisson",
     "epice-farine",
+    "fromage",
+    "pomme"
+]
+
+export const unites = [
+    "pièce",
+    "gramme",
+    "kilo",
+    "centilitre",
+    "decilitre",
+    "litre",
+    "cas",
+    "cac"
 ]

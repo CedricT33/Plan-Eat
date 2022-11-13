@@ -1,12 +1,19 @@
 import { Link } from "react-router-dom";
+import { supprimerLocalStorage } from "../services/StorageService";
 import { routesConstants } from "../constants/AppConstantes";
 import { touchStart, touchEnd } from "../services/SwipeService";
+import { mettrePremiereLettreEnMajuscule } from "../services/Util";
+import { recupererDonneesAvecType } from "../services/StorageService";
 
-export default function VignetteIngredient({ ingredient }) {
+export default function VignetteIngredient({ ingredient, setIngredients }) {
 
     function supprimerIngredient(key) {
-        console.log("suppression ingredient avec la key : ", key);
+        // TODO POPIN
+        supprimerLocalStorage({ ingredients: {key: key} });
+        setIngredients(recupererDonneesAvecType("ingredients"));
     }
+
+    const nomIngredientAvecMajuscule = mettrePremiereLettreEnMajuscule(ingredient.produit);
 
     return (
         <li key={ingredient.key} id={ingredient.key} className="vignette"
@@ -15,11 +22,11 @@ export default function VignetteIngredient({ ingredient }) {
 
             <div className="icone ingredients suppr" onClick={e => supprimerIngredient(ingredient.key)}></div>
 
-            <Link to={routesConstants.INGREDIENT}>
+            <Link to={routesConstants.INGREDIENT} state={{ingredient: ingredient}}>
                 <div className="infos">
                     <div>
                         <div className={`icone ingredient ${ingredient.icone}`}></div>
-                        <div className="titre">{ingredient.produit}</div>
+                        <div className="titre">{nomIngredientAvecMajuscule}</div>
                         <div className="calories">{ingredient.calories.valeur + " "
                             + ingredient.calories.unite + " / pers / 100 gr"}</div>
                     </div>

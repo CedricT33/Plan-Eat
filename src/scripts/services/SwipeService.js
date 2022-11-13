@@ -11,7 +11,7 @@ let touchendX = 0;
     
 function checkDirection(key) {
     const elmtVignette = document.getElementById(key);
-    const elmtsVignette = document.querySelectorAll("#vignettes-ingredients li");
+    const elmtsVignette = document.querySelectorAll("#vignettes-ingredients .vignette");
     if (touchendX < touchstartX) {
         if (!elmtVignette.classList.contains("swiped")) {
             elmtsVignette.forEach(elmt => {

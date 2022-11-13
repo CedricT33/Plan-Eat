@@ -5,7 +5,7 @@ export default function VignetteRecette({ recette }) {
 
     return (
         <li key={recette.key} className="vignette">
-            <Link to={routesConstants.DETAIL_RECETTE}>
+            <Link to={routesConstants.DETAIL_RECETTE} state={{recette: recette}}>
                 <div className="badge-temps">
                     <div className="icone temps"></div>
                     <div className="duree">{recette.temps_preparation.valeur + " " + recette.temps_preparation.unite}</div>
