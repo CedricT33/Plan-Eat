@@ -1,14 +1,19 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import SelectMenu from "../components/SelectMenu";
-import InputMenu from "../components/InputMenu";
+import SelectMenu from "../components/formulaire/SelectMenu";
+import InputMenu from "../components/formulaire/InputMenu";
 import { icones, rayons, unites } from "../constants/DonneesConstantes";
-import { onClickOKFormulaire } from "../services/FormulaireService";
+import { dataConstantes } from "../constants/AppConstantes";
+import BoutonOkFormulaire from "../components/formulaire/BoutonOkFormulaire";
 
 export default function Ingredient() {
 
     const params = useLocation();
     const ingredient = params?.state?.ingredient;
+
+    const listeIcones = icones.map(icone => { return {nom: icone, icone: icone} });
+    const listeRayons = rayons.map(rayon => { return {nom: rayon} });
+    const listeUnites = unites.map(unite => { return {nom: unite.nom} });
     
 
     function initialiserChamps() {
@@ -36,7 +41,6 @@ export default function Ingredient() {
     return (
         <div className="ingredient-container">
             <form id="formulaire-ingredient">
-                <input id="formulaire-ingredient-index" />
 
                 <InputMenu 
                     id="saisieIngredient"
@@ -49,7 +53,7 @@ export default function Ingredient() {
 
                 <SelectMenu
                     id={"saisieIcone"}
-                    liste={icones}
+                    liste={listeIcones}
                     label={"Icône"}
                     name={"icone"}
                     placeholder={"Exemple: poulet"}
@@ -57,7 +61,7 @@ export default function Ingredient() {
 
                 <SelectMenu
                     id={"saisieRayon"}
-                    liste={rayons}
+                    liste={listeRayons}
                     label={"Rayon"}
                     name={"rayon"}
                     placeholder={"Exemple: viandes et poissons"}
@@ -65,7 +69,7 @@ export default function Ingredient() {
 
                 <SelectMenu
                     id={"saisieUnite"}
-                    liste={unites}
+                    liste={listeUnites}
                     label={"Unité"}
                     name={"unite_quantite"}
                     placeholder={"Exemple: gramme"}
@@ -76,8 +80,7 @@ export default function Ingredient() {
                     type={"number"}
                     label={"Calories"}
                     name={"calories"}
-                    placeholder={"0000"}
-                    max={"4"}>
+                    placeholder={"0000"}>
                     <div>Kcal / pers / 100 gr</div>
                 </InputMenu>
 
@@ -86,21 +89,15 @@ export default function Ingredient() {
                     type={"number"}
                     label={"Prix moyen"}
                     name={"prix_moyen"}
-                    placeholder={"00.00"}
-                    max={"5"}>
+                    placeholder={"00.00"}>
                     <div>€ / Kg</div>
                 </InputMenu>
             </form>
 
-            <div id="error-form" className="hide"></div>
-
-            <div className="validation-container">
-                <button
-                    className="bouton"
-                    onClick={e => onClickOKFormulaire("ingredients", ingredient?.key)}>
-                    ENREGISTRER
-                </button>
-            </div>
+            <BoutonOkFormulaire 
+                label="ENREGISTRER"
+                categorie={dataConstantes.CATEGORIES.INGREDIENTS}
+                key={ingredient?.key}/>
         </div>
     );
 }

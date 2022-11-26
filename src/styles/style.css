@@ -25,6 +25,10 @@ html {
     --icone-primary: invert(68%) sepia(23%) saturate(729%) hue-rotate(50deg) brightness(98%) contrast(84%);
 }
 
+.rouge {
+    color: var(--color-red);
+}
+
 /** ------------BASES---------------- */
 
 body {
@@ -361,8 +365,12 @@ li.ingredient {
 
 #filtres-dashboard {
     background: var(--color-grey-light);
-    display: flex;
+    display: none;
     justify-content: center;
+}
+
+#filtres-dashboard.show {
+    display: flex;
 }
 
 #filtres-dashboard ul {
@@ -452,6 +460,14 @@ li.ingredient {
     height: 99px;
     border-radius: 16px 0 0 0;
     border-bottom: 1.5px solid var(--color-grey-dark);
+    overflow: hidden;
+}
+
+#vignettes-dashboard .vignette .photo img {
+    width: 115%;
+    height: 100%;
+    margin-left: -15px;
+    object-fit: cover;
 }
 
 #vignettes-dashboard .vignette .infos {
@@ -486,6 +502,13 @@ li.ingredient {
 .detail-container {
     height: 100%;
     overflow: hidden;
+}
+
+.detail-container .photo-container img {
+    width: 115%;
+    height: 100%;
+    margin-left: -15px;
+    object-fit: cover;
 }
 
 .detail-container .photo-container {
@@ -772,7 +795,7 @@ form .select-menu i {
     display: block;
     position: absolute;
     background-size: 100% !important;
-    right: 10px;
+    right: 8px;
     top: 6px;
     transform: rotate(-90deg);
     transition: 0.5s;
@@ -786,7 +809,7 @@ form .options {
     background: var(--color-light);
     position: absolute;
     top: 38px;
-    width: calc(90vw - 3px);
+    width: calc(100% - 3px);;
     border: 1.5px solid var(--color-grey-dark);
     border-radius: 6px;
     transition: opacity 0.1s 0.2s, max-height 0.3s ease-out;
@@ -823,15 +846,15 @@ form .options li:hover {
     background: var(--color-grey);
 }
 
-form label {
+form label, form h1 {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
 }
 
-form .saisie {
+form .saisie, form .ajout-photo-container {
     height: 30px;
-    width: calc(90vw - 27px);
+    width: calc(100% - 27px);
     border: 1.5px solid var(--color-grey-dark);
     border-radius: 6px;
     padding: 1px 12px;
@@ -843,9 +866,14 @@ form .saisie {
     color: var(--color-dark);
 }
 
+form textarea.saisie {
+    max-width: 73vw;
+    padding-top: 15px;
+}
+
 form .saisie::placeholder {
     font-family: 'comfortaa';
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     letter-spacing: 1px;
 }
@@ -871,6 +899,31 @@ form .error .erreur {
     margin: 50px;
 }
 
+.bouton-ajout {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 12px;
+    font-family: 'comfortaa';
+    color: var(--color-grey-dark);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/** ------------FORMULAIRE ICONES -------------------- */
+
+li.icone {
+    padding-left: 50px !important;
+}
+
+li.icone .icone {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 14px;
+    top: 6px;
+}
+
 /** ------------FORMULAIRE INGREDIENT---------------- */
 
 .ingredient-container {
@@ -883,12 +936,6 @@ form .error .erreur {
 #formulaire-ingredient {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-}
-
-#formulaire-ingredient-index {
-    position: absolute;
-    top: -1000px;
 }
 
 #saisieCalories div:first-of-type,
@@ -909,63 +956,113 @@ form .error .erreur {
     font-weight: bold;
 }
 
-#saisieIcone li {
-    padding-left: 50px;
-}
-
-#saisieIcone li:before {
-    content: '';
-    background-size: 100% !important;
-    filter: var(--icone-grey-dark);
-    width: 24px;
-    height: 24px;
-    display: block;
-    position: absolute;
-    left: 11px;
-}
-
-#saisieIcone li.poulet::before {
-    background: url(../images/poulet.svg);
-    top: 2px;
-}
-#saisieIcone li.boeuf::before {
-    background: url(../images/steak.svg);
-    top: 5px;
-}
-#saisieIcone li.porc::before {
-    background: url(../images/saucisse.svg);
-    top: 1px;
-}
-#saisieIcone li.poisson::before {
-    background: url(../images/fish.svg);
-    top: 7px;
-}
-#saisieIcone li.epice-farine::before {
-    background: url(../images/sac.svg);
-    top: 6px;
-}
-#saisieIcone li.fromage::before {
-    background: url(../images/cheese.svg);
-    top: 4px;
-}
-#saisieIcone li.pomme::before {
-    background: url(../images/apple.svg);
-    top: 7px;
-}
-#saisieIcone li.tomate::before {
-    background: url(../images/tomato.svg);
-    top: 7px;
-}
-#saisieIcone li.carotte::before {
-    background: url(../images/carrot.svg);
-    top: 7px;
-}
-
-/** ------------RECETTE---------------- */
+/** ------------FORMULAIRE RECETTE---------------- */
 
 .recette-container {
     padding-top: 75px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc(100vh - 75px);
 }
+
+#saisiePreparation div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+}
+
+#saisiePreparation_input  {
+    width: 50vw;
+}
+
+#saisiePreparation .select-menu  {
+    width: 30vw;
+}
+
+#saisiePersonnes_input {
+    width: 15px;
+    margin: 0 10px;
+}
+
+#saisiePersonnes {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#saisiePersonnes div {
+    color: var(--color-grey-dark);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.saisie-ingredients-container {
+    display: none;
+}
+
+.saisie-ingredients-container.show {
+    display: block;
+}
+
+.ajout_ingredient_item, .ajout_instruction_item {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ajout_ingredient_item div {
+    color: var(--color-grey-dark);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.ajout_ingredient_item .select-menu {
+    width: 50vw;
+}
+
+.ajout_ingredient_item > input  {
+    width: 18vw;
+}
+
+#saisiePhoto .ajout-photo-container {
+    height: 115px;
+    overflow: hidden;
+    padding: 0 12px;
+}
+
+#saisiePhoto .container-bouton {
+    height: 115px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#saisiePhoto .container-bouton.show {
+    display: flex;
+}
+
+#saisiePhoto .text-bouton {
+    color: var(--color-grey-dark);
+    margin-top: 7px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.ajout-photo-container img {
+    width: 115%;
+    height: 100%;
+    margin-left: -15px;
+    object-fit: cover;
+    display: none;
+}
+
+.ajout-photo-container img.show {
+    display: block;
+}
+
 
 /** ------------AGENDA---------------- */
 
@@ -1067,6 +1164,12 @@ form .error .erreur {
     width: 21px;
     height: 21px;
     margin-left: 2px;
+}
+
+.icone.photo {
+    background: url(../images/photo.svg);
+    width: 24px;
+    height: 24px;
 }
 
 .icone.suppr {
@@ -1191,6 +1294,12 @@ form .error .erreur {
     margin-top: 1.5px;
 }
 
+.icone.croix {
+    background: url(../images/cross.svg);
+    width: 20px;
+    height: 20px;
+}
+
 .icone.calories {
     background: url(../images/firebowl.svg);
     width: 20px;
@@ -1219,7 +1328,7 @@ form .error .erreur {
 
 .icone.porc {
     background: url(../images/saucisse.svg);
-    top: -4%;
+    top: -4% !important;
 }
 
 .icone.ingredient.porc {
@@ -1228,7 +1337,7 @@ form .error .erreur {
 
 .icone.poulet {
     background: url(../images/poulet.svg);
-    top: 1%;
+    top: 1% !important;
 }
 
 .icone.ingredient.poulet {
@@ -1249,6 +1358,10 @@ form .error .erreur {
 
 .icone.fromage {
     background: url(../images/cheese.svg);
+}
+
+.li .icone.fromage {
+    top: 4px;
 }
 
 .icone.ingredient.fromage {

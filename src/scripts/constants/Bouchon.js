@@ -122,7 +122,7 @@ export const bouchon = {
                 valeur: 195,
                 unite: "Kcal"
             },
-            saison: "toutes-saisons",
+            saison: "toùtes-säisons",
             ingredients: [
                 {
                     key: 1,

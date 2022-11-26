@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { routesConstants } from "../constants/AppConstantes";
+import { routesConstantes } from "../constants/AppConstantes";
 import { supprimerLocalStorage } from "../services/StorageService";
 
 export default function Header({params}) {
@@ -27,13 +27,13 @@ export default function Header({params}) {
         :   null;
 
     const boutonParam = params?.isBoutonParam
-        ?   <Link to={routesConstants.PARAMETRES} className="setting">
+        ?   <Link to={routesConstantes.PARAMETRES} className="setting">
                 <div className="icone setting"></div>
             </Link>
         :   null;
 
     const boutonModif = params?.isBoutonModif
-        ?   <Link to={routesConstants.RECETTE} className="modif" state={{index: index}}>
+        ?   <Link to={routesConstantes.RECETTE} className="modif" state={{index: index}}>
                 <div className="icone modif"></div>
             </Link>
         :   null;

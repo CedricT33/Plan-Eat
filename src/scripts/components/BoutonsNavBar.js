@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
-import { routesConstants } from "../constants/AppConstantes";
+import { routesConstantes } from "../constants/AppConstantes";
 
 export function BoutonRecette() {
     return (
         <li className="recette">
-            <NavLink to={routesConstants.RECETTE}>
+            <NavLink to={routesConstantes.RECETTE}>
                 <div className="icone recette"></div>
             </NavLink>
         </li>
@@ -14,7 +14,7 @@ export function BoutonRecette() {
 export function BoutonIngredient() {
     return (
         <li className="ingredient">
-            <NavLink to={routesConstants.INGREDIENT}>
+            <NavLink to={routesConstantes.INGREDIENT}>
                 <div className="icone ajout"></div>
             </NavLink>
         </li>

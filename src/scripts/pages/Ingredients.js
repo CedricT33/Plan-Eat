@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { recupererDonneesAvecType } from "../services/StorageService";
 import ListeVignettesIngredients from "../components/ListeVignettesIngredients";
+import { dataConstantes } from "../constants/AppConstantes";
 
 export default function Ingredients() {
 
@@ -10,7 +11,7 @@ export default function Ingredients() {
     const classesVignettes = ingredients?.length === 0 ? null : "show";
 
     function recupererIngredients() {   
-        setIngredients(recupererDonneesAvecType("ingredients"));
+        setIngredients(recupererDonneesAvecType(dataConstantes.CATEGORIES.INGREDIENTS));
     }
 
     useEffect(() => {

@@ -1,16 +1,23 @@
 import { Link } from "react-router-dom";
-import { routesConstants } from "../constants/AppConstantes";
+import { routesConstantes } from "../constants/AppConstantes";
+import { base64toBlob } from "../services/Util";
 
 export default function VignetteRecette({ recette }) {
 
+    const photoBase64 = recette?.photo;
+    const photoBlob = photoBase64 ? base64toBlob(photoBase64) : null;
+    const photoRecette = photoBlob ? <img alt="" src={URL.createObjectURL(photoBlob)}></img> : null;
+
     return (
         <li key={recette.key} className="vignette">
-            <Link to={routesConstants.DETAIL_RECETTE} state={{recette: recette}}>
+            <Link to={routesConstantes.DETAIL_RECETTE} state={{recette: recette}}>
                 <div className="badge-temps">
                     <div className="icone temps"></div>
                     <div className="duree">{recette.temps_preparation.valeur + " " + recette.temps_preparation.unite}</div>
                 </div>
-                <div className="photo"></div>
+                <div className="photo">
+                    {photoRecette}
+                </div>
                 <div className="infos">
                     <div>
                         <div className="titre">{recette.titre}</div>
@@ -19,7 +26,7 @@ export default function VignetteRecette({ recette }) {
                     <div>
                         <div className="info-personnes">
                             <div className="icone personnes"></div>
-                            <div>{recette.personnes.valeur}</div>
+                            <div>{recette?.personnes?.valeur}</div>
                         </div>
                         <div className="prix">{recette.prix_moyen.valeur + " " + recette.prix_moyen.unite}</div>
                     </div>

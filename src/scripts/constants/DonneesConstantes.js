@@ -17,6 +17,14 @@ export const rayons = [
     "fromages"
 ]
 
+export const saisons = [
+    "été",
+    "automne",
+    "hiver",
+    "printemps",
+    "toutes-saisons"
+]
+
 export const icones = [
     "poulet",
     "boeuf",
@@ -29,19 +37,50 @@ export const icones = [
     "tomate"
 ]
 
+export const unitesTemps = [
+    "min",
+    "h",
+    "j"
+]
+
 export const unites = [
-    "pièce",
-    "gramme",
-    "kilo",
-    "centilitre",
-    "decilitre",
-    "litre",
-    "cas",
-    "cac"
+    {
+        nom: "pièce",
+        raccourci: null
+    },
+    {
+        nom: "gramme",
+        raccourci: "gr"
+    },
+    {
+        nom: "kilo",
+        raccourci: "kilo"
+    },
+    {
+        nom: "centilitre",
+        raccourci: "cl"
+    },
+    {
+        nom: "decilitre",
+        raccourci: "dl"
+    },
+    {
+        nom: "litre",
+        raccourci: "l"
+    },
+    {
+        nom: "cuillère à soupe",
+        raccourci: "cas"
+    },
+    {
+        nom: "cuillère à café",
+        raccourci: "cac"
+    }
 ]
 
 export const motsInvariables = [
     "pois",
     "petit pois",
-    "petits pois"
+    "petits pois",
+    "radis"
 ]

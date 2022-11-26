@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.c4daf345.css",
-    "main.js": "/static/js/main.24b8fbdd.js",
+    "main.css": "/static/css/main.a9c62888.css",
+    "main.js": "/static/js/main.eaaffde8.js",
     "static/media/Comfortaa-Light.ttf": "/static/media/Comfortaa-Light.2d79c8b673318d831c9b.ttf",
     "static/media/TitanOne-Regular.ttf": "/static/media/TitanOne-Regular.465442311c8eb8cd5fe8.ttf",
     "static/media/logo_app.png": "/static/media/logo_app.602379331af97e90fe7b.png",
@@ -27,8 +27,10 @@
     "static/media/flower.svg": "/static/media/flower.41e9ccda8cb574a968a5.svg",
     "index.html": "/index.html",
     "static/media/fleche2.svg": "/static/media/fleche2.10b0815f3e805c32c8e8.svg",
+    "static/media/photo.svg": "/static/media/photo.6a14e35fa06a2215e256.svg",
     "static/media/agenda.svg": "/static/media/agenda.87866152363fb5307bf8.svg",
     "static/media/caddie.svg": "/static/media/caddie.f80562b8fde12ac69649.svg",
+    "static/media/cross.svg": "/static/media/cross.6f1021f5af71ad15e578.svg",
     "static/media/snow.svg": "/static/media/snow.7ada53d4b230b65589d8.svg",
     "static/media/people.svg": "/static/media/people.507ac737c00ced11acc4.svg",
     "static/media/fleche1.svg": "/static/media/fleche1.2d0d9c9dbce864e852e6.svg",
@@ -39,11 +41,11 @@
     "static/media/toque.svg": "/static/media/toque.9792c8655fe679f49970.svg",
     "static/media/clock.svg": "/static/media/clock.5d7c9dce675fd3b3768b.svg",
     "static/media/chevron.svg": "/static/media/chevron.1b905eeb40f2f31f0e9e.svg",
-    "main.c4daf345.css.map": "/static/css/main.c4daf345.css.map",
-    "main.24b8fbdd.js.map": "/static/js/main.24b8fbdd.js.map"
+    "main.a9c62888.css.map": "/static/css/main.a9c62888.css.map",
+    "main.eaaffde8.js.map": "/static/js/main.eaaffde8.js.map"
   },
   "entrypoints": [
-    "static/css/main.c4daf345.css",
-    "static/js/main.24b8fbdd.js"
+    "static/css/main.a9c62888.css",
+    "static/js/main.eaaffde8.js"
   ]
 }
