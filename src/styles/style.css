@@ -1333,36 +1333,36 @@ input[type="file"] {
     filter: inherit;
 }
 
-.icone.boeuf {
+.icone.steak {
     background: url(../images/steak.svg);
 }
 
-.icone.filtre.boeuf {
+.icone.filtre.steak {
     top: 10%;
 }
 
-.icone.ingredient.boeuf {
+.icone.ingredient.steak {
     top: 9px;
     left: 16px;
 }
 
-.icone.porc {
+.icone.saucisse {
     background: url(../images/saucisse.svg);
 }
 
-.icone.ingredient.porc {
+.icone.ingredient.saucisse {
     top: 4px;
 }
 
-.icone.filtre.porc {
+.icone.filtre.saucisse {
     top: -2px;
 }
 
-.options .icone.porc {
+.options .icone.saucisse {
     top: 0px;
 }
 
-.icone.liste-ingredients.porc {
+.icone.liste-ingredients.saucisse {
     top: -5px;
 }
 
@@ -1410,10 +1410,34 @@ input[type="file"] {
     top: 6px;
 }
 
+.icone.liste-ingredients.fromage {
+    bottom: -1px;
+}
+
 .icone.carotte {
     background: url(../images/carrot.svg);
 }
 
 .icone.tomate {
     background: url(../images/tomato.svg);
+}
+
+.icone.champignon {
+    background: url(../images/champignon.svg);
+}
+
+.icone.betterave {
+    background: url(../images/betterave.svg);
+}
+
+.icone.crabe {
+    background: url(../images/crabe.svg);
+}
+
+.icone.choux {
+    background: url(../images/choux.svg);
+}
+
+.icone.piment {
+    background: url(../images/chili.svg);
 }

@@ -72,6 +72,7 @@ export default function NouvelleRecette() {
             <SelectMenu
                     id="saisieSaison"
                     liste={listeSaisons}
+                    value="toutes-saisons"
                     label="Plat de saison"
                     name="saison"
                     placeholder="Saison privilégiée du plat"

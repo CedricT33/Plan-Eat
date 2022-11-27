@@ -1,6 +1,6 @@
 export const filtres = [
-    "boeuf",
-    "porc",
+    "steak",
+    "saucisse",
     "poulet",
     "poisson",
     "ete",
@@ -10,11 +10,24 @@ export const filtres = [
     "toutes-saisons"
 ]
 
-export const rayons = [
+export const rayonsIngredients = [
     "viandes et poissons",
     "fruits et légumes",
     "herbes et épices",
-    "fromages"
+    "fromages",
+    "sucre et farine",
+    "huile et vinaigre",
+    "autre"
+]
+
+export const rayonsCourses = [
+    "viandes et poissons",
+    "fruits et légumes",
+    "herbes et épices",
+    "fromages",
+    "sucre et farine",
+    "huile et vinaigre",
+    "autre"
 ]
 
 export const saisons = [
@@ -27,14 +40,19 @@ export const saisons = [
 
 export const icones = [
     "poulet",
-    "boeuf",
-    "porc",
+    "steak",
+    "saucisse",
     "poisson",
+    "crabe",
     "epice-farine",
     "fromage",
     "pomme",
     "carotte",
-    "tomate"
+    "piment",
+    "betterave",
+    "tomate",
+    "champignon",
+    "choux"
 ]
 
 export const unitesTemps = [
@@ -61,7 +79,7 @@ export const unites = [
         raccourci: "cL"
     },
     {
-        nom: "decilitre",
+        nom: "décilitre",
         raccourci: "dL"
     },
     {

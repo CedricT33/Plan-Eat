@@ -1,4 +1,4 @@
-export default function SelectPerso({liste, id, placeholder, name, required, setItem, setData}) {
+export default function SelectPerso({liste, id, value, placeholder, name, required, setItem, setData}) {
 
     function supprimerErreur(elmt) {
         elmt.parentNode.parentNode.parentNode.parentNode.classList.remove("error");
@@ -60,6 +60,7 @@ export default function SelectPerso({liste, id, placeholder, name, required, set
                 readOnly
                 className="saisie liste-deroulante"
                 name={name}
+                value={value}
                 clef=""
                 type="text"
                 placeholder={placeholder}

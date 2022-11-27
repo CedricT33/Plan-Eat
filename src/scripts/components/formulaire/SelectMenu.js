@@ -1,6 +1,6 @@
 import SelectPerso from "./atomes/SelectPerso";
 
-export default function SelectMenu({liste, id, label, placeholder, name, required, setData}) {
+export default function SelectMenu({liste, id, value, label, placeholder, name, required, setData}) {
 
     return (
         <div id={id} className="container">
@@ -9,6 +9,7 @@ export default function SelectMenu({liste, id, label, placeholder, name, require
             <SelectPerso
                 liste={liste}
                 id={id}
+                value={value}
                 placeholder={placeholder}
                 name={name}
                 setData={setData}

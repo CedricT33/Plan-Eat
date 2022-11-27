@@ -1,17 +1,15 @@
 import VignetteIngredient from "../components/VignetteIngredient";
-import { rayons } from "../constants/DonneesConstantes";
+import { rayonsIngredients } from "../constants/DonneesConstantes";
 import { mettrePremiereLettreEnMajuscule } from "../services/Util";
 
 export default function ListeVignettesIngredients({classes, ingredients, setIngredients}) {
 
-    let listeVignettesCategories = rayons.map((rayon, i) => {
+    let listeVignettesCategories = rayonsIngredients.map((rayon, i) => {
 
         const rayonAvecMajuscule = mettrePremiereLettreEnMajuscule(rayon);
-
         const ingredientsCategorie = ingredients?.filter(ingredient => {
             return ingredient?.rayon === rayon;
         })
-
         const listeIngredientsCategorie = ingredientsCategorie?.map((ingredient, i) => {
             return <VignetteIngredient key={ingredient.key} ingredient={ingredient} setIngredients={setIngredients} />
         })

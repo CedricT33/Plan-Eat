@@ -2,7 +2,8 @@ import { dataConstantes } from "../constants/AppConstantes";
 import { enregistrerLocalStorage } from "../services/StorageService";
 import { recupererIngredientAvecKey,
             calculerCaloriesRecette,
-            calculerPrixRecette } from "../services/RecetteUtil";
+            calculerPrixRecette,
+            arrondirQuantiteIngredient } from "../services/RecetteUtil";
 import { recupererDateAujourdhui } from "../services/Util";
 
     //////////////////////////////////////////////////
@@ -109,6 +110,11 @@ function enregistrerDonneesFormulaire(type, listeElmtsSaisies, index) {
         if (!saisiesFormulaire.ingredients) {
             console.log("pas ingredients");
             continuerParcours = false;
+        }
+        else {
+            saisiesFormulaire.ingredients.forEach(ingredient => {
+                ingredient.quantite = arrondirQuantiteIngredient(ingredient);
+            })
         }
     }
 

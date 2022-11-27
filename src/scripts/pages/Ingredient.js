@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import SelectMenu from "../components/formulaire/SelectMenu";
 import InputMenu from "../components/formulaire/InputMenu";
-import { icones, rayons, unites } from "../constants/DonneesConstantes";
+import { icones, rayonsIngredients, unites } from "../constants/DonneesConstantes";
 import { dataConstantes } from "../constants/AppConstantes";
 import BoutonOkFormulaire from "../components/formulaire/BoutonOkFormulaire";
 
@@ -13,7 +13,7 @@ export default function Ingredient() {
     const ingredient = params?.state?.ingredient;
 
     const listeIcones = icones.map(icone => { return {nom: icone, icone: icone} });
-    const listeRayons = rayons.map(rayon => { return {nom: rayon} });
+    const listeRayons = rayonsIngredients.map(rayon => { return {nom: rayon} });
     const listeUnites = unites.map(unite => { return {nom: unite.nom, raccourci: unite.raccourci} });
     
 

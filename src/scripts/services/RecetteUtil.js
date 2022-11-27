@@ -24,11 +24,16 @@ export function recupererIngredientAvecKey(clef) {
     })
 }
 
+export function arrondirQuantiteIngredient(ingredient) {
+    return parseInt(ingredient.quantite);
+}
+
 export function calculerPrixRecette(recette) {
     let prix = 0;
     let poidsEnKilo = 0;
     recette?.ingredients?.forEach(ingredient => {
-        if (ingredient.unite_quantite.valeur === "kilo") {
+        if (ingredient.unite_quantite.valeur === "kilo"
+            || ingredient.unite_quantite.valeur === "litre") {
             poidsEnKilo = ingredient.quantite;
         }
         if (ingredient.unite_quantite.valeur === "gramme") {
@@ -36,6 +41,18 @@ export function calculerPrixRecette(recette) {
         }
         if (ingredient.unite_quantite.valeur === "pièce" && ingredient.poids) {
             poidsEnKilo = ingredient.quantite * ingredient.poids.valeur / 1000;
+        }
+        if (ingredient.unite_quantite.valeur === "cuillère à soupe") {
+            poidsEnKilo = ingredient.quantite * 15 / 1000;
+        }
+        if (ingredient.unite_quantite.valeur === "cuillère à café") {
+            poidsEnKilo = ingredient.quantite * 5 / 1000;
+        }
+        if (ingredient.unite_quantite.valeur === "centilitre") {
+            poidsEnKilo = ingredient.quantite * 10 / 1000;
+        }
+        if (ingredient.unite_quantite.valeur === "décilitre") {
+            poidsEnKilo = ingredient.quantite * 100 / 1000;
         }
         prix += poidsEnKilo * ingredient.prix_moyen.valeur;
     })
