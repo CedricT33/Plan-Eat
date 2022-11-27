@@ -19,6 +19,9 @@ const DONNEES_INIT = {
 
 
 function supprimerSiDejaPresent(listeDonnees, key) {
+    if (typeof key === "string") {
+        key = parseInt(key);
+    }
     listeDonnees.forEach((donnee, id) => {
         if (donnee.key === key) {
             listeDonnees.splice(id, 1);

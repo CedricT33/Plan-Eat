@@ -1,5 +1,18 @@
 import Compressor from "compressorjs";
 
+const listeChainesARetirerBlob = [
+    "data:application/octet-stream;base64,",
+    "data:image/jpeg;base64,"
+]
+
+export function recupererDateAujourdhui() {
+    const today = new Date();
+    const jour = today.getDate();
+    const mois = today.getMonth() + 1;
+    const annee = today.getFullYear();
+    return jour + "/" + mois + "/" + annee;
+}
+
 export function mettrePremiereLettreEnMajuscule(ChaineDeCaracteres) {
     return ChaineDeCaracteres.charAt(0).toUpperCase() + ChaineDeCaracteres.slice(1);
 }
@@ -59,12 +72,37 @@ export function base64toBlob(b64Data, contentType, sliceSize) {
 
 export function blobToBase64(blob) {
     return new Promise((resolve, _) => {
-      const reader = new FileReader();
-      reader.onloadend = () => resolve(reader.result.slice(23));
-      reader.readAsDataURL(blob);
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            const imgBase64 = reader.result;
+            let image = imgBase64.slice();
+            const chaineARetirer = listeChainesARetirerBlob.find(chaine => {
+                return imgBase64.indexOf(chaine) !== -1; 
+            });
+            if (chaineARetirer) {
+                image = imgBase64.slice(chaineARetirer.length);
+            }
+            resolve(image);
+        };
+        reader.readAsDataURL(blob);
     });
 }
 
 export function compresserFichier(fichier, options) {
     return new Compressor(fichier, options);
+}
+
+export function afficherImageDansRecette(image) {
+    const elmtAjouterPhoto = document.querySelector("#saisiePhoto .container-bouton");
+    const elmtImage = document.getElementById("image-photo");
+    const elmtInputPhoto = document.getElementById("input-photo");
+
+    blobToBase64(image).then(imageB64 => {
+        elmtInputPhoto.innerText = imageB64;
+    });
+    
+    elmtAjouterPhoto.classList.remove("show");
+    elmtImage.classList.add("show");
+    const urlImage = URL.createObjectURL(image);
+    elmtImage.src = urlImage;
 }

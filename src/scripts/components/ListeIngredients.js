@@ -3,7 +3,7 @@ import { motsInvariables } from "../constants/DonneesConstantes";
 export default function ListeIngredients({ recette }) {
 
     function mettreAuPlurielSiBesoin(ingredient) {
-        if (ingredient.unite_quantite === null
+        if (ingredient.unite_quantite.raccourci === null
             && parseInt(ingredient.quantite) > 1
             && ingredient.produit.slice(-1) !== "s"
             && ingredient.produit.slice(-1) !== "x") {
@@ -14,7 +14,7 @@ export default function ListeIngredients({ recette }) {
                     ingredient.produit += "s";
                 }
         }
-        else if (ingredient.unite_quantite === null
+        else if (ingredient.unite_quantite.raccourci === null
             && parseInt(ingredient.quantite) < 2
             && (ingredient.produit.slice(-1) === "s" || ingredient.produit.slice(-1) === "x")){
                 if (!motsInvariables.includes(ingredient.produit)) {
@@ -26,7 +26,13 @@ export default function ListeIngredients({ recette }) {
 
     const listeIngredients = recette?.ingredients?.map(ingredient => {
         ingredient = mettreAuPlurielSiBesoin(ingredient);
-        return <li key={ingredient.key}>{ingredient.produit} <span>{ingredient.quantite} {ingredient.unite_quantite}</span></li>
+        return (
+            <li key={ingredient.key}>
+                <div className={`icone liste-ingredients ${ingredient.icone}`}></div>
+                {ingredient.produit}
+                <span>{ingredient.quantite} {ingredient.unite_quantite.raccourci}</span>
+            </li>
+        );
     })
 
     return (

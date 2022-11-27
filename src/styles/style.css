@@ -371,6 +371,7 @@ li.ingredient {
 
 #filtres-dashboard.show {
     display: flex;
+    position: sticky;
 }
 
 #filtres-dashboard ul {
@@ -405,6 +406,9 @@ li.ingredient {
 .dashboard-container {
     padding-top: 75px;
     overflow: hidden;
+    height: calc( 100vh - 75px);
+    display: flex;
+    flex-direction: column;
 }
 
 #vignettes-dashboard {
@@ -437,7 +441,7 @@ li.ingredient {
     justify-content: space-between;
     align-items: center;
     height: 25px;
-    width: 80px;
+    max-width: 85px;
     font-size: 12px;
     border-radius: 20px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
@@ -662,9 +666,12 @@ li.ingredient {
     background: var(--color-grey);
 }
 
-.detail-container .tab-content .ingredients,
 .detail-container .tab-content .etapes {
     margin: 20px 35px;
+}
+
+.detail-container .tab-content .ingredients {
+    margin: 20px 43px;
 }
 
 .detail-container .tab-content .ingredients li,
@@ -674,7 +681,6 @@ li.ingredient {
     display: flex;
 }
 
-.detail-container .tab-content .ingredients li::before,
 .detail-container .tab-content .etapes li::before {
     content: ".";
     color: var(--color-primary);
@@ -939,17 +945,20 @@ li.icone .icone {
 }
 
 #saisieCalories div:first-of-type,
-#saisiePrix div:first-of-type {
+#saisiePrix div:first-of-type,
+#saisiePoids div:first-of-type {
     display: flex;
     align-items: center;
 }
 
-#saisiePrix_input, #saisieCalories_input {
+#saisiePrix_input, #saisieCalories_input, #saisiePoids_input {
     width: 35px !important;
     text-align: center;
 }
 
-#saisieCalories_input + div, #saisiePrix_input + div {
+#saisieCalories_input + div,
+#saisiePrix_input + div,
+#saisiePoids_input + div {
     color: var(--color-grey-dark);
     font-size: 12px;
     margin-left: 15px;
@@ -1131,6 +1140,23 @@ input[type="file"] {
     height: 24px;
 }
 
+.icone.ingredient {
+    filter: var(--icone-primary);
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+}
+
+.icone.liste-ingredients {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: -2px;
+    left: -30px;
+}
+
 .icone.recette {
     background: url(../images/toque.svg);
     width: 24px;
@@ -1268,7 +1294,7 @@ input[type="file"] {
 .badge-temps .icone.temps {
     width: 17px;
     height: 17px;
-    margin-left: 7px;
+    margin: 0 7px;
 }
 
 .icone.personnes {
@@ -1309,16 +1335,10 @@ input[type="file"] {
 
 .icone.boeuf {
     background: url(../images/steak.svg);
-    top: 12%;
 }
 
-.icone.ingredient {
-    filter: var(--icone-primary);
-    width: 32px;
-    height: 32px;
-    position: absolute;
-    top: 10px;
-    left: 15px;
+.icone.filtre.boeuf {
+    top: 10%;
 }
 
 .icone.ingredient.boeuf {
@@ -1328,20 +1348,42 @@ input[type="file"] {
 
 .icone.porc {
     background: url(../images/saucisse.svg);
-    top: -4% !important;
 }
 
 .icone.ingredient.porc {
     top: 4px;
 }
 
+.icone.filtre.porc {
+    top: -2px;
+}
+
+.options .icone.porc {
+    top: 0px;
+}
+
+.icone.liste-ingredients.porc {
+    top: -5px;
+}
+
 .icone.poulet {
     background: url(../images/poulet.svg);
-    top: 1% !important;
+}
+
+.options .icone.poulet {
+    top: 2px;
+}
+
+.icone.filtre.poulet {
+    top: 1%;
 }
 
 .icone.ingredient.poulet {
     top: 6px;
+}
+
+.icone.liste-ingredients.poulet {
+    top: -4px;
 }
 
 .icone.epice-farine {

@@ -5,7 +5,7 @@ import { unites } from "../../constants/DonneesConstantes";
 import InputPerso from "./atomes/InputPerso";
 import SelectPerso from "./atomes/SelectPerso";
 
-export default function InputIngredient({id}) {
+export default function InputIngredient({id, ingredient}) {
 
     const [nomIngredientSelected, setNomIngredientSelected] = useState();
     const [ingredientsFormated, setIngredientsFormated] = useState();
@@ -24,7 +24,7 @@ export default function InputIngredient({id}) {
         const ingredientSelected = listeIngredients.find(ingredient => {
             return ingredient?.key === ingredientSelect?.key;
         })
-        let uniteQuantiteIngredient = ingredientSelected?.unite_quantite;
+        let uniteQuantiteIngredient = ingredientSelected?.unite_quantite.valeur;
         let uniteQuantiteIngredientRaccourci = unites.find(unite => {
             return unite.nom === uniteQuantiteIngredient;
         })?.raccourci;
@@ -32,16 +32,31 @@ export default function InputIngredient({id}) {
         setUniteIngredientSelected(uniteQuantiteIngredientRaccourci);
     }
 
-
     function onClickCroix(elmt) {
         const elementIngredient = elmt.parentNode;
         elementIngredient.remove();
+    }
+
+    function initialiserChamps() {
+        if (ingredient) {
+            const elmtSelectIngredient = document.getElementById("saisieIngredient" + id + "_input");
+            const elmtInputQuantite = document.getElementById("saisieQuantiteIngredient" + id + "_input");
+
+            elmtSelectIngredient.value = ingredient.produit;
+            elmtSelectIngredient.attributes.clef.value = ingredient.key;
+            elmtInputQuantite.value = ingredient.quantite;
+            elmtInputQuantite.attributes.clef.value = ingredient.key;
+        }
     }
 
     useEffect(() => {
         recupererIngredients();
         miseAJourUnite(nomIngredientSelected);
     }, [nomIngredientSelected])
+
+    useEffect(() => {
+        initialiserChamps();
+    }, [ingredient])
 
     return (
         <div className="ajout_ingredient_item">

@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import TextAreaPerso from "./atomes/TextAreaPerso";
 
-export default function InputInstruction({id, listeInputsInstructions, setListeInputsInstructions}) {
+export default function InputInstruction({id, etape, listeInputsInstructions, setListeInputsInstructions}) {
 
     function suppressionInputInstruction() {
         listeInputsInstructions?.forEach((input, i) => {
@@ -16,6 +17,17 @@ export default function InputInstruction({id, listeInputsInstructions, setListeI
     function onClickCroix() {
         suppressionInputInstruction();
     }
+
+    function initialiserChamp() {
+        if (etape) {
+            const elmtTextAreaEtape = document.getElementById("saisieInstruction" + id + "_input");
+            elmtTextAreaEtape.value = etape;
+        }
+    }
+
+    useEffect(() => {
+        initialiserChamp();
+    }, [etape])
 
     return (
         <div className="ajout_instruction_item">

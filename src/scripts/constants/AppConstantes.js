@@ -3,9 +3,11 @@ export const routesConstantes = {
     DETAIL_RECETTE: "/Plan-Eat/detail",
     INGREDIENTS: "/Plan-Eat/ingredients",
     INGREDIENT: "/Plan-Eat/ingredient",
+    INGREDIENT_MODIF: "/Plan-Eat/ingredient-modif",
     AGENDA: "/Plan-Eat/agenda",
     COURSES: "/Plan-Eat/courses",
     RECETTE: "/Plan-Eat/recette",
+    RECETTE_MODIF: "/Plan-Eat/recette-modif",
     CHOIX_PLAT: "/Plan-Eat/choix-plat",
     PARAMETRES: "/Plan-Eat/parametres"
 }
@@ -62,8 +64,28 @@ export const pagesParams = [
         isNavBar: false
     },
     {
+        pathname: routesConstantes.INGREDIENT_MODIF,
+        titre: "MODIF INGRÉDIENT",
+        isHeaderTransparent: false,
+        isBoutonRetour: true,
+        isBoutonModif: false,
+        isBoutonSuppr: false,
+        isBoutonParam: true,
+        isNavBar: false
+    },
+    {
         pathname: routesConstantes.RECETTE,
         titre: "NOUVELLE RECETTE",
+        isHeaderTransparent: false,
+        isBoutonRetour: true,
+        isBoutonModif: false,
+        isBoutonSuppr: false,
+        isBoutonParam: true,
+        isNavBar: false
+    },
+    {
+        pathname: routesConstantes.RECETTE_MODIF,
+        titre: "MODIF RECETTE",
         isHeaderTransparent: false,
         isBoutonRetour: true,
         isBoutonModif: false,

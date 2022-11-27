@@ -25,7 +25,9 @@ function RouterApp() {
         <Route path="agenda" element={<Agenda />} />
         <Route path="courses" element={<Courses />} />
         <Route path="recette" element={<Recette />} />
+        <Route path="recette-modif" element={<Recette />} />
         <Route path="ingredient" element={<Ingredient />} />
+        <Route path="ingredient-modif" element={<Ingredient />} />
         <Route path="choix-plat" element={<ChoixPlat />} />
         <Route path="parametres" element={<Parametres />} />
         <Route path="*" element={<NotFound />} />

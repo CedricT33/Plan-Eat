@@ -4,7 +4,7 @@ import ListeInputsIngredients from "./ListeInputsIngredients";
 import { recupererDonneesAvecType } from "../../services/StorageService";
 import { dataConstantes } from "../../constants/AppConstantes";
 
-export default function InputAjoutIngredients() {
+export default function InputAjoutIngredients({ingredients, personnes}) {
 
     const [messagePasIngredient, setMessagePasIngredient] = useState(null);
     const [classeContainer, setClasseContainer] = useState(null);
@@ -22,13 +22,13 @@ export default function InputAjoutIngredients() {
         else {
             setMessagePasIngredient(null);
             setClasseContainer("show");
-            setInputPersonnes(<InputPersonnes />);
+            setInputPersonnes(<InputPersonnes personnes={personnes}/>);
         }        
     }
 
     useEffect(() => {
         initialiserInputsIngredients();
-    }, [])
+    }, [ingredients, personnes])
 
     return (
         <div id="saisieIngredients" className="container form-part">
@@ -36,7 +36,7 @@ export default function InputAjoutIngredients() {
             {messagePasIngredient}
             <div className={`saisie-ingredients-container ${classeContainer}`}>
                 {inputPersonnes}
-                <ListeInputsIngredients />
+                <ListeInputsIngredients ingredients={ingredients}/>
             </div>
         </div>
     );

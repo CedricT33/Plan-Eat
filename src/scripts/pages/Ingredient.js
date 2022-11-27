@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import SelectMenu from "../components/formulaire/SelectMenu";
 import InputMenu from "../components/formulaire/InputMenu";
@@ -8,12 +8,13 @@ import BoutonOkFormulaire from "../components/formulaire/BoutonOkFormulaire";
 
 export default function Ingredient() {
 
+    const [unite, setUnite] = useState("gramme");
     const params = useLocation();
     const ingredient = params?.state?.ingredient;
 
     const listeIcones = icones.map(icone => { return {nom: icone, icone: icone} });
     const listeRayons = rayons.map(rayon => { return {nom: rayon} });
-    const listeUnites = unites.map(unite => { return {nom: unite.nom} });
+    const listeUnites = unites.map(unite => { return {nom: unite.nom, raccourci: unite.raccourci} });
     
 
     function initialiserChamps() {
@@ -24,19 +25,44 @@ export default function Ingredient() {
         const elmtCalories = document.getElementById("saisieCalories_input");
         const elmtPrix = document.getElementById("saisiePrix_input");
 
-        if (ingredient) {
-            elmtProduit.value = ingredient.produit;
-            elmtRayon.value = ingredient.rayon;
-            elmtUnite.value = ingredient.unite_quantite;
-            elmtIcone.value = ingredient.icone;
-            elmtCalories.value = ingredient.calories.valeur;
-            elmtPrix.value = ingredient.prix_moyen.valeur;
+        elmtProduit.value = ingredient.produit;
+        elmtRayon.value = ingredient.rayon;
+        elmtUnite.value = ingredient.unite_quantite.valeur;
+        elmtUnite.attributes.clef.value = ingredient.unite_quantite.raccourci;
+        elmtIcone.value = ingredient.icone;
+        elmtCalories.value = ingredient.calories.valeur;
+        elmtPrix.value = ingredient.prix_moyen.valeur;
+    }
+
+    function initialiserChampPoids() {
+        if (unite === "pièce") {
+            const elmtPoids = document.getElementById("saisiePoids_input");
+            elmtPoids.value = ingredient?.poids?.valeur;
         }
     }
 
+    const champPoids = unite === "pièce" ?
+        <InputMenu 
+            id="saisiePoids"
+            type={"number"}
+            label={"Poids"}
+            name={"poids"}
+            placeholder={"000"}>
+            <div>grammes pour une unité</div>
+        </InputMenu>
+        : null;
+
     useEffect(() => {
-        initialiserChamps();
-    });
+        if (ingredient) {
+            setUnite(ingredient.unite_quantite?.valeur);
+            initialiserChamps();
+        }
+    }, []);
+
+    useEffect(() => {
+        initialiserChampPoids();
+    }, [unite]);
+
 
     return (
         <div className="ingredient-container">
@@ -73,7 +99,10 @@ export default function Ingredient() {
                     label={"Unité"}
                     name={"unite_quantite"}
                     placeholder={"Exemple: gramme"}
+                    setData={setUnite}
                     required/>
+
+                {champPoids}
 
                 <InputMenu 
                     id="saisieCalories"
@@ -81,7 +110,7 @@ export default function Ingredient() {
                     label={"Calories"}
                     name={"calories"}
                     placeholder={"0000"}>
-                    <div>Kcal / pers / 100 gr</div>
+                    <div>calories / 100 grammes</div>
                 </InputMenu>
 
                 <InputMenu 
@@ -97,7 +126,7 @@ export default function Ingredient() {
             <BoutonOkFormulaire 
                 label="ENREGISTRER"
                 categorie={dataConstantes.CATEGORIES.INGREDIENTS}
-                key={ingredient?.key}/>
+                clef={ingredient?.key}/>
         </div>
     );
 }

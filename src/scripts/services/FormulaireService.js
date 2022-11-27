@@ -1,5 +1,9 @@
 import { dataConstantes } from "../constants/AppConstantes";
-import { enregistrerLocalStorage, recupererDonneesAvecType } from "../services/StorageService";
+import { enregistrerLocalStorage } from "../services/StorageService";
+import { recupererIngredientAvecKey,
+            calculerCaloriesRecette,
+            calculerPrixRecette } from "../services/RecetteUtil";
+import { recupererDateAujourdhui } from "../services/Util";
 
     //////////////////////////////////////////////////
     ///////////// FONCTIONS PRIVEES //////////////////
@@ -35,37 +39,17 @@ function enregistrerDonneesFormulaire(type, listeElmtsSaisies, index) {
     const donneesAEregistrer = {};
     let continuerParcours = true;
 
-    function recupererIngredientAvecKey(clef) {
-        const listeIngredients = recupererDonneesAvecType(dataConstantes.CATEGORIES.INGREDIENTS);
-        return listeIngredients.find(ingredient => {
-            return ingredient.key === clef;
-        })
-    }
-
-    function calculerCaloriesRecette() {
-        let calories = 0;
-        saisiesFormulaire?.ingredients?.forEach(ingredient => {
-            calories += ingredient.quantite * ingredient.calories.valeur;
-        })
-        saisiesFormulaire.calories = {valeur: calories, unite: "Kcal"};
-    }
-
-    function calculerPrixRecette() {
-        let prix = 0;
-        saisiesFormulaire?.ingredients?.forEach(ingredient => {
-            prix += ingredient.quantite * ingredient.prix_moyen.valeur;
-        })
-        saisiesFormulaire.prix_moyen = {valeur: prix, unite: "€"};
-    }
-
     listeElmtsSaisies.forEach(elmt => {
         if (elmt.name === "calories") {
-            const valeur = elmt.value === "" ? 0 : parseInt(elmt.value);
-            saisiesFormulaire[elmt.name] = {valeur: valeur , unite: "Kcal"};
+            const valeur = elmt.value === "" ? 0 : parseFloat(elmt.value);
+            saisiesFormulaire[elmt.name] = {valeur: valeur , unite: "cal"};
         }
         else if (elmt.name === "prix_moyen") {
-            const valeur = elmt.value === "" ? 0 : parseInt(elmt.value);
+            const valeur = elmt.value === "" ? 0 : parseFloat(elmt.value);
             saisiesFormulaire[elmt.name] = {valeur: valeur , unite: "€"};
+        }
+        else if (elmt.name === "poids") {
+            saisiesFormulaire[elmt.name] = {valeur: parseInt(elmt.value) , unite: "gr"};
         }
         else if (elmt.name === "personnes") {
             const valeur = elmt.value === "" ? 0 : parseInt(elmt.value);
@@ -74,6 +58,10 @@ function enregistrerDonneesFormulaire(type, listeElmtsSaisies, index) {
         else if (elmt.name === "temps_preparation") {
             const valeur = elmt.value === "" ? 0 : parseInt(elmt.value);
             saisiesFormulaire[elmt.name] = {valeur: valeur};
+        }
+        else if (elmt.name === "unite_quantite") {
+            const raccourci = elmt.attributes.clef.value === "null" ? null : elmt.attributes.clef.value;
+            saisiesFormulaire[elmt.name] = {valeur: elmt.value, raccourci: raccourci};
         }
         else if (elmt.name === "unite_temps") {
             saisiesFormulaire["temps_preparation"].unite = elmt.value;
@@ -96,7 +84,7 @@ function enregistrerDonneesFormulaire(type, listeElmtsSaisies, index) {
             const clefQuantite = parseInt(elmt.attributes.clef.value);
             saisiesFormulaire["ingredients"]?.forEach(ingredient => {
                 if (ingredient.key === clefQuantite) {
-                    ingredient.quantite = parseInt(elmt.value);
+                    ingredient.quantite = parseFloat(elmt.value).toFixed(2);
                 }
             })
         }
@@ -115,11 +103,11 @@ function enregistrerDonneesFormulaire(type, listeElmtsSaisies, index) {
     })
 
     if (type === dataConstantes.CATEGORIES.RECETTES) {
-        calculerCaloriesRecette();
-        calculerPrixRecette();
-        saisiesFormulaire.date = "25/11/2022";
+        saisiesFormulaire.calories = calculerCaloriesRecette(saisiesFormulaire);
+        saisiesFormulaire.prix_moyen = calculerPrixRecette(saisiesFormulaire);
+        saisiesFormulaire.date = recupererDateAujourdhui();
         if (!saisiesFormulaire.ingredients) {
-            console.log("pas ingredients")
+            console.log("pas ingredients");
             continuerParcours = false;
         }
     }

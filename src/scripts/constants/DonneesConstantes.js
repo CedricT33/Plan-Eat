@@ -54,19 +54,19 @@ export const unites = [
     },
     {
         nom: "kilo",
-        raccourci: "kilo"
+        raccourci: "Kg"
     },
     {
         nom: "centilitre",
-        raccourci: "cl"
+        raccourci: "cL"
     },
     {
         nom: "decilitre",
-        raccourci: "dl"
+        raccourci: "dL"
     },
     {
         nom: "litre",
-        raccourci: "l"
+        raccourci: "L"
     },
     {
         nom: "cuillère à soupe",

@@ -1,4 +1,4 @@
-export default function SelectPerso({liste, id, placeholder, name, required, setItem}) {
+export default function SelectPerso({liste, id, placeholder, name, required, setItem, setData}) {
 
     function supprimerErreur(elmt) {
         elmt.parentNode.parentNode.parentNode.parentNode.classList.remove("error");
@@ -9,6 +9,9 @@ export default function SelectPerso({liste, id, placeholder, name, required, set
         const elmtInput = elmtSelect.parentNode.nextElementSibling;
         elmtSelect.value = item.nom;
         elmtSelect.attributes.clef.value = item.key;
+        if (item?.raccourci !== undefined) {
+            elmtSelect.attributes.clef.value = item.raccourci;
+        }
         if (elmtInput?.tagName === "INPUT") {
             elmtInput.attributes.clef.value = item.key;
         }
@@ -16,6 +19,9 @@ export default function SelectPerso({liste, id, placeholder, name, required, set
         supprimerErreur(e.target);
         if (setItem) {
             setItem(item);
+        }
+        if (setData) {
+            setData(item.nom);
         }
     }
 

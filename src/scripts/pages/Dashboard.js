@@ -19,8 +19,10 @@ export default function Dashboard() {
         return <VignetteRecette key={recette.key} recette={recette} />
     })
 
-    function recupererRecettes() {   
-        setRecettes(recupererDonneesAvecType(dataConstantes.CATEGORIES.RECETTES));
+    function recupererRecettes() {
+        const listeRecettes = recupererDonneesAvecType(dataConstantes.CATEGORIES.RECETTES);
+        const listeRecettesOrdonnees = listeRecettes?.reverse();
+        setRecettes(listeRecettesOrdonnees);
     }
 
     useEffect(() => {

@@ -1,6 +1,6 @@
 import SelectPerso from "./atomes/SelectPerso";
 
-export default function SelectMenu({liste, id, label, placeholder, name, required}) {
+export default function SelectMenu({liste, id, label, placeholder, name, required, setData}) {
 
     return (
         <div id={id} className="container">
@@ -11,6 +11,7 @@ export default function SelectMenu({liste, id, label, placeholder, name, require
                 id={id}
                 placeholder={placeholder}
                 name={name}
+                setData={setData}
                 required={required}/>
 
             <div className="erreur">Ce champs est obligatoire !</div>
