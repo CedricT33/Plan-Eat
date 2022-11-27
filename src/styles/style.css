@@ -1441,3 +1441,31 @@ input[type="file"] {
 .icone.piment {
     background: url(../images/chili.svg);
 }
+
+.icone.salade {
+    background: url(../images/salade.svg);
+}
+
+.icone.poivron {
+    background: url(../images/poivron.svg);
+}
+
+.icone.ail {
+    background: url(../images/ail.svg);
+}
+
+.icone.oignon {
+    background: url(../images/oignon.svg);
+}
+
+.icone.huile {
+    background: url(../images/oil.svg);
+}
+
+.icone.patates {
+    background: url(../images/patates.svg);
+}
+
+.icone.oeuf {
+    background: url(../images/oeuf.svg);
+}

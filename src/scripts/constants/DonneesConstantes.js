@@ -48,11 +48,18 @@ export const icones = [
     "fromage",
     "pomme",
     "carotte",
+    "patates",
     "piment",
     "betterave",
     "tomate",
+    "poivron",
     "champignon",
-    "choux"
+    "choux",
+    "salade",
+    "ail",
+    "oignon",
+    "huile",
+    "oeuf"
 ]
 
 export const unitesTemps = [
