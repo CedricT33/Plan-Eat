@@ -1,10 +1,15 @@
 import { NavLink } from "react-router-dom";
 import { routesConstantes } from "../constants/AppConstantes";
 import { BoutonRecette, BoutonIngredient } from "./BoutonsNavBar";
+import { proposerInstallationApp } from "../../serviceWorkerRegistration";
 
 export default function NavBar({pathname}) {
 
-    const retournerBoutonCentral = () => {
+    const declancherInstallationApplication = () => {
+        proposerInstallationApp();
+    }
+
+    const construireBoutonCentral = () => {
         switch (pathname) {
             case routesConstantes.INGREDIENTS:
                 return <BoutonIngredient />        
@@ -13,7 +18,7 @@ export default function NavBar({pathname}) {
         }
     }
 
-    const boutonCentral = retournerBoutonCentral();
+    const boutonCentral = construireBoutonCentral();
     
     return (
         <nav>
@@ -23,7 +28,7 @@ export default function NavBar({pathname}) {
                         <div className="icone dashboard"></div>
                     </NavLink>
                 </li>
-                <li className="ingredients">
+                <li className="ingredients" onClick={declancherInstallationApplication}>
                     <NavLink to={routesConstantes.INGREDIENTS}>
                         <div className="icone ingredients"></div>
                     </NavLink>

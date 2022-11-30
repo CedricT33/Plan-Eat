@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter as Router } from "react-router-dom";
 import App from './scripts/App';
 import './styles/style.css';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -10,3 +11,6 @@ root.render(
     <App />
   </Router>
 );
+
+serviceWorkerRegistration.register();
+serviceWorkerRegistration.ajouterEcouteurInstallationApp();
