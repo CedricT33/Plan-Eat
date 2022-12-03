@@ -605,6 +605,8 @@ li.ingredient {
     margin-left: -1vw;
     background: var(--color-grey-light);
     border-bottom: 1px solid var(--color-grey-dark);
+    z-index: 3;
+    position: relative;
 }
 
 .detail-container .tab-item {
@@ -646,7 +648,6 @@ li.ingredient {
 
 .detail-container .tab-content .swipe {
     position: relative;
-    z-index: -1;
     margin-top: 50px;
 }
 
@@ -1079,6 +1080,60 @@ input[type="file"] {
     padding-top: 75px;
 }
 
+.container-selection-semaine {
+    display: flex;
+    background: var(--color-grey);
+}
+
+.container-selection-semaine h2 {
+    color: var(--color-grey-dark);
+}
+
+.container-selection-semaine button {
+    margin: 0 15px;
+}
+
+.container-jour {
+    margin-top: 12px;
+    margin-right: 23px;
+    margin-left: 23px;
+}
+
+.container-jour div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-jour h3 {
+    margin: 0;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.container-jour h3 span {
+    font-size: 12px;
+    color: var(--color-grey-dark);
+    margin-left: 10px;
+    margin-top: 1.5px;
+}
+
+.container-jour .aujourdhui {
+    font-size: 10px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.container-jour button.ajouter {
+    font-size: 32px;
+    font-family: 'comfortaa';
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
 /** ------------COURSES---------------- */
 
 .courses-container {
@@ -1126,6 +1181,14 @@ input[type="file"] {
     width: 24px;
     height: 24px;
     margin-right: 1px;
+}
+
+.icone.next {
+    background: url(../images/chevron.svg);
+    width: 24px;
+    height: 24px;
+    margin-right: 1px;
+    transform: rotate(180deg);
 }
 
 .icone.dashboard {

@@ -212,5 +212,76 @@ export const bouchon = {
                 "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             ]
         }
+    ],
+    agenda: [
+        {
+            annee: "2022",
+            semaine: "01",
+            dates: [
+                {
+                    jour: "lundi",
+                    mois: "janvier",
+                    numero: 1,
+                    recettes: [
+                        {
+                            key: 3,
+                            date: "13/11/2022",
+                            titre: "Poisson Toutou lait de coco",
+                            temps_preparation: {
+                                valeur: 35,
+                                unite: "min"
+                            },
+                            personnes: {
+                                valeur: 4,
+                                unite: "pers"
+                            },
+                            prix_moyen: {
+                                valeur: 35.99,
+                                unite: "€"
+                            },
+                            calories: {
+                                valeur: 3588,
+                                unite: "Kcal"
+                            },
+                            saison: "ete",
+                            ingredients: [
+                                {
+                                    key: 1,
+                                    produit: "poisson toutou",
+                                    quantite: "300",
+                                    unite_quantite: "g"
+                                },
+                                {
+                                    key: 2,
+                                    produit: "curry",
+                                    quantite: "10",
+                                    unite_quantite: "cas"
+                                },
+                                {
+                                    key: 3,
+                                    produit: "oignon",
+                                    quantite: "2",
+                                    unite_quantite: null
+                                },
+                                {
+                                    key: 4,
+                                    produit: "lait de coco",
+                                    quantite: "500",
+                                    unite_quantite: "ml"
+                                },
+                            ],
+                            etapes: [
+                                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                                "Lorem ipsum agenda dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                            ]
+                        }
+                    ]
+                },
+            ]
+        },
+        {}
     ]
 }
