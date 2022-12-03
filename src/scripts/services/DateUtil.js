@@ -19,6 +19,34 @@ function recupererDateLundiAvecNumeroSemaineEtAnnee(numeroSemaine, annee) {
     return ISOweekStart;
 }
 
+function recupererJourPremierJanvier(annee) {
+    const datePremierJanvier = new Date(annee, 0, 1);
+    if (datePremierJanvier.getDay() === 0) {
+        return nomsJours[6]
+    }
+    return nomsJours[datePremierJanvier.getDay() - 1];
+}
+
+function calculerAnneeBissextile(annee) {
+    if ((annee % 4 === 0 && annee % 100 > 0) || (annee % 400 === 0)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+export function recupererNombreSemaines(annee) {
+    const jourPremierJanvier = recupererJourPremierJanvier(annee);
+    const isAnneeBissextile = calculerAnneeBissextile(annee);
+    if (jourPremierJanvier === "jeudi"
+        || (isAnneeBissextile && jourPremierJanvier === "mercredi")) {
+            return 53;
+    }
+    else {
+        return 52;
+    }
+}
+
 export function recupererDateAujourdhuiFormateePourVignetteJourAgenda() {
     return formaterDatePourVignetteJourAgenda(new Date());
 }

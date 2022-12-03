@@ -1,16 +1,15 @@
 import { useState } from "react";
 import SelecteurSemaine from "./agenda/SelecteurSemaine";
-import { recupererNumeroSemaine,
-    recupererDateJoursPrecedents,
-    recupererDatesPourVignetteJourAgenda } from "../services/DateUtil";
+import { recupererNumeroSemaine, recupererDatesPourVignetteJourAgenda } from "../services/DateUtil";
 import VignetteJourAgenda from "./agenda/VignetteJourAgenda";
 
 export default function DetailOngletAgenda() {
 
     const dateAujourdhui = new Date();
     const [numeroSemaine, setNumeroSemaine] = useState(recupererNumeroSemaine(dateAujourdhui));
-    const annee = 2022;
-    const datesSemaine = recupererDatesPourVignetteJourAgenda(numeroSemaine, annee);
+    const [numeroAnnee, setNumeroAnnee] = useState(new Date().getFullYear());
+
+    const datesSemaine = recupererDatesPourVignetteJourAgenda(numeroSemaine, numeroAnnee);
 
     const vignettesJourAgenda = Object.keys(datesSemaine).map((date, i) => {
         return <VignetteJourAgenda key={i} jour={date} date={datesSemaine[date]} />
@@ -18,7 +17,13 @@ export default function DetailOngletAgenda() {
 
     return (
         <div className="swipe agenda">
-            <SelecteurSemaine semaine={numeroSemaine} setSemaine={setNumeroSemaine} />
+            <div className="header-agenda">
+                <SelecteurSemaine
+                    semaine={numeroSemaine}
+                    setSemaine={setNumeroSemaine}
+                    annee={numeroAnnee}
+                    setAnnee={setNumeroAnnee}/>
+            </div>
             {vignettesJourAgenda}
         </div>
     );

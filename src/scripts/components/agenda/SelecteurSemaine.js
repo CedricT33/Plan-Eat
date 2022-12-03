@@ -1,12 +1,28 @@
-export default function SelecteurSemaine({semaine, setSemaine}) {
+import { recupererNombreSemaines } from "../../services/DateUtil";
+
+export default function SelecteurSemaine({semaine, setSemaine, annee, setAnnee}) {
 
     function onClickBackButton(e) {
-        setSemaine(semaine - 1);
+        const numeroSemaineMaxAnneePrecedente = recupererNombreSemaines(annee - 1);
+        if (semaine === 1) {
+            setSemaine(numeroSemaineMaxAnneePrecedente);
+            setAnnee(annee - 1);
+        }
+        else {
+            setSemaine(semaine - 1);
+        }
         e.preventDefault();
     }
 
     function onClickNextButton(e) {
-        setSemaine(semaine + 1);
+        const numeroSemaineMax = recupererNombreSemaines(annee);
+        if (semaine === numeroSemaineMax) {
+            setSemaine(1);
+            setAnnee(annee + 1)
+        }
+        else {
+            setSemaine(semaine + 1);
+        }
         e.preventDefault();
     }
 

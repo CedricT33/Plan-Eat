@@ -663,7 +663,7 @@ li.ingredient {
     font-weight: bold;
     letter-spacing: 1px;
     font-size: 14px;
-    padding: 10px 15px;
+    padding: 10px 0;
     background: var(--color-grey);
 }
 
@@ -1082,15 +1082,17 @@ input[type="file"] {
 
 .container-selection-semaine {
     display: flex;
+    width: 50vw;
+    justify-content: space-between;
+    margin-left: 3vw;
+}
+
+.header-agenda {
     background: var(--color-grey);
 }
 
 .container-selection-semaine h2 {
     color: var(--color-grey-dark);
-}
-
-.container-selection-semaine button {
-    margin: 0 15px;
 }
 
 .container-jour {
