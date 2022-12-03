@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3dcdce5b.css",
-    "main.js": "/static/js/main.97b1d3ef.js",
+    "main.js": "/static/js/main.4ccc0a7c.js",
     "static/media/Comfortaa-Light.ttf": "/static/media/Comfortaa-Light.2d79c8b673318d831c9b.ttf",
     "static/media/TitanOne-Regular.ttf": "/static/media/TitanOne-Regular.465442311c8eb8cd5fe8.ttf",
     "service-worker.js": "/service-worker.js",
@@ -54,10 +54,10 @@
     "static/media/clock.svg": "/static/media/clock.5d7c9dce675fd3b3768b.svg",
     "static/media/chevron.svg": "/static/media/chevron.1b905eeb40f2f31f0e9e.svg",
     "main.3dcdce5b.css.map": "/static/css/main.3dcdce5b.css.map",
-    "main.97b1d3ef.js.map": "/static/js/main.97b1d3ef.js.map"
+    "main.4ccc0a7c.js.map": "/static/js/main.4ccc0a7c.js.map"
   },
   "entrypoints": [
     "static/css/main.3dcdce5b.css",
-    "static/js/main.97b1d3ef.js"
+    "static/js/main.4ccc0a7c.js"
   ]
 }
