@@ -7,7 +7,7 @@ export default function DetailOngletRecette({ recette }) {
     })
 
     return (
-        <div className="swipe">
+        <div className="swipe recette">
             <h2>Ingredients</h2>
             <div className="ingredients">
                 <ul>

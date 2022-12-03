@@ -559,6 +559,8 @@ li.ingredient {
     width: 102vw;
     padding-bottom: 5px;
     background: var(--color-grey-light);
+    z-index: 4;
+    position: relative;
 }
 
 .detail-container .icone-container {
@@ -663,7 +665,7 @@ li.ingredient {
     font-weight: bold;
     letter-spacing: 1px;
     font-size: 14px;
-    padding: 10px 0;
+    padding: 10px 15px;
     background: var(--color-grey);
 }
 
@@ -1093,6 +1095,7 @@ input[type="file"] {
 
 .container-selection-semaine h2 {
     color: var(--color-grey-dark);
+    padding: 10px 0;
 }
 
 .container-jour {
