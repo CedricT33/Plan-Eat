@@ -430,6 +430,8 @@ li.ingredient {
     background: var(--color-light);
     box-shadow: 0px 0px 0px 1px var(--color-grey-dark);
     border-radius: 17px 0px;
+    max-width: 380px;
+    overflow: hidden;
 }
 
 #vignettes-dashboard .vignette:last-child {
@@ -461,10 +463,10 @@ li.ingredient {
 #vignettes-dashboard .vignette .photo {
     background: var(--color-primary);
     width: 85vw;
+    max-width: 380px;
     height: 99px;
     border-radius: 16px 0 0 0;
     border-bottom: 1.5px solid var(--color-grey-dark);
-    overflow: hidden;
 }
 
 #vignettes-dashboard .vignette .photo img {

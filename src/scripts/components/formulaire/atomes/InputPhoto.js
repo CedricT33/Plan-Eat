@@ -15,7 +15,8 @@ export default function InputPhoto() {
         }
 
         compresserFichier(fichier, {
-            quality: 0.2,
+            quality: 0.3,
+            width: 700,
             success(imgBlob) {
                 afficherImageDansRecette(imgBlob);
             },
