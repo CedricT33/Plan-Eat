@@ -14,6 +14,7 @@ export default function VignetteIngredient({ ingredient, setIngredients }) {
 
     const nomIngredientAvecMajuscule = mettrePremiereLettreEnMajuscule(ingredient.produit);
     const affichageCalories = ingredient.calories.valeur + " " + ingredient.calories.unite + " / 100 gr";
+    const affichagePrix = ingredient.prix_moyen.valeur + " " + ingredient.prix_moyen.unite + " / Kg";
 
     return (
         <li key={ingredient.key} id={ingredient.key} className="vignette"
@@ -30,8 +31,7 @@ export default function VignetteIngredient({ ingredient, setIngredients }) {
                         <div className="calories">{affichageCalories}</div>
                     </div>
                     <div>
-                        <div className="prix">{ingredient.prix_moyen.valeur + " "
-                            + ingredient.prix_moyen.unite + " / Kg"}</div>
+                        <div className="prix">{affichagePrix}</div>
                     </div>
                 </div>
             </Link>

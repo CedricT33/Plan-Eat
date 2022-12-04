@@ -383,7 +383,7 @@ li.ingredient {
     height: 60px;
     width: 60px;
     background: var(--color-light);
-    border: 1.5px solid var(--color-grey-dark);
+    box-shadow: 0px 0px 0px 1px var(--color-grey-dark);
     border-radius: 15px;
     margin: 10px;
     display: inline-block;
@@ -428,7 +428,7 @@ li.ingredient {
     height: 155px;
     margin: 10px 0px;
     background: var(--color-light);
-    border: 1.5px solid var(--color-grey-dark);
+    box-shadow: 0px 0px 0px 1px var(--color-grey-dark);
     border-radius: 17px 0px;
 }
 
@@ -643,8 +643,6 @@ li.ingredient {
 }
 
 .detail-container .tab-content {
-    height: calc(100vh - 307px);
-    overflow-y: auto;
     margin-top: -43px;
 }
 
@@ -659,6 +657,12 @@ li.ingredient {
     top: -50px;
     border-bottom: 50px solid var(--color-grey);
     border-right: 100vw solid transparent;
+}
+
+.detail-container .tab-content .swipe.recette{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100vh - 307px);
 }
 
 .detail-container .tab-content h2 {
@@ -736,7 +740,7 @@ footer {
     height: 50px;
     margin: 10px 0px;
     background: var(--color-light);
-    border: 1.5px solid var(--color-grey-dark);
+    box-shadow: 0px 0px 0px 1px var(--color-grey-dark);
     border-radius: 17px 0px;
     transition: 0.2s;
 }
@@ -818,8 +822,8 @@ form .options {
     background: var(--color-light);
     position: absolute;
     top: 38px;
-    width: calc(100% - 3px);;
-    border: 1.5px solid var(--color-grey-dark);
+    width: 100%;
+    box-shadow: 0px 0px 0px 1.5px var(--color-grey-dark);
     border-radius: 6px;
     transition: opacity 0.1s 0.2s, max-height 0.3s ease-out;
     max-height: 0;
@@ -888,7 +892,7 @@ form .saisie::placeholder {
 }
 
 form .error .saisie {
-    border: 1.5px solid var(--color-red);
+    box-shadow: 0px 0px 0px 1px var(--color-red);
 }
 
 form .erreur {
@@ -1098,6 +1102,12 @@ input[type="file"] {
     padding: 10px 0;
 }
 
+.container-dates {
+    height: calc(100vh - 393px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .container-jour {
     margin-top: 12px;
     margin-right: 23px;
@@ -1137,6 +1147,81 @@ input[type="file"] {
     font-family: 'comfortaa';
     color: var(--color-primary);
     font-weight: bold;
+}
+
+.container-jour ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-jour .vignette-recette {
+    display: flex;
+    align-items: center;
+    width: 85vw;
+    height: 50px;
+    margin: 5px 0px;
+    background: var(--color-light);
+    box-shadow: 0px 0px 0px 1px var(--color-grey-dark);
+    border-radius: 17px 0px;
+    transition: 0.2s;
+}
+
+.container-jour .vignette-recette.swiped {
+    margin-right: 90px;
+}
+
+.container-jour .titre-recette {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.container-jour .container-infos {
+    width: 100%;
+}
+
+.container-jour .prix-cal {
+    display: flex;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--color-grey-dark);
+    justify-content: space-between;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+.container-jour .image-recette {
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--color-primary);
+    margin: 0 7px;
+    overflow: hidden;
+}
+
+.container-jour .image-recette img {
+    width: 120%;
+    height: 100%;
+    margin-left: -10px;
+    object-fit: cover;
+}
+
+.container-jour:last-of-type {
+    margin-bottom: 30px;
+}
+
+.icone.recette.suppr {
+    opacity: 0;
+    position: absolute;
+    top: 12px;
+    right: -50px;
+    transition: 1s;
+    filter: var(--icone-primary);
+}
+
+.swiped .icone.recette.suppr {
+    opacity: 1;
+    transition: 0s;
 }
 
 /** ------------COURSES---------------- */
