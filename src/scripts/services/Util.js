@@ -5,6 +5,10 @@ const listeChainesARetirerBlob = [
     "data:image/jpeg;base64,"
 ]
 
+export function genererIndexUnique() {
+    return parseInt(Date.now() + "" + Math.floor(Math.random() * 1000));
+}
+
 export function recupererDateAujourdhui() {
     const today = new Date();
     const jour = today.getDate();

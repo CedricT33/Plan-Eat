@@ -1,3 +1,5 @@
+import { genererIndexUnique } from "./Util";
+
     //////////////////////////////////////////////////
     ///////////////// CONSTANTES /////////////////////
     //////////////////////////////////////////////////
@@ -42,26 +44,6 @@ function recupererLocalStorage() {
     return DONNEES;
 }
 
-function recupererIndexMax(typeDonnee) {
-    const donneesLocales = recupererLocalStorage();
-    let tableauIndex = [];
-
-    for (const clefdonnee in donneesLocales) {
-        if (clefdonnee === typeDonnee) {
-            donneesLocales[clefdonnee].forEach(donnee => {
-                tableauIndex.push(donnee?.key);
-            })
-        }
-    }
-
-    if (tableauIndex.length !== 0) {
-        return (Math.max(...tableauIndex) + 1);
-    }
-    else {
-        return 1;
-    }
-}
-
 
     //////////////////////////////////////////////////
     ///////////// FONCTIONS PUBLIQUES ////////////////
@@ -80,7 +62,7 @@ export function enregistrerLocalStorage(donneesAEnregistrer) {
     for (const clefdonnee in donneesLocales) {
         if (clefdonnee === Object.keys(donneesAEnregistrer)[0]) {
             if (!donneesAEnregistrer[clefdonnee].key) {
-                donneesAEnregistrer[clefdonnee].key = recupererIndexMax(clefdonnee);
+                donneesAEnregistrer[clefdonnee].key = genererIndexUnique();
             }
             supprimerSiDejaPresent(donneesLocales[clefdonnee], donneesAEnregistrer[clefdonnee]?.key);
             donneesLocales[clefdonnee].push(donneesAEnregistrer[clefdonnee]);

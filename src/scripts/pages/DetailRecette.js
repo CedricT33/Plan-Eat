@@ -1,14 +1,16 @@
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import InfoBulleRecette from "../components/InfoBulleRecette";
 import Tabs from "../components/Tabs";
 import DetailOngletRecette from "../components/DetailOngletRecette";
 import DetailOngletAgenda from "../components/DetailOngletAgenda";
 import { remplacerCharacteresSpeciaux, base64toBlob } from "../services/Util";
+import { recupererRecetteAvecKey } from "../services/RecetteUtil";
 
 export default function DetailRecette() {
 
     const params = useLocation();
-    const recette = params.state.recette;
+    const [recette, setRecette] = useState(recupererRecetteAvecKey(params.state.keyRecette));
     const saison = remplacerCharacteresSpeciaux(recette.saison);
     const photoBase64 = recette?.photo;
     const photoBlob = photoBase64 ? base64toBlob(photoBase64) : null;

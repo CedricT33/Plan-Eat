@@ -24,6 +24,11 @@ export function recupererIngredientAvecKey(clef) {
     })
 }
 
+export function recupererRecetteAvecKey(clef) {
+    const listeRecettes = recupererDonneesAvecType(dataConstantes.CATEGORIES.RECETTES);
+    return listeRecettes?.find(recette => recette.key === clef);
+}
+
 export function arrondirQuantiteIngredient(ingredient) {
     return parseInt(ingredient.quantite);
 }

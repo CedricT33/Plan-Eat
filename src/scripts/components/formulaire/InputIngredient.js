@@ -46,6 +46,7 @@ export default function InputIngredient({id, ingredient}) {
             elmtSelectIngredient.attributes.clef.value = ingredient.key;
             elmtInputQuantite.value = ingredient.quantite;
             elmtInputQuantite.attributes.clef.value = ingredient.key;
+            setUniteIngredientSelected(ingredient.unite_quantite.raccourci);
         }
     }
 
