@@ -1,6 +1,20 @@
-import { recupererDonneesAvecType, enregistrerLocalStorage, supprimerLocalStorage } from "./StorageService";
+import { recupererDonneesAvecType,
+    enregistrerLocalStorage,
+    supprimerLocalStorage } from "./StorageService";
+    import { recupererNumeroSemaine} from "../services/DateUtil";
 
 let agenda = [];
+const dateAujourdhui = new Date();
+export let semaineActive = recupererNumeroSemaine(dateAujourdhui);
+export let anneeActive = new Date().getFullYear();
+
+export function modifierSemaineActive(semaine) {
+    semaineActive = semaine;
+}
+
+export function modifierAnneeActive(annee) {
+    anneeActive = annee;
+}
 
 function verifierSiRecetteExiste(agendaDuJour, indexRecette) {
     let isDejaRecette = false;
@@ -82,12 +96,16 @@ export function ajouterRecetteDansAgenda(dateComplete, indexRecette, setRecettes
 
     if (!agendaDeLaSemaine && recette) {
         enregistrerLocalStorage({ agenda: ajoutComplet });
-        setRecettesDuJour([recette]);
+        if (setRecettesDuJour) {
+            setRecettesDuJour([recette]);
+        }
     }
     else if (agendaDeLaSemaine && !agendaDuJour && recette) {
         agendaDeLaSemaine.dates.push(ajoutDate);
         enregistrerLocalStorage({ agenda: agendaDeLaSemaine });
-        setRecettesDuJour([recette]);
+        if (setRecettesDuJour) {
+            setRecettesDuJour([recette]);
+        }
     }
     else if (agendaDeLaSemaine && agendaDuJour && recette) {
         ajouterRecetteDansAgendaSiPossible(agendaDeLaSemaine, agendaDuJour, recette, setRecettesDuJour);   

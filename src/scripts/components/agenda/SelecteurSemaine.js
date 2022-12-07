@@ -1,16 +1,35 @@
+import { useLocation } from "react-router-dom";
 import { recupererNombreSemaines } from "../../services/DateUtil";
 import { recupererAgendaSemaine } from "../../services/AgendaService";
+import { modifierAnneeActive, modifierSemaineActive } from "../../services/AgendaService";
+import { routesConstantes } from "../../constants/AppConstantes";
 
 export default function SelecteurSemaine({semaine, setSemaine, annee, setAnnee, setAgendaSemaine}) {
+
+    const { pathname } = useLocation();
+
+    function modifierSemaine(semaine) {
+        setSemaine(semaine);
+        if (pathname === routesConstantes.AGENDA) {
+            modifierSemaineActive(semaine);
+        }
+    }
+
+    function modifierAnnee(annee) {
+        setAnnee(annee);
+        if (pathname === routesConstantes.AGENDA) {
+            modifierAnneeActive(annee);
+        }
+    }
 
     function onClickBackButton(e) {
         const numeroSemaineMaxAnneePrecedente = recupererNombreSemaines(annee - 1);
         if (semaine === 1) {
-            setSemaine(numeroSemaineMaxAnneePrecedente);
-            setAnnee(annee - 1);
+            modifierSemaine(numeroSemaineMaxAnneePrecedente);
+            modifierAnnee(annee - 1);
         }
         else {
-            setSemaine(semaine - 1);
+            modifierSemaine(semaine - 1);
         }
         setAgendaSemaine(recupererAgendaSemaine(annee, semaine));
         e.preventDefault();
@@ -19,11 +38,11 @@ export default function SelecteurSemaine({semaine, setSemaine, annee, setAnnee, 
     function onClickNextButton(e) {
         const numeroSemaineMax = recupererNombreSemaines(annee);
         if (semaine === numeroSemaineMax) {
-            setSemaine(1);
-            setAnnee(annee + 1)
+            modifierSemaine(1);
+            modifierAnnee(annee + 1);
         }
         else {
-            setSemaine(semaine + 1);
+            modifierSemaine(semaine + 1);
         }
         setAgendaSemaine(recupererAgendaSemaine(annee, semaine));
         e.preventDefault();

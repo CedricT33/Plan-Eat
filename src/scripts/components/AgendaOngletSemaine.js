@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import SelecteurSemaine from "./agenda/SelecteurSemaine";
 import VignetteJourAgenda from "./agenda/VignetteJourAgenda";
-import { recupererNumeroSemaine, recupererDatesPourVignetteJourAgenda } from "../services/DateUtil";
+import { recupererDatesPourVignetteJourAgenda } from "../services/DateUtil";
 import { recupererAgendaSemaine } from "../services/AgendaService";
+import { anneeActive, semaineActive } from "../services/AgendaService";
 
 export default function AgendaOngletSemaine() {
 
-    const dateAujourdhui = new Date();
-    const [numeroSemaine, setNumeroSemaine] = useState(recupererNumeroSemaine(dateAujourdhui));
-    const [numeroAnnee, setNumeroAnnee] = useState(new Date().getFullYear());
+    // const dateAujourdhui = new Date();
+    const [numeroSemaine, setNumeroSemaine] = useState(semaineActive);
+    const [numeroAnnee, setNumeroAnnee] = useState(anneeActive);
     const [agendaSemaine, setAgendaSemaine] = useState(recupererAgendaSemaine(numeroAnnee, numeroSemaine));
     const datesSemaine = recupererDatesPourVignetteJourAgenda(numeroSemaine, numeroAnnee);
 

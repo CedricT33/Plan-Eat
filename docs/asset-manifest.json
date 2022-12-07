@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.96eb9b9d.css",
-    "main.js": "/static/js/main.894d7799.js",
+    "main.css": "/static/css/main.265aaf38.css",
+    "main.js": "/static/js/main.72c28b09.js",
     "static/media/Comfortaa-Light.ttf": "/static/media/Comfortaa-Light.2d79c8b673318d831c9b.ttf",
     "static/media/TitanOne-Regular.ttf": "/static/media/TitanOne-Regular.465442311c8eb8cd5fe8.ttf",
     "service-worker.js": "/service-worker.js",
@@ -53,11 +53,11 @@
     "static/media/toque.svg": "/static/media/toque.9792c8655fe679f49970.svg",
     "static/media/clock.svg": "/static/media/clock.5d7c9dce675fd3b3768b.svg",
     "static/media/chevron.svg": "/static/media/chevron.1b905eeb40f2f31f0e9e.svg",
-    "main.96eb9b9d.css.map": "/static/css/main.96eb9b9d.css.map",
-    "main.894d7799.js.map": "/static/js/main.894d7799.js.map"
+    "main.265aaf38.css.map": "/static/css/main.265aaf38.css.map",
+    "main.72c28b09.js.map": "/static/js/main.72c28b09.js.map"
   },
   "entrypoints": [
-    "static/css/main.96eb9b9d.css",
-    "static/js/main.894d7799.js"
+    "static/css/main.265aaf38.css",
+    "static/js/main.72c28b09.js"
   ]
 }
