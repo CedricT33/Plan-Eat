@@ -10,7 +10,6 @@ export default function AgendaOngletSemaine() {
     const [numeroSemaine, setNumeroSemaine] = useState(recupererNumeroSemaine(dateAujourdhui));
     const [numeroAnnee, setNumeroAnnee] = useState(new Date().getFullYear());
     const [agendaSemaine, setAgendaSemaine] = useState(recupererAgendaSemaine(numeroAnnee, numeroSemaine));
-
     const datesSemaine = recupererDatesPourVignetteJourAgenda(numeroSemaine, numeroAnnee);
 
     const vignettesJourAgenda = Object.keys(datesSemaine).map((date, i) => {
@@ -34,7 +33,8 @@ export default function AgendaOngletSemaine() {
                     semaine={numeroSemaine}
                     setSemaine={setNumeroSemaine}
                     annee={numeroAnnee}
-                    setAnnee={setNumeroAnnee} />
+                    setAnnee={setNumeroAnnee}
+                    setAgendaSemaine={setAgendaSemaine} />
             </div>
             <div className="container-dates">
                 {vignettesJourAgenda}

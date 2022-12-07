@@ -1,6 +1,7 @@
 import { recupererNombreSemaines } from "../../services/DateUtil";
+import { recupererAgendaSemaine } from "../../services/AgendaService";
 
-export default function SelecteurSemaine({semaine, setSemaine, annee, setAnnee}) {
+export default function SelecteurSemaine({semaine, setSemaine, annee, setAnnee, setAgendaSemaine}) {
 
     function onClickBackButton(e) {
         const numeroSemaineMaxAnneePrecedente = recupererNombreSemaines(annee - 1);
@@ -11,6 +12,7 @@ export default function SelecteurSemaine({semaine, setSemaine, annee, setAnnee})
         else {
             setSemaine(semaine - 1);
         }
+        setAgendaSemaine(recupererAgendaSemaine(annee, semaine));
         e.preventDefault();
     }
 
@@ -23,6 +25,7 @@ export default function SelecteurSemaine({semaine, setSemaine, annee, setAnnee})
         else {
             setSemaine(semaine + 1);
         }
+        setAgendaSemaine(recupererAgendaSemaine(annee, semaine));
         e.preventDefault();
     }
 
