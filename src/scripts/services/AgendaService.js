@@ -1,19 +1,34 @@
 import { recupererDonneesAvecType,
     enregistrerLocalStorage,
     supprimerLocalStorage } from "./StorageService";
-    import { recupererNumeroSemaine} from "../services/DateUtil";
+import { recupererNumeroSemaine } from "../services/DateUtil";
 
 let agenda = [];
 const dateAujourdhui = new Date();
 export let semaineActive = recupererNumeroSemaine(dateAujourdhui);
-export let anneeActive = new Date().getFullYear();
+export let anneeActiveOngletSemaine = dateAujourdhui.getFullYear();
+export let anneeActiveOngletMois = dateAujourdhui.getFullYear();
+export let moisActif = dateAujourdhui.getMonth();
+export let ongletAgendaActif = "Semaine";
 
 export function modifierSemaineActive(semaine) {
     semaineActive = semaine;
 }
 
-export function modifierAnneeActive(annee) {
-    anneeActive = annee;
+export function modifierAnneeActiveOngletSemaine(annee) {
+    anneeActiveOngletSemaine = annee;
+}
+
+export function modifierAnneeActiveOngletMois(annee) {
+    anneeActiveOngletMois = annee;
+}
+
+export function modifierMoisActif(mois) {
+    moisActif = mois;
+}
+
+export function modifierOngletAgendaActif(ongletActif) {
+    ongletAgendaActif = ongletActif;
 }
 
 function verifierSiRecetteExiste(agendaDuJour, indexRecette) {
@@ -60,21 +75,19 @@ function cleanerLocalStorageAgendaApresSuppression() {
     })
 }
 
-export function recupererAgendaSemaine(annee, semaine) {
-    agenda = recupererDonneesAvecType("agenda");
+export function recupererAgendaSemaine(annee, semaine, agenda) {
+    agenda = agenda ? agenda : recupererDonneesAvecType("agenda");
     return agenda?.find( element => (
         parseInt(element.annee) === annee)
         && parseInt(element.semaine) === semaine );
 }
 
-export function recupererAgendaDuJour(agendaDeLaSemaine, numeroJour, mois) {
-    return agendaDeLaSemaine?.dates.find( element => (
-        element.mois === mois && element.numero === numeroJour
-    ));
+export function recupererAgendaDuJour(agendaDeLaSemaine, numeroJour) {
+    return agendaDeLaSemaine?.dates.find( element => element.numero === numeroJour );
 }
 
 export function ajouterRecetteDansAgenda(dateComplete, indexRecette, setRecettesDuJour) {
-    const {jour, annee, semaine, date} = dateComplete;
+    let {jour, annee, semaine, date} = dateComplete;
     const recette = recupererRecetteAvecIndex(indexRecette);
     const agendaDeLaSemaine = recupererAgendaSemaine(annee, semaine);
     const numeroJour = parseInt(date.split(" ")[0]);

@@ -11,7 +11,7 @@ export default function VignetteJourAgenda({jour, date, semaine, annee, agendaSe
     const navigate = useNavigate();
 
     const indexRecette = parseInt(document.querySelector(".detail-container")?.getAttribute("index"));
-    const dateAjourdhui = recupererDateAujourdhuiFormateePourVignetteJourAgenda();
+    const dateAujourdhui = recupererDateAujourdhuiFormateePourVignetteJourAgenda();
     const numeroJour = parseInt(date.split(" ")[0]);
     const mois = date.split(" ")[1];
     const agendaDuJour = recupererAgendaDuJour(agendaSemaine, numeroJour, mois);
@@ -36,7 +36,7 @@ export default function VignetteJourAgenda({jour, date, semaine, annee, agendaSe
         }
     }
 
-    const pastilleInfoAujourdhui = dateAjourdhui === date
+    const pastilleInfoAujourdhui = dateAujourdhui === (date + " " + annee)
         ? <div className="aujourdhui">{`(aujourd'hui)`}</div>
         : null;
 

@@ -13,6 +13,15 @@ export default function DetailOngletAgenda() {
     const datesSemaine = recupererDatesPourVignetteJourAgenda(numeroSemaine, numeroAnnee);
 
     const vignettesJourAgenda = Object.keys(datesSemaine).map((date, i) => {
+        if (numeroSemaine === (52 || 53) && datesSemaine[date].includes("janvier")) {
+            return <VignetteJourAgenda
+                    key={i}
+                    jour={date}
+                    date={datesSemaine[date]}
+                    annee={numeroAnnee + 1}
+                    semaine={numeroSemaine}
+                    agendaSemaine={recupererAgendaSemaine(numeroAnnee + 1, numeroSemaine)} />
+        }
         return <VignetteJourAgenda
                     key={i}
                     jour={date}

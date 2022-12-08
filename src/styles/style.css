@@ -23,6 +23,7 @@ html {
     --icone-grey-dark: invert(46%) sepia(15%) saturate(262%) hue-rotate(166deg) brightness(94%) contrast(90%);
     --icone-light: invert(100%) sepia(6%) saturate(253%) hue-rotate(286deg) brightness(111%) contrast(91%);
     --icone-primary: invert(68%) sepia(23%) saturate(729%) hue-rotate(50deg) brightness(98%) contrast(84%);
+    --icone-grey: invert(97%) sepia(3%) saturate(208%) hue-rotate(336deg) brightness(93%) contrast(94%);
 }
 
 .rouge {
@@ -59,6 +60,7 @@ h1, h2, p {
 
 a {
     text-decoration: none;
+    width: 100%;
 }
 
 ul {
@@ -1167,6 +1169,10 @@ input[type="file"] {
     font-weight: bold;
 }
 
+.container-jour .info {
+    width: 100%;
+}
+
 .container-jour button.ajouter {
     font-size: 32px;
     font-family: 'comfortaa';
@@ -1199,6 +1205,7 @@ input[type="file"] {
 .vignette-recette .titre-recette {
     font-size: 15px;
     font-weight: bold;
+    color: var(--color-dark);
 }
 
 .vignette-recette .container-infos {
@@ -1253,6 +1260,151 @@ input[type="file"] {
     transition: 0s;
 }
 
+.agenda-mois .container-vignette {
+    height: 70px;
+    width: 70px;
+    background: var(--color-light);
+    border-radius: 10px 0px;
+    box-shadow: 0px 0px 0px 1px var(--color-grey-dark);
+    margin: 10px;
+}
+
+.agenda-mois .container-vignette.aujourdhui {
+    box-shadow: 0px 0px 0px 1.2px var(--color-primary);
+}
+
+.agenda-mois .container-mois {
+    height: calc(100vh - 150px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.agenda-mois .container-semaine {
+    max-width: 95vw;
+}
+
+.agenda-mois .container-semaine:last-of-type {
+    margin-bottom: 100px;
+}
+
+.agenda-mois h3 {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--color-grey-dark);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.agenda-mois h4 {
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--color-grey-dark);
+    margin: 0;
+    padding-top: 4px;
+    text-align: center;
+}
+
+.agenda-mois ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.agenda-mois .container-vignette ul {
+    flex-direction: column;
+    height: 50px;
+    padding-top: 3px;
+}
+
+.agenda-mois .container-vignette li {
+    font-size: 9px;
+    color: var(--color-primary);
+    text-align: center;
+    font-weight: bold;
+}
+
+.agenda-mois .container-vignette li:nth-child(3) {
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.icone-pomme-ajout {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-grey);
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-left: -1px;
+    position: relative;
+}
+
+.icone-pomme-ajout::before {
+    content: '';
+    background-size: 100% !important;
+    position: absolute;
+    filter: var(--icone-grey);
+    background: url(../images/apple.svg);
+    width: 45px;
+    height: 45px;
+    top: -1px;
+    left: 14px;
+}
+
+/** -------------RECHERCHE------------- */
+
+#container_recherche {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px;
+    height: 35px;
+    box-shadow: inset 1px 1px 1px rgb(0 0 0 / 25%);
+    border-radius: 20px;
+    background: var(--color-grey);
+}
+
+#container_recherche input {
+    width: calc(100% - 93px);
+    padding: 0;
+    border: none;
+    font-family: 'comfortaa';
+    font-size: 15px;
+    font-weight: bold;
+    background: none;
+    color: var(--color-dark);
+}
+
+#container_recherche .croix {
+    font-family: 'comfortaa';
+    font-size: 40px;
+    transform: rotate(45deg);
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 3px;
+    color: var(--color-grey-dark);
+    opacity: 0;
+}
+
+#container_recherche .croix.show {
+    opacity: 1;
+}
+
+#container_recherche .icone.loupe {
+    margin: 0px 8px;
+    margin-top: 1px;
+}
+
+#container_recherche input::placeholder {
+    color: var(--color-grey-dark);
+    font-weight: initial;
+}
+
 /** ------------COURSES---------------- */
 
 .courses-container {
@@ -1278,6 +1430,10 @@ input[type="file"] {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.choix-plat-container .no-recette {
+    text-align: center;
 }
 
 /** ------------PARAMETRES---------------- */
@@ -1308,6 +1464,12 @@ input[type="file"] {
     width: 24px;
     height: 24px;
     margin-left: 1px;
+}
+
+.icone.loupe {
+    background: url(../images/loupe.svg);
+    width: 24px;
+    height: 24px;
 }
 
 .icone.back {

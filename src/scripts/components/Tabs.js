@@ -9,14 +9,19 @@ export default function Tabs({ children }) {
 
     const [activeTab, setActiveTab] = useState(ongletActif?.title);
 
-    const onClickTabItem = tab => setActiveTab(tab);
+    const onClickTabItem = tab => {
+        setActiveTab(tab.props.title);
+        if (tab.props.onClick) {
+            tab.props.onClick(tab.props);
+        }
+    }
 
     const listeTabs = children.map(tab => {
         const { title } = tab.props;
         return <Tab 
             key={title}
             title={title}
-            onClick={onClickTabItem}
+            onClick={() => onClickTabItem(tab)}
             isActif={title === activeTab} />
     })
 

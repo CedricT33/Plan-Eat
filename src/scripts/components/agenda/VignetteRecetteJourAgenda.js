@@ -1,6 +1,8 @@
 import { touchStart, touchEnd } from "../../services/SwipeService";
 import { base64toBlob } from "../../services/Util";
 import { supprimerRecetteAgenda } from "../../services/AgendaService";
+import { routesConstantes } from "../../constants/AppConstantes";
+import { Link } from "react-router-dom";
 
 export default function VignetteRecetteJourAgenda({recette, dateComplete, setRecettesDuJour}) {
 
@@ -20,17 +22,21 @@ export default function VignetteRecetteJourAgenda({recette, dateComplete, setRec
             <div className="icone recette suppr"
                     onClick={e => supprimerRecetteAgenda(identifiant, dateComplete, setRecettesDuJour)}></div>
 
-            <div className="image-recette">
-                {photoRecette}
-            </div>
+            <Link to={routesConstantes.DETAIL_RECETTE} state={{keyRecette: recette.key}}>
+                <div className="info">
+                    <div className="image-recette">
+                        {photoRecette}
+                    </div>
 
-            <div className="container-infos">
-                <div className="titre-recette">{recette.titre}</div>
-                <div className="prix-cal">
-                    <div className="calories">{affichageCalories}</div>
-                    <div className="prix">{affichagePrix}</div>
+                    <div className="container-infos">
+                        <div className="titre-recette">{recette.titre}</div>
+                        <div className="prix-cal">
+                            <div className="calories">{affichageCalories}</div>
+                            <div className="prix">{affichagePrix}</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </Link>
         </li>
     )
 }

@@ -17,8 +17,12 @@ export function recupererDateAujourdhui() {
     return jour + "/" + mois + "/" + annee;
 }
 
-export function mettrePremiereLettreEnMajuscule(ChaineDeCaracteres) {
-    return ChaineDeCaracteres.charAt(0).toUpperCase() + ChaineDeCaracteres.slice(1);
+export function mettrePremiereLettreEnMajuscule(chaineDeCaracteres) {
+    return chaineDeCaracteres?.charAt(0)?.toUpperCase() + chaineDeCaracteres?.slice(1);
+}
+
+export function tronquerChaineDeCaracteres(chaineDeCaracteres, nombreDeCaracteres) {
+    return chaineDeCaracteres.substring(0,nombreDeCaracteres) + "...";
 }
 
 export function remplacerCharacteresSpeciaux(ChaineDeCaracteres) {

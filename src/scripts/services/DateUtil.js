@@ -1,8 +1,15 @@
+import { mettrePremiereLettreEnMajuscule } from "./Util";
+
 export const nomsMois = ["janvier", "fevrier", "mars", "avril", "mai", "juin",
     "juillet", "août", "septembre", "octobre", "novembre", "decembre"
 ];
 
-const nomsJours = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
+export const nomsJours = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
+
+export function formaterJourPourVignetteAgendaMois(jour) {
+    let jourFormated = mettrePremiereLettreEnMajuscule(jour);
+    return jourFormated.slice(0,3) + ".";
+}
 
 function formaterDatePourVignetteJourAgenda(date) {
     return date.getDate() + " " + nomsMois[date.getMonth()];
@@ -35,6 +42,36 @@ function calculerAnneeBissextile(annee) {
     }
 }
 
+export function recupererNombresJoursParSemainesDansMois(annee, mois) {
+    const nombresJoursParSemaine = [];
+    const premierJourDuMois = recupererPremierJourDuMois(annee, mois).getDay();
+    const nombreJourDansMois = recupererNombreJoursDansMois(annee, mois);
+    if (premierJourDuMois === 0){
+        nombresJoursParSemaine.push(1);
+    }
+    else {
+        nombresJoursParSemaine.push(8 - premierJourDuMois);
+    }
+    const nombreJoursApresPremiereSemaine = nombreJourDansMois - nombresJoursParSemaine[0];
+    const nombreSemainesPleinesDecimal = (nombreJoursApresPremiereSemaine / 7).toString().split(".");
+    const joursRestantDerniereSemaine = Math.round(parseFloat( "0." + nombreSemainesPleinesDecimal[1]) * 7);
+    let nombreSemainesPleines = parseInt(nombreSemainesPleinesDecimal[0]);    
+    while (nombreSemainesPleines > 0) {
+        nombresJoursParSemaine.push(7);
+        nombreSemainesPleines -= 1;
+    }
+    nombresJoursParSemaine.push(joursRestantDerniereSemaine);
+    return nombresJoursParSemaine;
+}
+
+export function recupererPremierJourDuMois(annee, mois) {
+    return new Date(annee, mois, 1);
+}
+
+export function recupererNombreJoursDansMois(annee, mois) {
+    return new Date(annee, mois + 1, 0).getDate();
+};
+
 export function recupererNombreSemaines(annee) {
     const jourPremierJanvier = recupererJourPremierJanvier(annee);
     const isAnneeBissextile = calculerAnneeBissextile(annee);
@@ -48,7 +85,7 @@ export function recupererNombreSemaines(annee) {
 }
 
 export function recupererDateAujourdhuiFormateePourVignetteJourAgenda() {
-    return formaterDatePourVignetteJourAgenda(new Date());
+    return formaterDatePourVignetteJourAgenda(new Date()) + " " + new Date().getFullYear();
 }
 
 export function recupererDatesPourVignetteJourAgenda(numeroSemaine, annee) {

@@ -10,7 +10,7 @@ import { recupererRecetteAvecKey } from "../services/RecetteUtil";
 export default function DetailRecette() {
 
     const params = useLocation();
-    const [recette, setRecette] = useState(recupererRecetteAvecKey(params.state.keyRecette));
+    const [recette] = useState(recupererRecetteAvecKey(params.state.keyRecette));
     const saison = remplacerCharacteresSpeciaux(recette.saison);
     const photoBase64 = recette?.photo;
     const photoBlob = photoBase64 ? base64toBlob(photoBase64) : null;

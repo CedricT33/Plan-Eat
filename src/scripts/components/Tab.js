@@ -2,7 +2,7 @@ export default function Tab({ title, onClick, isActif }) {
 
     const onClickTab = e => {
         e.preventDefault(0);
-        onClick(title);
+        onClick();
     }
 
     const classeActif = isActif === true ? "active" : "";

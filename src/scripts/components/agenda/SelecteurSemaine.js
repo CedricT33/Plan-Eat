@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { recupererNombreSemaines } from "../../services/DateUtil";
 import { recupererAgendaSemaine } from "../../services/AgendaService";
-import { modifierAnneeActive, modifierSemaineActive } from "../../services/AgendaService";
+import { modifierAnneeActiveOngletSemaine, modifierSemaineActive } from "../../services/AgendaService";
 import { routesConstantes } from "../../constants/AppConstantes";
 
 export default function SelecteurSemaine({semaine, setSemaine, annee, setAnnee, setAgendaSemaine}) {
@@ -18,7 +18,7 @@ export default function SelecteurSemaine({semaine, setSemaine, annee, setAnnee, 
     function modifierAnnee(annee) {
         setAnnee(annee);
         if (pathname === routesConstantes.AGENDA) {
-            modifierAnneeActive(annee);
+            modifierAnneeActiveOngletSemaine(annee);
         }
     }
 
