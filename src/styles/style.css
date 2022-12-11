@@ -282,8 +282,7 @@ li.courses .active div::before {
     filter: opacity(0.2);
 }
 
-li.ingredients .active div::before,
-li.agenda .active div::before {
+li.ingredients .active div::before {
     left: -8px;
 }
 
@@ -1664,9 +1663,10 @@ input[type="file"] {
 }
 
 .icone.ingredients {
-    background: url(../images/oeuf.svg);
-    width: 24px;
-    height: 24px;
+    background: url(../images/pomme-ingredients.svg);
+    width: 22px;
+    height: 22px;
+    margin-left: 2px;
 }
 
 .icone.ingredient {
@@ -1995,6 +1995,30 @@ input[type="file"] {
     background: url(../images/patates.svg);
 }
 
-.icone.oeuf {
-    background: url(../images/oeuf.svg);
+.icone.citron {
+    background: url(../images/citron.svg);
+}
+
+.icone.beurre {
+    background: url(../images/beurre.svg);
+}
+
+.icone.citrouille {
+    background: url(../images/citrouille.svg);
+}
+
+.icone.ingredient.citrouille {
+    top: 6px;
+}
+
+li .icone.citrouille {
+    top: 4px;
+}
+
+.icone.lait {
+    background: url(../images/lait.svg);
+}
+
+.icone.oeufs {
+    background: url(../images/oeufs.svg);
 }

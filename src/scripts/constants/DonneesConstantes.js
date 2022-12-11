@@ -15,18 +15,17 @@ export const rayonsIngredients = [
     "fruits et légumes",
     "herbes et épices",
     "fromages",
+    "produits laitiers et oeufs",
     "sucre et farine",
     "huile et vinaigre",
+    "alcools",
     "autre"
 ]
 
-export const rayonsCourses = [
-    "viandes et poissons",
-    "fruits et légumes",
-    "herbes et épices",
-    "fromages",
-    "sucre et farine",
-    "huile et vinaigre",
+export const rayonsProduits = [
+    "hygiène et beauté",
+    "entretien maison",
+    "jardin",
     "autre"
 ]
 
@@ -47,9 +46,11 @@ export const icones = [
     "epice-farine",
     "fromage",
     "pomme",
+    "citron",
     "carotte",
     "patates",
     "piment",
+    "citrouille",
     "betterave",
     "tomate",
     "poivron",
@@ -59,7 +60,9 @@ export const icones = [
     "ail",
     "oignon",
     "huile",
-    "oeuf"
+    "oeufs",
+    "beurre",
+    "lait"
 ]
 
 export const unitesTemps = [
