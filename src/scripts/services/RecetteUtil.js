@@ -53,6 +53,9 @@ export function calculerPrixRecette(recette) {
         if (ingredient.unite_quantite.valeur === "cuillère à café") {
             poidsEnKilo = ingredient.quantite * 5 / 1000;
         }
+        if (ingredient.unite_quantite.valeur === "pincée") {
+            poidsEnKilo = ingredient.quantite * 0.5 / 1000;
+        }
         if (ingredient.unite_quantite.valeur === "centilitre") {
             poidsEnKilo = ingredient.quantite * 10 / 1000;
         }

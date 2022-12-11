@@ -1296,7 +1296,12 @@ input[type="file"] {
 }
 
 .agenda-mois .container-vignette.aujourdhui {
-    box-shadow: 0px 0px 0px 1.2px var(--color-primary);
+    background: var(--color-primary);
+}
+
+.agenda-mois .container-vignette.aujourdhui ul li,
+.agenda-mois .container-vignette.aujourdhui h4 {
+    color: var(--color-light);
 }
 
 .agenda-mois .container-mois {

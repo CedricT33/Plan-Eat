@@ -12,6 +12,7 @@ export default function ListeCategoriesCourses({categorie, ingredients, semaine,
                     annee={annee}
                     setCoursesSemaine={setCoursesSemaine}/>
         }
+        return null;
     })
 
     return (

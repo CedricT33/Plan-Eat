@@ -14,7 +14,7 @@ export default function ChoixPlat() {
     const [listeRecettes] = useState(recupererDonneesAvecType(dataConstantes.CATEGORIES.RECETTES));
 
     const listeRecettesFiltree = listeRecettes.filter(recette => {
-        return recette.titre.includes(rechercheValue);
+        return recette.titre.toLowerCase().includes(rechercheValue.toLowerCase());
     })
 
     const listeVignettesRecettes = listeRecettesFiltree.map(recette => {
@@ -25,14 +25,18 @@ export default function ChoixPlat() {
         ? <div className="no-recette rouge">Il n'y a pas encore de recette...</div>
         : null;
 
-    const affichagePasDeRecetteFiltrees = listeRecettesFiltree.length === 0
+    const affichagePasDeRecetteFiltrees = listeRecettesFiltree.length === 0 && listeRecettes.length !== 0
         ? <div className="no-recette">Aucune recette ne correspond à votre recherche...</div>
         : null;
+
+    const affichageRecherche = listeRecettes.length > 5
+        ? <InputRecherche setRechercheValue={setRechercheValue} placeholder="recherche de plat..."/>
+        : <br/>;
 
     return (
         <div className="choix-plat-container">
             <h2>{dateAffichee}</h2>
-            <InputRecherche setRechercheValue={setRechercheValue} placeholder="recherche de plat..."/>
+            {affichageRecherche}
             {affichagePasDeRecetteFiltrees}
             {affichagePasDeRecette}
             <ul>

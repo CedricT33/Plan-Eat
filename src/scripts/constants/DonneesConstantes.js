@@ -100,6 +100,10 @@ export const unites = [
     {
         nom: "cuillère à café",
         raccourci: "cac"
+    },
+    {
+        nom: "pincée",
+        raccourci: "pcé"
     }
 ]
 

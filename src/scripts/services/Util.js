@@ -56,26 +56,29 @@ export function remplacerCharacteresSpeciaux(ChaineDeCaracteres) {
 }
 
 export function base64toBlob(b64Data, contentType, sliceSize) {
-    contentType = contentType || "";
-    sliceSize = sliceSize || 512;
-  
-    var byteCharacters = atob(b64Data);
-    var byteArrays = [];
-  
-    for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-      var slice = byteCharacters.slice(offset, offset + sliceSize);
-  
-      var byteNumbers = new Array(slice.length);
-      for (var i = 0; i < slice.length; i++) {
-        byteNumbers[i] = slice.charCodeAt(i);
-      }
-  
-      var byteArray = new Uint8Array(byteNumbers);
-  
-      byteArrays.push(byteArray);
+    if (b64Data !== "") {
+        contentType = contentType || "";
+        sliceSize = sliceSize || 512;
+    
+        var byteCharacters = atob(b64Data);
+        var byteArrays = [];
+    
+        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        var slice = byteCharacters.slice(offset, offset + sliceSize);
+    
+        var byteNumbers = new Array(slice.length);
+        for (var i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+        }
+    
+        var byteArray = new Uint8Array(byteNumbers);
+    
+        byteArrays.push(byteArray);
+        }
+    
+        return new File(byteArrays, "pot", { type: contentType });
     }
-  
-    return new File(byteArrays, "pot", { type: contentType });
+    return null;
 }
 
 export function blobToBase64(blob) {
@@ -105,12 +108,13 @@ export function afficherImageDansRecette(image) {
     const elmtImage = document.getElementById("image-photo");
     const elmtInputPhoto = document.getElementById("input-photo");
 
-    blobToBase64(image).then(imageB64 => {
-        elmtInputPhoto.innerText = imageB64;
-    });
-    
-    elmtAjouterPhoto.classList.remove("show");
-    elmtImage.classList.add("show");
-    const urlImage = URL.createObjectURL(image);
-    elmtImage.src = urlImage;
+    if (image) {
+        blobToBase64(image).then(imageB64 => {
+            elmtInputPhoto.innerText = imageB64;
+        });
+        elmtAjouterPhoto.classList.remove("show");
+        elmtImage.classList.add("show");
+        const urlImage = URL.createObjectURL(image);
+        elmtImage.src = urlImage;
+    }
 }
