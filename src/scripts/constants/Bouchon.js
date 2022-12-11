@@ -339,5 +339,34 @@ export const bouchon = {
             ]
         },
         {}
+    ],
+    courses: [
+        {
+            annee: 2022,
+            semaine: 49,
+            ingredients: [
+                {
+                    key: 1,
+                    quantite: 300,
+                    checked: false,
+                    produit: "poulet",
+                    icone: "poulet",
+                    unite_quantite: {
+                        valeur: "gramme",
+                        raccourci: "gr"
+                    },
+                    rayon: "viandes et poissons",
+                    calories: {
+                        valeur: 35,
+                        unite: "Kcal"
+                    },
+                    prix_moyen: {
+                        valeur: 10.75,
+                        unite: "€"
+                    },
+                }
+            ],
+            produits: []
+        }
     ]
 }

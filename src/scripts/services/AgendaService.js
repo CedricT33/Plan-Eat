@@ -2,6 +2,8 @@ import { recupererDonneesAvecType,
     enregistrerLocalStorage,
     supprimerLocalStorage } from "./StorageService";
 import { recupererNumeroSemaine } from "../services/DateUtil";
+import { recupererCoursesSemaine,
+    recupererIngredientsAAjouterAuxCourses, enregistrerCourses } from "./CoursesService";
 
 let agenda = [];
 const dateAujourdhui = new Date();
@@ -41,14 +43,35 @@ function verifierSiRecetteExiste(agendaDuJour, indexRecette) {
     return isDejaRecette;
 }
 
+function genererCourses(agendaDeLaSemaine) {
+    const annee = agendaDeLaSemaine.annee;
+    const semaine = agendaDeLaSemaine.semaine;
+    const coursesSemaine = recupererCoursesSemaine(annee, semaine);
+    const ingredientsAAjouter = recupererIngredientsAAjouterAuxCourses(agendaDeLaSemaine);
+    const coursesSemaineAAjouter = {
+        annee: annee,
+        semaine: semaine,
+        ingredients: ingredientsAAjouter
+    }
+    if (coursesSemaine) {
+        coursesSemaineAAjouter.key = coursesSemaine?.key;
+        coursesSemaineAAjouter.produits = coursesSemaine?.produits;
+    }
+    enregistrerCourses(coursesSemaineAAjouter);
+}
+
 function ajouterRecetteDansAgendaSiPossible(agendaDeLaSemaine, agendaDuJour, recette, setRecettesDuJour) {
-    const isDejaRecette = verifierSiRecetteExiste(agendaDuJour, recette.key);
+    let isDejaRecette = false;
+    if (agendaDuJour) {
+        isDejaRecette = verifierSiRecetteExiste(agendaDuJour, recette.key);
+    }
     if (!isDejaRecette) {
         agendaDuJour?.recettes?.push(recette);
         enregistrerLocalStorage({ agenda: agendaDeLaSemaine });
         if (setRecettesDuJour) {
             setRecettesDuJour(agendaDuJour.recettes); 
         }
+        genererCourses(agendaDeLaSemaine);
     }
 }
 
@@ -108,17 +131,11 @@ export function ajouterRecetteDansAgenda(dateComplete, indexRecette, setRecettes
     }
 
     if (!agendaDeLaSemaine && recette) {
-        enregistrerLocalStorage({ agenda: ajoutComplet });
-        if (setRecettesDuJour) {
-            setRecettesDuJour([recette]);
-        }
+        ajouterRecetteDansAgendaSiPossible(ajoutComplet, null, recette, setRecettesDuJour);  
     }
     else if (agendaDeLaSemaine && !agendaDuJour && recette) {
         agendaDeLaSemaine.dates.push(ajoutDate);
-        enregistrerLocalStorage({ agenda: agendaDeLaSemaine });
-        if (setRecettesDuJour) {
-            setRecettesDuJour([recette]);
-        }
+        ajouterRecetteDansAgendaSiPossible(agendaDeLaSemaine, null, recette, setRecettesDuJour);  
     }
     else if (agendaDeLaSemaine && agendaDuJour && recette) {
         ajouterRecetteDansAgendaSiPossible(agendaDeLaSemaine, agendaDuJour, recette, setRecettesDuJour);   
@@ -143,6 +160,7 @@ export function supprimerRecetteAgenda(id, dateComplete, setRecettesDuJour) {
         })
         viderAgendaDuJourSiPasDeRecette(agendaDeLaSemaine, agendaDuJour);
         enregistrerLocalStorage({ agenda: agendaDeLaSemaine });
+        genererCourses(agendaDeLaSemaine);
         cleanerLocalStorageAgendaApresSuppression();
         setRecettesDuJour(agendaDuJour.recettes);
     }

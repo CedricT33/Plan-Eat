@@ -110,6 +110,25 @@ export function recupererNumeroSemaine(dateAAnalser) {
                           - 3 + (week1.getDay() + 6) % 7) / 7);
 }
 
+export function recupererNumeroSemainePrecedente(date) {
+    const numeroSemaineMaxAnneePrecedente = recupererNombreSemaines(date.getFullYear() - 1);
+    const semaine = recupererNumeroSemaine(date);
+    if (semaine === 1) {
+        return numeroSemaineMaxAnneePrecedente;
+    }
+    return semaine - 1;
+}
+
+export function recupererNumeroSemaineSuivante(date, nbreSemaines) {
+    const numeroSemaineMaxAnneeSuivante = recupererNombreSemaines(date.getFullYear() + 1);
+    const semaine = recupererNumeroSemaine(date);
+    const nombreSemainesSuivantes = nbreSemaines - 1;
+    if ((semaine + nombreSemainesSuivantes) === numeroSemaineMaxAnneeSuivante) {
+        return nbreSemaines;
+    }
+    return semaine + nbreSemaines;
+}
+
 export function recupererMois(dateAAnalser) {
     return nomsMois[dateAAnalser.getMonth()];
 }

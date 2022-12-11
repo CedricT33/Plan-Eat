@@ -106,6 +106,32 @@ nav, header {
     box-shadow: none;
 }
 
+input[type="checkbox"] {
+    position: relative;
+    height: 24px;
+    width: 24px;
+    border: 3px solid var(--color-grey-dark);
+    appearance: none;
+    border-radius: 5px;
+}
+
+input[type="checkbox"]:checked::before {
+    content: '';
+    background-size: 100% !important;
+    filter: var(--icone-grey-dark);
+    background: url(../images/check.svg);
+    width: 15px;
+    height: 15px;
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+.barre {
+    text-decoration-line: line-through;
+}
+
 /** ------------HEADER---------------- */
 
 header {
@@ -1409,6 +1435,145 @@ input[type="file"] {
 
 .courses-container {
     padding-top: 75px;
+}
+
+.courses-container .header-courses {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 35px;
+    background: var(--color-grey);
+    border-bottom: 1px solid var(--color-light);
+}
+
+.courses-container .header-courses .info {
+    color: var(--color-grey-dark);
+    margin-left: 15px;
+    margin-top: 2px;
+}
+
+.courses-container .select-menu {
+    position: relative;
+    margin-right: 5px;
+}
+
+.courses-container h2 {
+    font-size: 15px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-grey);
+    color: var(--color-grey-dark);
+}
+
+.courses-container .select-menu i {
+    background: url(../images/chevron.svg);
+    width: 24px;
+    height: 24px;
+    filter: var(--icone-grey-dark);
+    display: block;
+    position: absolute;
+    background-size: 100% !important;
+    right: 8px;
+    top: 6px;
+    transform: rotate(-90deg);
+    transition: 0.5s;
+}
+
+.courses-container .select-menu.active i {
+    transform: rotate(90deg);
+}
+
+.courses-container .options {
+    background: var(--color-light);
+    position: absolute;
+    top: 38px;
+    width: 100%;
+    box-shadow: 0px 0px 0px 1.5px var(--color-grey-dark);
+    border-radius: 6px;
+    transition: opacity 0.1s 0.2s, max-height 0.3s ease-out;
+    max-height: 0;
+    opacity: 0;
+    overflow-y: auto;
+    z-index: 9;
+}
+
+.courses-container .select-menu.active .options {
+    max-height: 185px;
+    opacity: 1;
+    transition: opacity 0.2s, max-height 0.3s ease-out;
+}
+
+.courses-container .options ul {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.courses-container .options li {
+    padding: 10px 12px;
+    color: var(--color-grey-dark);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.courses-container .select-menu.active .options ul {
+    opacity: 1;
+    transition: 0.3s ease-out 0.3s;
+}
+
+.courses-container .saisie {
+    height: 30px;
+    width: 135px;
+    border: none;
+    padding: 1px 12px;
+    margin-top: 2px;
+    background: var(--color-grey);
+    font-family: 'comfortaa';
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: var(--color-grey-dark);
+}
+
+.container-check-liste {
+    background: var(--color-grey);
+    height: calc( 100vh - 111px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.container-check-liste ul li:not(:last-of-type) ul {
+    background: var(--color-grey-light);
+}
+
+.container-check-liste .liste-finie {
+    margin-bottom: 150px;
+}
+
+.container-check-liste ul li ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+}
+
+.container-check-liste ul li ul li div {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--color-dark);
+}
+
+.container-check-liste ul li ul li div span {
+    font-size: 15px;
+    font-weight: initial;
+    color: var(--color-primary);
+    margin-left: 10px;
+}
+
+.no-courses {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--color-dark);
 }
 
 /** ------------CHOIX-PLAT---------------- */
