@@ -432,7 +432,7 @@ li.ingredient {
 }
 
 .actif .icone.filtre {
-    filter: var(--icone-light);
+    filter: var(--icone-light) !important;
 }
 
 .actif .titre-filtre {

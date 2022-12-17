@@ -8,6 +8,8 @@ import Recette from "../pages/Recette";
 import Ingredient from "../pages/Ingredient";
 import ChoixPlat from "../pages/ChoixPlat";
 import Parametres from "../pages/Parametres";
+import ChoixCourses from "../pages/ChoixCourses";
+import AjoutProduit from "../pages/AjoutProduit";
 
 
 function NotFound() {
@@ -29,6 +31,8 @@ function RouterApp() {
         <Route path="ingredient" element={<Ingredient />} />
         <Route path="ingredient-modif" element={<Ingredient />} />
         <Route path="choix-plat" element={<ChoixPlat />} />
+        <Route path="choix-courses" element={<ChoixCourses />} />
+        <Route path="produit-ajout" element={<AjoutProduit />} />
         <Route path="parametres" element={<Parametres />} />
         <Route path="*" element={<NotFound />} />
       </Route>

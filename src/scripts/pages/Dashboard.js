@@ -28,7 +28,7 @@ export default function Dashboard() {
         return <VignetteRecette key={recette.key} recette={recette} />
     })
 
-    const messageNoFiltre = recettes?.length === 0 ? <div className="no-recette">Aucune recette trouvée</div> : null;
+    const messageNoFiltre = recettes?.length === 0 && listeRecettes?.length > 0 ? <div className="no-recette">Aucune recette trouvée</div> : null;
 
     useEffect(() => {
        genererRecettesFiltred(filtresActifs, listeRecettes, setRecettes);

@@ -9,7 +9,9 @@ export const routesConstantes = {
     RECETTE: "/Plan-Eat/recette",
     RECETTE_MODIF: "/Plan-Eat/recette-modif",
     CHOIX_PLAT: "/Plan-Eat/choix-plat",
-    PARAMETRES: "/Plan-Eat/parametres"
+    PARAMETRES: "/Plan-Eat/parametres",
+    CHOIX_COURSES: "/Plan-Eat/choix-courses",
+    AJOUT_PRODUIT: "/Plan-Eat/produit-ajout"
 }
 
 export const dataConstantes = {
@@ -131,6 +133,26 @@ export const pagesParams = [
         isBoutonModif: false,
         isBoutonSuppr: false,
         isBoutonParam: false,
+        isNavBar: false
+    },
+    {
+        pathname: routesConstantes.CHOIX_COURSES,
+        titre: "CHOIX COURSES",
+        isHeaderTransparent: false,
+        isBoutonRetour: true,
+        isBoutonModif: false,
+        isBoutonSuppr: false,
+        isBoutonParam: true,
+        isNavBar: true
+    },
+    {
+        pathname: routesConstantes.AJOUT_PRODUIT,
+        titre: "AJOUT PRODUIT",
+        isHeaderTransparent: false,
+        isBoutonRetour: true,
+        isBoutonModif: false,
+        isBoutonSuppr: false,
+        isBoutonParam: true,
         isNavBar: false
     }
 ]
