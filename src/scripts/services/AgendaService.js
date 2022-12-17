@@ -69,7 +69,12 @@ function ajouterRecetteDansAgendaSiPossible(agendaDeLaSemaine, agendaDuJour, rec
         agendaDuJour?.recettes?.push(recette);
         enregistrerLocalStorage({ agenda: agendaDeLaSemaine });
         if (setRecettesDuJour) {
-            setRecettesDuJour(agendaDuJour.recettes); 
+            if (agendaDuJour?.recettes) {
+                setRecettesDuJour(agendaDuJour?.recettes); 
+            }
+            else {
+                setRecettesDuJour([recette]); 
+            }
         }
         genererCourses(agendaDeLaSemaine);
     }
