@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { dataConstantes } from "../constants/AppConstantes";
-import { saisons } from "../constants/DonneesConstantes";
+import { saisons, categoriesRecettes } from "../constants/DonneesConstantes";
 import InputMenu from "../components/formulaire/InputMenu";
 import SelectMenu from "../components/formulaire/SelectMenu";
 import InputTempsPreparation from "../components/formulaire/InputTempsPrepration";
@@ -14,24 +14,26 @@ import { base64toBlob, afficherImageDansRecette } from "../services/Util";
 
 export default function NouvelleRecette() {
 
+    const recettes = recupererDonneesAvecType(dataConstantes.CATEGORIES.RECETTES);
+    const params = useLocation();
+    const indexRecette = parseInt(params?.state?.index);
+
     const [ingredients, setIngredients] = useState(null);
     const [etapes, setEtapes] = useState(null);
     const [personnes, setPersonnes] = useState(null);
-    const params = useLocation();
-    const indexRecette = parseInt(params?.state?.index);
+    const [recette] = useState(recettes.find(recette => {
+        return recette.key === indexRecette;
+    }));
+    
     const listeSaisons = saisons.map(saison => { return {nom: saison} });
 
     function initialiserChamps(recette) {
-        const elmtTitre = document.getElementById("saisieTitreRecette_input");
         const elmtTpsPreparation = document.getElementById("saisiePreparation_input");
         const elmtUnitePreparation = document.getElementById("saisieUniteTemps_input");
-        const elmtSaison = document.getElementById("saisieSaison_input");
 
         if (recette) {
-            elmtTitre.value = recette.titre;
             elmtTpsPreparation.value = recette.temps_preparation?.valeur;
             elmtUnitePreparation.value = recette.temps_preparation?.unite;
-            elmtSaison.value = recette.saison;
             const imageBlob = base64toBlob(recette.photo);
             afficherImageDansRecette(imageBlob);
             setIngredients(recette.ingredients);
@@ -40,18 +42,14 @@ export default function NouvelleRecette() {
         }
     }
 
-    function recupererRecetteAvecIndex(index) {
-        if (index) {
-            const recettes = recupererDonneesAvecType(dataConstantes.CATEGORIES.RECETTES);
-            const recetteRecuperee = recettes.find(recette => {
-                return recette.key === index;
-            })
-            initialiserChamps(recetteRecuperee);
+    function recupererRecetteAvecIndex() {
+        if (indexRecette) {
+            initialiserChamps(recette);
         }
     }
 
     useEffect(() => {
-        recupererRecetteAvecIndex(indexRecette);
+        recupererRecetteAvecIndex();
     }, []);
 
     return (
@@ -63,6 +61,7 @@ export default function NouvelleRecette() {
                     type="text"
                     label="Titre"
                     name="titre"
+                    value={recette?.titre}
                     placeholder="Donnez un nom à votre recette"
                     maxLength="30"
                     required/>
@@ -70,9 +69,20 @@ export default function NouvelleRecette() {
             <InputTempsPreparation />
 
             <SelectMenu
+                    id="saisieCategorie"
+                    liste={categoriesRecettes}
+                    value={recette?.categorie}
+                    valueDefaut="plat principal"
+                    label="Catégorie"
+                    name="categorie"
+                    placeholder="Catégorie du plat"
+                    required/>
+
+            <SelectMenu
                     id="saisieSaison"
                     liste={listeSaisons}
-                    value="toutes-saisons"
+                    value={recette?.saison}
+                    valueDefaut="toutes-saisons"
                     label="Plat de saison"
                     name="saison"
                     placeholder="Saison privilégiée du plat"

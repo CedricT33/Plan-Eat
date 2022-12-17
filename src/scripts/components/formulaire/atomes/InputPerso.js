@@ -1,10 +1,16 @@
-export default function InputPerso({id, placeholder, name, maxLength, type, required}) {
+import { useState } from "react";
+
+export default function InputPerso({id, placeholder, name, value, valueDefaut, maxLength, type, required}) {
+
+    const valueParDefaut = value ? value : valueDefaut;
+    const [valueModifiee, setValueModifiee] = useState(valueParDefaut);
 
     function supprimerErreur(elmt) {
         elmt.parentNode.parentNode.classList.remove("error");
     }
 
     function onSaisieInput(e) {
+        setValueModifiee(e.target.value)
         supprimerErreur(e.target);
     }
 
@@ -16,6 +22,7 @@ export default function InputPerso({id, placeholder, name, maxLength, type, requ
             className="saisie"
             type={type}
             name={name}
+            value={valueModifiee}
             clef=""
             placeholder={placeholder}
             maxLength={maxLength}

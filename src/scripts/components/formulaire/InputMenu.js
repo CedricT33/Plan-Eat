@@ -1,6 +1,6 @@
 import InputPerso from "./atomes/InputPerso";
 
-export default function InputMenu({id, label, placeholder, name, maxLength, type, children, required}) {
+export default function InputMenu({id, label, placeholder, name, maxLength, type, value, valueDefaut, children, required}) {
 
     const stringSup = children?.props?.children;
     const elmtSupplementaire = stringSup ? <div>{stringSup}</div> : null;
@@ -14,6 +14,8 @@ export default function InputMenu({id, label, placeholder, name, maxLength, type
                     placeholder={placeholder}
                     name={name}
                     maxLength={maxLength}
+                    value={value}
+                    valueDefaut={valueDefaut}
                     type={type}
                     required={required}/>
 

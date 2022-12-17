@@ -1,4 +1,4 @@
-export default function SelectPerso({liste, id, value, placeholder, name, required, setItem, setData}) {
+export default function SelectPerso({liste, id, value, valueDefaut, placeholder, name, required, setItem, setData}) {
 
     function supprimerErreur(elmt) {
         elmt.parentNode.parentNode.parentNode.parentNode.classList.remove("error");
@@ -52,6 +52,8 @@ export default function SelectPerso({liste, id, value, placeholder, name, requir
 
     const requis = required ? "true" : "false";
 
+    const valueParDefaut = value ? value : valueDefaut;
+
     return (
         <div className="select-menu form-part">
             <i onClick={e => onClickListeDeroulante(e)}></i>
@@ -60,7 +62,7 @@ export default function SelectPerso({liste, id, value, placeholder, name, requir
                 readOnly
                 className="saisie liste-deroulante"
                 name={name}
-                value={value}
+                value={valueParDefaut}
                 clef=""
                 type="text"
                 placeholder={placeholder}

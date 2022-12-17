@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.7214bcd0.css",
-    "main.js": "./static/js/main.47fbbbf2.js",
+    "main.css": "./static/css/main.4e24d623.css",
+    "main.js": "./static/js/main.bf859895.js",
     "static/media/Comfortaa-Light.ttf": "./static/media/Comfortaa-Light.2d79c8b673318d831c9b.ttf",
     "static/media/TitanOne-Regular.ttf": "./static/media/TitanOne-Regular.465442311c8eb8cd5fe8.ttf",
     "service-worker.js": "./service-worker.js",
@@ -11,16 +11,21 @@
     "static/media/crabe.svg": "./static/media/crabe.c1c8877e370604070909.svg",
     "static/media/oignon.svg": "./static/media/oignon.dcc5ed018431d3e838f0.svg",
     "static/media/poivron.svg": "./static/media/poivron.85b52ddd6c6dd82b653e.svg",
+    "static/media/radis.svg": "./static/media/radis.177f158680e30a7730be.svg",
     "static/media/salade.svg": "./static/media/salade.5a20c666f74f2b63d84c.svg",
     "static/media/footer.svg": "./static/media/footer.4eddd62ea41359c11553.svg",
     "static/media/pomme-ingredients.svg": "./static/media/pomme-ingredients.5f63d65447243f60ba91.svg",
+    "static/media/sauces.svg": "./static/media/sauces.0423eb5fbb340a2eefb4.svg",
+    "static/media/pizza.svg": "./static/media/pizza.6e01bd0085e61563c392.svg",
     "static/media/ail.svg": "./static/media/ail.12e679b042ad3ea62b11.svg",
+    "static/media/gateau.svg": "./static/media/gateau.95a051815b058f8c0241.svg",
     "static/media/betterave.svg": "./static/media/betterave.83eea0036d7608bea4c3.svg",
     "static/media/cheese.svg": "./static/media/cheese.c33766b2431392d525a2.svg",
     "static/media/carrot.svg": "./static/media/carrot.b25d9c2c6c7dbf0d91ff.svg",
     "static/media/citrouille.svg": "./static/media/citrouille.1c73969af9eaf4395d35.svg",
+    "static/media/plat.svg": "./static/media/plat.302ec39d11977bcc7a02.svg",
     "static/media/poulet.svg": "./static/media/poulet.a9a61d5a8ace2e49d567.svg",
-    "static/media/saucisse.svg": "./static/media/saucisse.c7509579a9c959b865a1.svg",
+    "static/media/saucisse.svg": "./static/media/saucisse.60a4cc35c8fad118160b.svg",
     "static/media/tomato.svg": "./static/media/tomato.02ea9eb6d671bf2f010c.svg",
     "static/media/patates.svg": "./static/media/patates.0b68d6cf5737ce403776.svg",
     "static/media/sac.svg": "./static/media/sac.ec6bc076bfb5df79c653.svg",
@@ -60,11 +65,11 @@
     "static/media/clock.svg": "./static/media/clock.5d7c9dce675fd3b3768b.svg",
     "static/media/loupe.svg": "./static/media/loupe.f9d289fb54c747e8a5ec.svg",
     "static/media/chevron.svg": "./static/media/chevron.1b905eeb40f2f31f0e9e.svg",
-    "main.7214bcd0.css.map": "./static/css/main.7214bcd0.css.map",
-    "main.47fbbbf2.js.map": "./static/js/main.47fbbbf2.js.map"
+    "main.4e24d623.css.map": "./static/css/main.4e24d623.css.map",
+    "main.bf859895.js.map": "./static/js/main.bf859895.js.map"
   },
   "entrypoints": [
-    "static/css/main.7214bcd0.css",
-    "static/js/main.47fbbbf2.js"
+    "static/css/main.4e24d623.css",
+    "static/js/main.bf859895.js"
   ]
 }
