@@ -1,22 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { recupererDonneesAvecType } from "../services/StorageService";
 import ListeVignettesIngredients from "../components/ListeVignettesIngredients";
 import { dataConstantes } from "../constants/AppConstantes";
 
 export default function Ingredients() {
 
-    const [ingredients, setIngredients] = useState();
+    const [ingredients, setIngredients] = useState(recupererDonneesAvecType(dataConstantes.CATEGORIES.INGREDIENTS));
 
     const classesPresentation = ingredients?.length === 0 ? "show" : null;
     const classesVignettes = ingredients?.length === 0 ? null : "show";
-
-    function recupererIngredients() {   
-        setIngredients(recupererDonneesAvecType(dataConstantes.CATEGORIES.INGREDIENTS));
-    }
-
-    useEffect(() => {
-        recupererIngredients();
-    }, [])
 
     return (
         <div className="ingredients-container">

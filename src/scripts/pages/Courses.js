@@ -61,7 +61,7 @@ export default function Courses() {
     }, [semaineSelected, coursesSemaine])
 
     return (
-        <div className="courses-container">
+        <div className="courses-container" semaine={semaineSelected}>
             <div className="header-courses">
                 <div className="info">{nombreElementsCourses}</div>
                 <SelectPerso 

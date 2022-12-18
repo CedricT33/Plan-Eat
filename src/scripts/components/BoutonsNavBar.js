@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { routesConstantes } from "../constants/AppConstantes";
 
 export function BoutonRecette() {
@@ -15,6 +15,31 @@ export function BoutonIngredient() {
     return (
         <li className="ingredient">
             <NavLink to={routesConstantes.INGREDIENT}>
+                <div className="icone ajout"></div>
+            </NavLink>
+        </li>
+    );
+}
+
+export function BoutonChoixCourses() {
+    const navigate = useNavigate();
+    function onClickChoixCourses() {
+        const semaine = document.querySelector(".courses-container")?.getAttribute("semaine");
+        navigate(routesConstantes.CHOIX_COURSES, {state: {semaine: semaine}});
+    }
+    return (
+        <li className="ingredient">
+            <button to={routesConstantes.CHOIX_COURSES} onClick={onClickChoixCourses}>
+                <div className="icone ajout"></div>
+            </button>
+        </li>
+    );
+}
+
+export function BoutonAjoutProduit() {
+    return (
+        <li className="ingredient">
+            <NavLink to={routesConstantes.AJOUT_PRODUIT}>
                 <div className="icone ajout"></div>
             </NavLink>
         </li>

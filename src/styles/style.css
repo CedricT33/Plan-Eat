@@ -299,11 +299,11 @@ li.ingredient {
 
 /** ------------PRESENTATION---------------- */
 
-#presentation-dashboard, #presentation-ingredients {
+#presentation-dashboard, #presentation-ingredients, #presentation-choix-courses {
     display: none;
 }
 
-#presentation-dashboard.show, #presentation-ingredients.show {
+#presentation-dashboard.show, #presentation-ingredients.show, #presentation-choix-courses.show {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -377,15 +377,36 @@ li.ingredient {
     line-height: 20px;
 }
 
-#presentation-ingredients .explications::before {
+#presentation-ingredients .explications::before,
+#presentation-choix-courses .explications::before {
     content: '';
     background: url(../images/fleche3.svg);
     width: 13px;
     height: 105px;
     display: block;
     position: absolute;
-    top: 70px;
+    top: 100px;
     left: 112.5px;
+}
+
+#presentation-choix-courses .explications::before {
+    top: 120%;
+}
+
+#presentation-choix-courses .illustration-produits {
+    background: url(../images/illustration_produits.svg);
+    height: 35vh;
+    width: 23vh;
+    background-size: 23vh;
+    margin-top: 4vh;
+}
+
+#presentation-choix-courses .explications {
+    text-align: center;
+    width: 240px;
+    position: absolute;
+    bottom: 240px;
+    line-height: 20px;
 }
 
 /** ------------FILTRES---------------- */
@@ -1629,6 +1650,24 @@ input[type="file"] {
 
 .choix-plat-container .no-recette {
     text-align: center;
+}
+
+/** ------------CHOIX COURSES---------------- */
+
+.choix-courses-container {
+    padding-top: 75px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc(100vh - 75px);
+}
+
+/** ------------AJOUT PRODUIT---------------- */
+
+.ajout-produit-container {
+    padding-top: 75px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc(100vh - 75px);
 }
 
 /** ------------PARAMETRES---------------- */

@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "./static/css/main.6ddc3558.css",
-    "main.js": "./static/js/main.8e109e09.js",
+    "main.css": "./static/css/main.678c80b3.css",
+    "main.js": "./static/js/main.91e59a78.js",
     "static/media/Comfortaa-Light.ttf": "./static/media/Comfortaa-Light.2d79c8b673318d831c9b.ttf",
     "static/media/TitanOne-Regular.ttf": "./static/media/TitanOne-Regular.465442311c8eb8cd5fe8.ttf",
     "service-worker.js": "./service-worker.js",
     "static/media/logo_app.png": "./static/media/logo_app.602379331af97e90fe7b.png",
+    "static/media/illustration_produits.svg": "./static/media/illustration_produits.767661ace055514f6b46.svg",
     "static/media/illustration_ingredients.svg": "./static/media/illustration_ingredients.3d469f9f1228980f3f09.svg",
     "static/media/choux.svg": "./static/media/choux.67b574dd9a76bd099de5.svg",
     "static/media/crabe.svg": "./static/media/crabe.c1c8877e370604070909.svg",
@@ -65,11 +66,11 @@
     "static/media/clock.svg": "./static/media/clock.5d7c9dce675fd3b3768b.svg",
     "static/media/loupe.svg": "./static/media/loupe.f9d289fb54c747e8a5ec.svg",
     "static/media/chevron.svg": "./static/media/chevron.1b905eeb40f2f31f0e9e.svg",
-    "main.6ddc3558.css.map": "./static/css/main.6ddc3558.css.map",
-    "main.8e109e09.js.map": "./static/js/main.8e109e09.js.map"
+    "main.678c80b3.css.map": "./static/css/main.678c80b3.css.map",
+    "main.91e59a78.js.map": "./static/js/main.91e59a78.js.map"
   },
   "entrypoints": [
-    "static/css/main.6ddc3558.css",
-    "static/js/main.8e109e09.js"
+    "static/css/main.678c80b3.css",
+    "static/js/main.91e59a78.js"
   ]
 }
