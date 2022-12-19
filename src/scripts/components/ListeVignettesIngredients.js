@@ -10,8 +10,11 @@ export default function ListeVignettesIngredients({classes, ingredients, setIngr
         const ingredientsCategorie = ingredients?.filter(ingredient => {
             return ingredient?.rayon === rayon;
         })
-        const listeIngredientsCategorie = ingredientsCategorie?.map((ingredient, i) => {
-            return <VignetteIngredient key={ingredient.key} ingredient={ingredient} setIngredients={setIngredients} />
+        const listeIngredientsCategorie = ingredientsCategorie?.map((ingredient) => {
+            return <VignetteIngredient
+                        key={ingredient.key}
+                        ingredient={ingredient}
+                        setIngredients={setIngredients} />
         })
 
         if (ingredientsCategorie?.length === 0) {

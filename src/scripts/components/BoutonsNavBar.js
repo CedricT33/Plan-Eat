@@ -25,7 +25,8 @@ export function BoutonChoixCourses() {
     const navigate = useNavigate();
     function onClickChoixCourses() {
         const semaine = document.querySelector(".courses-container")?.getAttribute("semaine");
-        navigate(routesConstantes.CHOIX_COURSES, {state: {semaine: semaine}});
+        const annee = document.querySelector(".courses-container")?.getAttribute("annee");
+        navigate(routesConstantes.CHOIX_COURSES, {state: {semaine: semaine, annee: annee}});
     }
     return (
         <li className="ingredient">

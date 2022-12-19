@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.678c80b3.css",
-    "main.js": "./static/js/main.91e59a78.js",
+    "main.css": "./static/css/main.23c05819.css",
+    "main.js": "./static/js/main.6f92e53c.js",
     "static/media/Comfortaa-Light.ttf": "./static/media/Comfortaa-Light.2d79c8b673318d831c9b.ttf",
     "static/media/TitanOne-Regular.ttf": "./static/media/TitanOne-Regular.465442311c8eb8cd5fe8.ttf",
     "service-worker.js": "./service-worker.js",
@@ -14,6 +14,9 @@
     "static/media/poivron.svg": "./static/media/poivron.85b52ddd6c6dd82b653e.svg",
     "static/media/radis.svg": "./static/media/radis.177f158680e30a7730be.svg",
     "static/media/salade.svg": "./static/media/salade.5a20c666f74f2b63d84c.svg",
+    "static/media/plante.svg": "./static/media/plante.883bdaa4ecb1f827f22d.svg",
+    "static/media/chocolat.svg": "./static/media/chocolat.377f5a067ccab284b3ff.svg",
+    "static/media/savon.svg": "./static/media/savon.deabf49f7b61a1b1a4e7.svg",
     "static/media/footer.svg": "./static/media/footer.4eddd62ea41359c11553.svg",
     "static/media/pomme-ingredients.svg": "./static/media/pomme-ingredients.5f63d65447243f60ba91.svg",
     "static/media/sauces.svg": "./static/media/sauces.0423eb5fbb340a2eefb4.svg",
@@ -27,20 +30,26 @@
     "static/media/plat.svg": "./static/media/plat.302ec39d11977bcc7a02.svg",
     "static/media/poulet.svg": "./static/media/poulet.a9a61d5a8ace2e49d567.svg",
     "static/media/saucisse.svg": "./static/media/saucisse.60a4cc35c8fad118160b.svg",
+    "static/media/soda.svg": "./static/media/soda.5b0d9415fcdc636366c4.svg",
     "static/media/tomato.svg": "./static/media/tomato.02ea9eb6d671bf2f010c.svg",
     "static/media/patates.svg": "./static/media/patates.0b68d6cf5737ce403776.svg",
     "static/media/sac.svg": "./static/media/sac.ec6bc076bfb5df79c653.svg",
     "static/media/dashboard.svg": "./static/media/dashboard.ed3f54fab38a9d8f5ff0.svg",
+    "static/media/alcool.svg": "./static/media/alcool.1e7d0a3a01841f6090e9.svg",
+    "static/media/vetement.svg": "./static/media/vetement.8d5adac04d24202114a4.svg",
     "static/media/steak.svg": "./static/media/steak.5ec02a09055a06e5730c.svg",
     "static/media/fish.svg": "./static/media/fish.b651c9b32f101fd8f313.svg",
+    "static/media/chaussure.svg": "./static/media/chaussure.0f10933ada592cb719f6.svg",
     "static/media/chili.svg": "./static/media/chili.9b6f9f4c8c0dbe735dab.svg",
     "static/media/oeufs.svg": "./static/media/oeufs.655c8fc904a94ae64bab.svg",
     "static/media/champignon.svg": "./static/media/champignon.393b6a0cfcbf4c0a0e41.svg",
     "static/media/beurre.svg": "./static/media/beurre.b5ff138945dee9b0d5fc.svg",
+    "static/media/soin-dents.svg": "./static/media/soin-dents.2716e24a5dbd3a90885e.svg",
     "static/media/citron.svg": "./static/media/citron.e415d2804331a1bdd006.svg",
     "static/media/apple.svg": "./static/media/apple.c51fb448887423486f4b.svg",
     "static/media/oil.svg": "./static/media/oil.d5291353cffe2c3385c4.svg",
     "static/media/lait.svg": "./static/media/lait.46d6da6418f6ebdce9e8.svg",
+    "static/media/pain.svg": "./static/media/pain.577573f4c5cf4c276e1e.svg",
     "static/media/firebowl.svg": "./static/media/firebowl.56e674c8270144702f44.svg",
     "static/media/leaf.svg": "./static/media/leaf.db475d1c6699bcf15b13.svg",
     "static/media/cash.svg": "./static/media/cash.577c652a7d493028177b.svg",
@@ -66,11 +75,11 @@
     "static/media/clock.svg": "./static/media/clock.5d7c9dce675fd3b3768b.svg",
     "static/media/loupe.svg": "./static/media/loupe.f9d289fb54c747e8a5ec.svg",
     "static/media/chevron.svg": "./static/media/chevron.1b905eeb40f2f31f0e9e.svg",
-    "main.678c80b3.css.map": "./static/css/main.678c80b3.css.map",
-    "main.91e59a78.js.map": "./static/js/main.91e59a78.js.map"
+    "main.23c05819.css.map": "./static/css/main.23c05819.css.map",
+    "main.6f92e53c.js.map": "./static/js/main.6f92e53c.js.map"
   },
   "entrypoints": [
-    "static/css/main.678c80b3.css",
-    "static/js/main.91e59a78.js"
+    "static/css/main.23c05819.css",
+    "static/js/main.6f92e53c.js"
   ]
 }

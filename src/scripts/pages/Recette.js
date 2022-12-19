@@ -56,7 +56,7 @@ export default function NouvelleRecette() {
         <div className="recette-container">
             <form id="formulaire-recette">
 
-            <InputMenu 
+                <InputMenu 
                     id="saisieTitreRecette"
                     type="text"
                     label="Titre"
@@ -66,9 +66,9 @@ export default function NouvelleRecette() {
                     maxLength="30"
                     required/>
 
-            <InputTempsPreparation />
+                <InputTempsPreparation />
 
-            <SelectMenu
+                <SelectMenu
                     id="saisieCategorie"
                     liste={categoriesRecettes}
                     value={recette?.categorie}
@@ -78,7 +78,7 @@ export default function NouvelleRecette() {
                     placeholder="Catégorie du plat"
                     required/>
 
-            <SelectMenu
+                <SelectMenu
                     id="saisieSaison"
                     liste={listeSaisons}
                     value={recette?.saison}
@@ -88,11 +88,11 @@ export default function NouvelleRecette() {
                     placeholder="Saison privilégiée du plat"
                     required/>
 
-            <InputAjoutIngredients ingredients={ingredients} personnes={personnes}/>
+                <InputAjoutIngredients ingredients={ingredients} personnes={personnes}/>
 
-            <InputAjoutInstructions etapes={etapes}/>
+                <InputAjoutInstructions etapes={etapes}/>
 
-            <InputAjoutPhoto />
+                <InputAjoutPhoto />
                 
             </form>
 

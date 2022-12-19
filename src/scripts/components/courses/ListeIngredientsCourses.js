@@ -5,7 +5,7 @@ export default function ListeIngredientsCourses({ingredient, semaine, annee, set
 
     const nomIngredient = mettrePremiereLettreEnMajuscule(ingredient?.produit);
 
-    const quantiteIngredient = ingredient.unite_quantite.raccourci
+    const quantiteIngredient = ingredient.unite_quantite?.raccourci
         ? ingredient.quantite + " " + ingredient.unite_quantite.raccourci
         : ingredient.quantite;
 

@@ -43,6 +43,16 @@ function verifierSiRecetteExiste(agendaDuJour, indexRecette) {
     return isDejaRecette;
 }
 
+function verifierSiProduitExiste(agendaDeLaSemaine, produit) {
+    let isDejaProduit = false;
+    agendaDeLaSemaine?.produits?.forEach(produitExistant => {
+        if (produitExistant.key === produit.key) {
+            isDejaProduit = true;
+        }
+    })
+    return isDejaProduit;
+}
+
 function genererCourses(agendaDeLaSemaine) {
     const annee = agendaDeLaSemaine.annee;
     const semaine = agendaDeLaSemaine.semaine;
@@ -51,11 +61,12 @@ function genererCourses(agendaDeLaSemaine) {
     const coursesSemaineAAjouter = {
         annee: annee,
         semaine: semaine,
-        ingredients: ingredientsAAjouter
+        ingredients: ingredientsAAjouter,
+        produits: agendaDeLaSemaine.produits
     }
     if (coursesSemaine) {
         coursesSemaineAAjouter.key = coursesSemaine?.key;
-        coursesSemaineAAjouter.produits = coursesSemaine?.produits;
+        // coursesSemaineAAjouter.produits = coursesSemaine?.produits;
     }
     enregistrerCourses(coursesSemaineAAjouter);
 }
@@ -80,9 +91,31 @@ function ajouterRecetteDansAgendaSiPossible(agendaDeLaSemaine, agendaDuJour, rec
     }
 }
 
+function ajouterProduitDansAgendaSiPossible(agendaDeLaSemaine, produit) {
+    let isDejaProduit = false;
+    if (produit) {
+        isDejaProduit = verifierSiProduitExiste(agendaDeLaSemaine, produit);
+    }
+    if (!isDejaProduit) {
+        if (produit) {
+            agendaDeLaSemaine?.produits?.push(produit);
+        }
+        enregistrerLocalStorage({ agenda: agendaDeLaSemaine });
+        genererCourses(agendaDeLaSemaine);
+    }
+    else {
+        console.log('isDejaProduit', isDejaProduit)
+    }
+}
+
 function recupererRecetteAvecIndex(index) {
     const recettes = recupererDonneesAvecType("recettes");
     return recettes?.find(recette => recette.key === index);
+}
+
+export function recupererProduitAvecIndex(index) {
+    const produits = recupererDonneesAvecType("produits");
+    return produits?.find(produit => produit.key === index);
 }
 
 function viderAgendaDuJourSiPasDeRecette(agendaDeLaSemaine, agendaDuJour) {
@@ -97,21 +130,21 @@ function viderAgendaDuJourSiPasDeRecette(agendaDeLaSemaine, agendaDuJour) {
 
 function cleanerLocalStorageAgendaApresSuppression() {
     agenda?.forEach(element => {
-        if (element.dates.length === 0) {
+        if (element.dates.length === 0 && element.produits.length === 0) {
             supprimerLocalStorage({ agenda: {key: element.key} });
         }
     })
 }
 
-export function recupererAgendaSemaine(annee, semaine, agenda) {
-    agenda = agenda ? agenda : recupererDonneesAvecType("agenda");
+export function recupererAgendaSemaine(annee, semaine, _agenda) {
+    agenda = _agenda ? _agenda : recupererDonneesAvecType("agenda");
     return agenda?.find( element => (
         parseInt(element.annee) === annee)
         && parseInt(element.semaine) === semaine );
 }
 
 export function recupererAgendaDuJour(agendaDeLaSemaine, numeroJour) {
-    return agendaDeLaSemaine?.dates.find( element => element.numero === numeroJour );
+    return agendaDeLaSemaine?.dates?.find( element => element.numero === numeroJour );
 }
 
 export function ajouterRecetteDansAgenda(dateComplete, indexRecette, setRecettesDuJour) {
@@ -132,7 +165,8 @@ export function ajouterRecetteDansAgenda(dateComplete, indexRecette, setRecettes
     const ajoutComplet = {
         annee: annee,
         semaine: semaine,
-        dates: [ajoutDate]
+        dates: [ajoutDate],
+        produits: []
     }
 
     if (!agendaDeLaSemaine && recette) {
@@ -145,6 +179,25 @@ export function ajouterRecetteDansAgenda(dateComplete, indexRecette, setRecettes
     else if (agendaDeLaSemaine && agendaDuJour && recette) {
         ajouterRecetteDansAgendaSiPossible(agendaDeLaSemaine, agendaDuJour, recette, setRecettesDuJour);   
     }
+}
+
+export function ajouterProduitDansAgenda(numeroSemaine, numeroAnnee, produit) {
+    const agendaDeLaSemaine = recupererAgendaSemaine(numeroAnnee, numeroSemaine);
+
+    const ajoutComplet = {
+        annee: numeroAnnee,
+        semaine: numeroSemaine,
+        dates: [],
+        produits: [produit]
+    }
+
+    if (!agendaDeLaSemaine && produit) {
+        ajouterProduitDansAgendaSiPossible(ajoutComplet);  
+    }
+    else if (agendaDeLaSemaine && produit) {
+        ajouterProduitDansAgendaSiPossible(agendaDeLaSemaine, produit);  
+    }
+
 }
 
 export function supprimerRecetteAgenda(id, dateComplete, setRecettesDuJour) {
@@ -169,4 +222,18 @@ export function supprimerRecetteAgenda(id, dateComplete, setRecettesDuJour) {
         cleanerLocalStorageAgendaApresSuppression();
         setRecettesDuJour(agendaDuJour.recettes);
     }
+}
+
+export function supprimerProduitAgenda(indexProduit, semaine, annee) {
+    const agendaDeLaSemaine = recupererAgendaSemaine(annee, semaine);
+
+
+    agendaDeLaSemaine?.produits?.forEach((produit, id) => {
+        if (produit.key === indexProduit) {
+            agendaDeLaSemaine.produits.splice(id, 1);
+        }
+    })
+    enregistrerLocalStorage({ agenda: agendaDeLaSemaine });
+    genererCourses(agendaDeLaSemaine);
+    cleanerLocalStorageAgendaApresSuppression();
 }

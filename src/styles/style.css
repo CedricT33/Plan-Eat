@@ -361,7 +361,8 @@ li.ingredient {
     left: 100px;
 }
 
-#presentation-ingredients .illustration-ingredients {
+#presentation-ingredients .illustration-ingredients,
+#presentation-choix-courses .illustration-produits {
     background: url(../images/illustration_ingredients.svg);
     height: 35vh;
     width: 23vh;
@@ -385,7 +386,7 @@ li.ingredient {
     height: 105px;
     display: block;
     position: absolute;
-    top: 100px;
+    top: 70px;
     left: 112.5px;
 }
 
@@ -395,10 +396,7 @@ li.ingredient {
 
 #presentation-choix-courses .illustration-produits {
     background: url(../images/illustration_produits.svg);
-    height: 35vh;
-    width: 23vh;
     background-size: 23vh;
-    margin-top: 4vh;
 }
 
 #presentation-choix-courses .explications {
@@ -873,7 +871,8 @@ footer {
     font-size: 15px;
     color: var(--color-grey-dark);
     text-align: center;
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 /** ------------FORMULAIRES---------------- */
@@ -997,7 +996,7 @@ form .error .erreur {
 .validation-container {
     display: flex;
     justify-content: center;
-    margin: 50px;
+    margin: calc(18vh - 110px);
 }
 
 .bouton-ajout {
@@ -1661,6 +1660,102 @@ input[type="file"] {
     height: calc(100vh - 75px);
 }
 
+#vignettes-produits {
+    margin-bottom: 1vh;
+    max-height: calc(55vh - 110px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#vignettes-produits ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#vignettes-produits .vignette {
+    width: 85vw;
+    height: 50px;
+    margin: 10px 0px;
+    background: var(--color-light);
+    box-shadow: 0px 0px 0px 1px var(--color-grey-dark);
+    border-radius: 17px 0px;
+    transition: 0.2s;
+}
+
+#vignettes-produits .vignette.actif {
+    background: var(--color-primary);
+}
+
+#vignettes-produits .vignette.swiped {
+    margin-right: 90px;
+}
+
+#vignettes-produits .vignette .infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+    padding: 5px 10px;
+    color: var(--color-grey-dark);
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#vignettes-produits button {
+    width: 100%;
+}
+
+#vignettes-produits .vignette .titre {
+    font-size: 15px;
+    color: var(--color-dark);
+}
+
+#vignettes-produits .vignette.actif .titre {
+    color: var(--color-light);
+}
+
+#vignettes-produits .vignette .infos:first-child {
+    margin-left: 55px;
+}
+
+#vignettes-produits .vignette:last-of-type {
+    margin-bottom: 20px;
+}
+
+#vignettes-produits li h1 {
+    font-size: 15px;
+    color: var(--color-grey-dark);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.actif .icone.produit {
+    filter: var(--icone-light);
+}
+
+#container-choix-courses,
+#formulaire-choix-courses {
+    display: none;
+}
+
+#container-choix-courses.show,
+#formulaire-choix-courses.show {
+    display: flex;
+    flex-direction: column;
+}
+
+.choix-courses-container .explication-suppression {
+    margin: 20px;
+    text-align: center;
+}
+
+.choix-courses-container no-produit {
+    text-align: center;
+}
+
 /** ------------AJOUT PRODUIT---------------- */
 
 .ajout-produit-container {
@@ -1668,6 +1763,20 @@ input[type="file"] {
     overflow-x: hidden;
     overflow-y: auto;
     height: calc(100vh - 75px);
+}
+
+#formulaire-produit {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ajout-produit-container .validation-container {
+    margin: 0;
+    display: flex;
+    height: 40%;
+    align-items: center;
 }
 
 /** ------------PARAMETRES---------------- */
@@ -1734,7 +1843,7 @@ input[type="file"] {
     margin-left: 2px;
 }
 
-.icone.ingredient {
+.icone.ingredient, .icone.produit {
     filter: var(--icone-primary);
     width: 32px;
     height: 32px;
@@ -1799,7 +1908,8 @@ input[type="file"] {
     margin-left: 1px;
 }
 
-.icone.ingredients.suppr {
+.icone.ingredients.suppr,
+.icone.produits.suppr {
     opacity: 0;
     position: absolute;
     top: 12px;
@@ -1808,7 +1918,8 @@ input[type="file"] {
     filter: var(--icone-primary);
 }
 
-.swiped .icone.ingredients.suppr {
+.swiped .icone.ingredients.suppr,
+.swiped .icone.produits.suppr {
     opacity: 1;
     transition: 0s;
 }
@@ -1937,17 +2048,14 @@ input[type="file"] {
     left: 10px;
 }
 
-.icone.ingredient.steak {
+.icone.ingredient.steak,
+.icone.produit.steak {
     top: 9px;
     left: 16px;
 }
 
 .icone.saucisse {
     background: url(../images/saucisse.svg);
-}
-
-.icone.ingredient.saucisse {
-    top: 4px;
 }
 
 .icone.filtre.saucisse {
@@ -1979,7 +2087,8 @@ input[type="file"] {
     left: 10px;
 }
 
-.icone.ingredient.poulet {
+.icone.ingredient.poulet,
+.icone.produit.poulet {
     top: 6px;
 }
 
@@ -2079,7 +2188,8 @@ input[type="file"] {
     background: url(../images/citrouille.svg);
 }
 
-.icone.ingredient.citrouille {
+.icone.ingredient.citrouille,
+.icone.produit.citrouille {
     top: 6px;
 }
 
@@ -2120,4 +2230,40 @@ li .icone.citrouille {
 
 .icone.radis {
     background: url(../images/radis.svg);
+}
+
+.icone.savon {
+    background: url(../images/savon.svg);
+}
+
+.icone.soin-dents {
+    background: url(../images/soin-dents.svg);
+}
+
+.icone.vetement {
+    background: url(../images/vetement.svg);
+}
+
+.icone.plante {
+    background: url(../images/plante.svg);
+}
+
+.icone.chaussure {
+    background: url(../images/chaussure.svg);
+}
+
+.icone.alcool {
+    background: url(../images/alcool.svg);
+}
+
+.icone.soda {
+    background: url(../images/soda.svg);
+}
+
+.icone.pain {
+    background: url(../images/pain.svg);
+}
+
+.icone.chocolat {
+    background: url(../images/chocolat.svg);
 }

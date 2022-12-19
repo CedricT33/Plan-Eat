@@ -118,6 +118,14 @@ export const rayonsProduits = [
     "hygiène et beauté",
     "entretien maison",
     "jardin",
+    "viandes et poissons",
+    "fruits et légumes",
+    "herbes et épices",
+    "fromages",
+    "produits laitiers et oeufs",
+    "sucre et farine",
+    "huile et vinaigre",
+    "alcools",
     "autre"
 ]
 
@@ -154,7 +162,45 @@ export const icones = [
     "huile",
     "oeufs",
     "beurre",
-    "lait"
+    "lait",
+    "chocolat"
+]
+
+export const iconesProduits = [
+    "plante",
+    "vetement",
+    "chaussure",
+    "soin-dents",
+    "savon",
+    "soda",
+    "alcool",
+    "pain",
+    "poulet",
+    "steak",
+    "saucisse",
+    "poisson",
+    "crabe",
+    "epice-farine",
+    "fromage",
+    "pomme",
+    "citron",
+    "carotte",
+    "patates",
+    "piment",
+    "citrouille",
+    "betterave",
+    "tomate",
+    "poivron",
+    "champignon",
+    "choux",
+    "salade",
+    "ail",
+    "oignon",
+    "huile",
+    "oeufs",
+    "beurre",
+    "lait",
+    "chocolat"
 ]
 
 export const unitesTemps = [

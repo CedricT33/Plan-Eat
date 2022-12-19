@@ -13,8 +13,7 @@ export default function VignetteJourAgenda({jour, date, semaine, annee, agendaSe
     const indexRecette = parseInt(document.querySelector(".detail-container")?.getAttribute("index"));
     const dateAujourdhui = recupererDateAujourdhuiFormateePourVignetteJourAgenda();
     const numeroJour = parseInt(date.split(" ")[0]);
-    const mois = date.split(" ")[1];
-    const agendaDuJour = recupererAgendaDuJour(agendaSemaine, numeroJour, mois);
+    const agendaDuJour = recupererAgendaDuJour(agendaSemaine, numeroJour);
 
     const [recettesDuJour, setRecettesDuJour] = useState(agendaDuJour?.recettes);
 

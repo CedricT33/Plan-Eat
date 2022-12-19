@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function InputPerso({id, placeholder, name, value, valueDefaut, maxLength, type, required}) {
 
     const valueParDefaut = value ? value : valueDefaut;
-    const [valueModifiee, setValueModifiee] = useState(valueParDefaut);
+    const [valueModifiee, setValueModifiee] = useState(valueParDefaut === undefined ? "" : valueParDefaut);
 
     function supprimerErreur(elmt) {
         elmt.parentNode.parentNode.classList.remove("error");

@@ -1,9 +1,24 @@
 import { recupererNumeroSemaine,
     recupererNumeroSemainePrecedente, recupererNumeroSemaineSuivante } from "./DateUtil";
 import { recupererDonneesAvecType, enregistrerLocalStorage } from "./StorageService";
+import { ajouterProduitDansAgenda, recupererProduitAvecIndex,
+    recupererAgendaSemaine, supprimerProduitAgenda } from "./AgendaService";
 
 // CACHE DE LA DONNEE "COURSES"
 let courses = null;
+
+const listeSemaineEtAnnee = recupererListeSemainesCourses();
+const listeSemaines = recupererListeSemainesPourSelect(listeSemaineEtAnnee);
+export let semaineActiveCourses = listeSemaines[1].nom;
+export let anneeActiveCourses = new Date().getFullYear();
+
+export function modifierSemaineCoursesActive(semaine) {
+    semaineActiveCourses = semaine;
+}
+
+export function modifierAnneeCoursesActive(annee) {
+    anneeActiveCourses = annee;
+}
 
 export function enregistrerCourses(coursesSemaineAEnregistrer, semaine, annee) {
     if (coursesSemaineAEnregistrer) {
@@ -100,7 +115,7 @@ export function recupererIngredientsAAjouterAuxCourses(agendaDeLaSemaine) {
 export function recupererCategoriesActiveCoursesSemaine(coursesSemaine) {
     const categories = [];
     
-    coursesSemaine?.ingredients.forEach(ingredient => {
+    coursesSemaine?.ingredients?.forEach(ingredient => {
         if (!ingredient.checked) {
             const categorieExistante = categories.find(categorie => categorie === ingredient.rayon);
             if (!categorieExistante) {
@@ -109,11 +124,24 @@ export function recupererCategoriesActiveCoursesSemaine(coursesSemaine) {
         }
     })
 
+    coursesSemaine?.produits?.forEach(produit => {
+        if (!produit.checked) {
+            const categorieExistante = categories.find(categorie => categorie === produit.rayon);
+            if (!categorieExistante) {
+                categories.push(produit.rayon);
+            }
+        }
+    })
+
     return categories;
 }
 
 export function calculerElementsCoursesActifs(agendaSemaine) {
-    const ingredientsActifs = agendaSemaine?.ingredients?.filter(ingredient => {
+    let produitsDeLaSemaine = [];
+    if (agendaSemaine?.ingredients && agendaSemaine?.produits) {
+        produitsDeLaSemaine = [...agendaSemaine.ingredients, ...agendaSemaine.produits];
+    }
+    const ingredientsActifs = produitsDeLaSemaine.filter(ingredient => {
         return (ingredient.checked === undefined || ingredient.checked === false);
     })
     const texteElement = ingredientsActifs?.length === 0
@@ -126,4 +154,33 @@ export function calculerElementsCoursesActifs(agendaSemaine) {
 
 export function recupererCoursesParCategorie(ingredients, categorie) {
     return ingredients.filter(ingredient => ingredient.rayon === categorie);
+}
+
+export function onClickOKChoixCourses(semaine, annee) {
+    const elmtProduitSelected = document.querySelector(".vignette.actif");
+    const elmtQuantiteProduit = document.querySelectorAll(".form-part .saisie")[0];
+    const isFormulaireOK = elmtProduitSelected?.id && parseInt(elmtQuantiteProduit?.value) > 0;
+
+    if (isFormulaireOK) {
+        const indexProduit = parseInt(elmtProduitSelected.id);
+        const produit = recupererProduitAvecIndex(indexProduit);
+        if (produit) {
+            produit.quantite = parseInt(elmtQuantiteProduit?.value);
+        }
+        ajouterProduitDansAgenda(semaine, annee, produit);
+    }
+    else {
+        console.log('error');
+    }
+}
+
+export function onClickSupprimerProduitCourses(indexProduit, semaine, annee, setIndex) {
+    supprimerProduitAgenda(indexProduit, semaine, annee);
+    setIndex(null);
+}
+
+export function verifierSiProduitExisteDansAgendaSemaine(numeroSemaine, annee, indexProduit) {
+    const agendaSemaine = recupererAgendaSemaine(annee, numeroSemaine);
+    const produitDansAgenda = agendaSemaine?.produits?.find(produit => produit.key === indexProduit);
+    return produitDansAgenda !== undefined;
 }

@@ -120,11 +120,11 @@ export function recupererNumeroSemainePrecedente(date) {
 }
 
 export function recupererNumeroSemaineSuivante(date, nbreSemaines) {
-    const numeroSemaineMaxAnneeSuivante = recupererNombreSemaines(date.getFullYear() + 1);
+    const numeroSemaineMaxAnneeActuelle = recupererNombreSemaines(date.getFullYear());
     const semaine = recupererNumeroSemaine(date);
     const nombreSemainesSuivantes = nbreSemaines - 1;
-    if ((semaine + nombreSemainesSuivantes) === numeroSemaineMaxAnneeSuivante) {
-        return nbreSemaines;
+    if ((semaine + nombreSemainesSuivantes) === numeroSemaineMaxAnneeActuelle) {
+        return nombreSemainesSuivantes;
     }
     return semaine + nbreSemaines;
 }

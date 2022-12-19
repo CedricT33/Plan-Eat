@@ -99,7 +99,14 @@ function enregistrerDonneesFormulaire(type, listeElmtsSaisies, index) {
             }
         }
         else {
-            saisiesFormulaire[elmt.name] = elmt.value.toLowerCase();
+            let valeurSaisie = "";
+            if (type !== dataConstantes.CATEGORIES.PRODUITS) {
+                valeurSaisie = elmt.value.toLowerCase();
+            }
+            else {
+                valeurSaisie = elmt.value;
+            }
+            saisiesFormulaire[elmt.name] = valeurSaisie;
         }
     })
 
