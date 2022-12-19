@@ -42,9 +42,7 @@ export default function InputIngredient({id, ingredient}) {
             const elmtSelectIngredient = document.getElementById("saisieIngredient" + id + "_input");
             const elmtInputQuantite = document.getElementById("saisieQuantiteIngredient" + id + "_input");
 
-            elmtSelectIngredient.value = ingredient.produit;
             elmtSelectIngredient.attributes.clef.value = ingredient.key;
-            elmtInputQuantite.value = ingredient.quantite;
             elmtInputQuantite.attributes.clef.value = ingredient.key;
             setUniteIngredientSelected(ingredient.unite_quantite.raccourci);
         }
@@ -65,6 +63,7 @@ export default function InputIngredient({id, ingredient}) {
                 liste={ingredientsFormated}
                 id={`saisieIngredient${id}`}
                 placeholder="Ingrédient"
+                value={ingredient?.produit}
                 name="ingredient"
                 required
                 setItem={setNomIngredientSelected}/>
@@ -74,6 +73,7 @@ export default function InputIngredient({id, ingredient}) {
                 placeholder="Quantité"
                 name="quantite"
                 max="7"
+                value={ingredient?.quantite}
                 type="Number"
                 required/>
 

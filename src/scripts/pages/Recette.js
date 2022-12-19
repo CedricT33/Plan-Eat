@@ -28,11 +28,9 @@ export default function NouvelleRecette() {
     const listeSaisons = saisons.map(saison => { return {nom: saison} });
 
     function initialiserChamps(recette) {
-        const elmtTpsPreparation = document.getElementById("saisiePreparation_input");
         const elmtUnitePreparation = document.getElementById("saisieUniteTemps_input");
 
         if (recette) {
-            elmtTpsPreparation.value = recette.temps_preparation?.valeur;
             elmtUnitePreparation.value = recette.temps_preparation?.unite;
             const imageBlob = base64toBlob(recette.photo);
             afficherImageDansRecette(imageBlob);
@@ -66,7 +64,7 @@ export default function NouvelleRecette() {
                     maxLength="30"
                     required/>
 
-                <InputTempsPreparation />
+                <InputTempsPreparation value={recette?.temps_preparation?.valeur}/>
 
                 <SelectMenu
                     id="saisieCategorie"

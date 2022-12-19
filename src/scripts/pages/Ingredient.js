@@ -18,20 +18,10 @@ export default function Ingredient() {
     
 
     function initialiserChamps() {
-        const elmtProduit = document.getElementById("saisieIngredient_input");
-        const elmtIcone = document.getElementById("saisieIcone_input");
-        const elmtRayon = document.getElementById("saisieRayon_input");
         const elmtUnite = document.getElementById("saisieUnite_input");
-        const elmtCalories = document.getElementById("saisieCalories_input");
-        const elmtPrix = document.getElementById("saisiePrix_input");
 
-        elmtProduit.value = ingredient.produit;
-        elmtRayon.value = ingredient.rayon;
         elmtUnite.value = ingredient.unite_quantite.valeur;
         elmtUnite.attributes.clef.value = ingredient.unite_quantite.raccourci;
-        elmtIcone.value = ingredient.icone;
-        elmtCalories.value = ingredient.calories.valeur;
-        elmtPrix.value = ingredient.prix_moyen.valeur;
     }
 
     function initialiserChampPoids() {
@@ -73,6 +63,7 @@ export default function Ingredient() {
                     type={"text"}
                     label={"Ingrédient"}
                     name={"produit"}
+                    value={ingredient?.produit}
                     placeholder={"Nom de l'ingrédient"}
                     maxLength={"30"}
                     required/>
@@ -82,6 +73,7 @@ export default function Ingredient() {
                     liste={listeIcones}
                     label={"Icône"}
                     name={"icone"}
+                    value={ingredient?.icone}
                     placeholder={"Exemple: poulet"}
                     required/>
 
@@ -90,6 +82,7 @@ export default function Ingredient() {
                     liste={listeRayons}
                     label={"Rayon"}
                     name={"rayon"}
+                    value={ingredient?.rayon}
                     placeholder={"Exemple: viandes et poissons"}
                     required/>
 
@@ -109,6 +102,7 @@ export default function Ingredient() {
                     type={"number"}
                     label={"Calories"}
                     name={"calories"}
+                    value={ingredient?.calories?.valeur}
                     placeholder={"0000"}>
                     <div>calories / 100 grammes</div>
                 </InputMenu>
@@ -118,6 +112,7 @@ export default function Ingredient() {
                     type={"number"}
                     label={"Prix moyen"}
                     name={"prix_moyen"}
+                    value={ingredient?.prix_moyen?.valeur}
                     placeholder={"00.00"}>
                     <div>€ / Kg</div>
                 </InputMenu>

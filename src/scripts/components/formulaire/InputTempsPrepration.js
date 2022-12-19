@@ -2,7 +2,7 @@ import SelectPerso from "./atomes/SelectPerso";
 import InputPerso from "./atomes/InputPerso";
 import { unitesTemps } from "../../constants/DonneesConstantes";
 
-export default function InputTempsPreparation() {
+export default function InputTempsPreparation({value}) {
 
     const listeUnite = unitesTemps.map(unite => { return {nom: unite} });
 
@@ -14,6 +14,7 @@ export default function InputTempsPreparation() {
                     id="saisiePreparation"
                     type="Number"
                     name="temps_preparation"
+                    value={value}
                     placeholder="Temps de préparation"
                     max="5"
                     required/>
