@@ -56,29 +56,35 @@ export function remplacerCharacteresSpeciaux(ChaineDeCaracteres) {
 }
 
 export function base64toBlob(b64Data, contentType, sliceSize) {
-    if (b64Data !== "") {
-        contentType = contentType || "";
-        sliceSize = sliceSize || 512;
-    
-        var byteCharacters = atob(b64Data);
-        var byteArrays = [];
-    
-        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-        var slice = byteCharacters.slice(offset, offset + sliceSize);
-    
-        var byteNumbers = new Array(slice.length);
-        for (var i = 0; i < slice.length; i++) {
-            byteNumbers[i] = slice.charCodeAt(i);
+    try {
+        if (b64Data !== "") {
+            contentType = contentType || "";
+            sliceSize = sliceSize || 512;
+        
+            var byteCharacters = atob(b64Data);
+            var byteArrays = [];
+        
+            for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            var slice = byteCharacters.slice(offset, offset + sliceSize);
+        
+            var byteNumbers = new Array(slice.length);
+            for (var i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+            }
+        
+            var byteArray = new Uint8Array(byteNumbers);
+        
+            byteArrays.push(byteArray);
+            }
+        
+            return new File(byteArrays, "pot", { type: contentType });
         }
-    
-        var byteArray = new Uint8Array(byteNumbers);
-    
-        byteArrays.push(byteArray);
-        }
-    
-        return new File(byteArrays, "pot", { type: contentType });
+        return null;
+    } catch (error) {
+        console.log("erreur d'encodage de l'image");
+        return null;
     }
-    return null;
+    
 }
 
 export function blobToBase64(blob) {
