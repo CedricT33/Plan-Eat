@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.32939f89.css",
-    "main.js": "./static/js/main.31ce3506.js",
+    "main.css": "./static/css/main.55845a57.css",
+    "main.js": "./static/js/main.e2704a97.js",
     "static/media/Comfortaa-Light.ttf": "./static/media/Comfortaa-Light.2d79c8b673318d831c9b.ttf",
     "static/media/TitanOne-Regular.ttf": "./static/media/TitanOne-Regular.465442311c8eb8cd5fe8.ttf",
     "service-worker.js": "./service-worker.js",
@@ -51,6 +51,7 @@
     "static/media/lait.svg": "./static/media/lait.46d6da6418f6ebdce9e8.svg",
     "static/media/pain.svg": "./static/media/pain.577573f4c5cf4c276e1e.svg",
     "static/media/firebowl.svg": "./static/media/firebowl.56e674c8270144702f44.svg",
+    "static/media/toast.svg": "./static/media/toast.4a86a0d8143342c66e9b.svg",
     "static/media/leaf.svg": "./static/media/leaf.db475d1c6699bcf15b13.svg",
     "static/media/cash.svg": "./static/media/cash.577c652a7d493028177b.svg",
     "static/media/setting.svg": "./static/media/setting.b9d84b6dda1b0170029e.svg",
@@ -75,11 +76,11 @@
     "static/media/clock.svg": "./static/media/clock.5d7c9dce675fd3b3768b.svg",
     "static/media/loupe.svg": "./static/media/loupe.f9d289fb54c747e8a5ec.svg",
     "static/media/chevron.svg": "./static/media/chevron.1b905eeb40f2f31f0e9e.svg",
-    "main.32939f89.css.map": "./static/css/main.32939f89.css.map",
-    "main.31ce3506.js.map": "./static/js/main.31ce3506.js.map"
+    "main.55845a57.css.map": "./static/css/main.55845a57.css.map",
+    "main.e2704a97.js.map": "./static/js/main.e2704a97.js.map"
   },
   "entrypoints": [
-    "static/css/main.32939f89.css",
-    "static/js/main.31ce3506.js"
+    "static/css/main.55845a57.css",
+    "static/js/main.e2704a97.js"
   ]
 }

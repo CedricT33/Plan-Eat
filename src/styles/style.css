@@ -2150,6 +2150,10 @@ input[type="file"] {
   background: url(../images/carrot.svg);
 }
 
+.icone.toast {
+  background: url(../images/toast.svg);
+}
+
 .icone.tomate {
   background: url(../images/tomato.svg);
 }
